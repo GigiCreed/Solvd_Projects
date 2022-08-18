@@ -1,6 +1,5 @@
 package solvd.projects.files;
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -18,10 +17,21 @@ public class FileCount {
             LOGGER.error("File is empty !!!!");
         }
         else {
-            long text = Arrays.stream(readFile.split("\\s+")).distinct().count();
-            FileUtils.writeLines(new File("uniqueWordNumber.txt"), StandardCharsets.UTF_8.name(), Collections.singleton(text));
+            String[] split = readFile.split("\\s+");
+            HashMap<String, Integer> map = new HashMap<String, Integer>();
+            for (int i = 0; i < split.length; i++) {
+                if (map.containsKey(split[i])) {
+                    int count = map.get(split[i]);
+                    map.put(split[i], count + 1);
+                } else {
+                    map.put(split[i], 1);
+                }
+            }
+            FileUtils.writeLines(new File("uniqueWordNumber.txt"), StandardCharsets.UTF_8.name(), Collections.singleton(map));
             LOGGER.info(" Complected !!!! ");
         }
+
+
 
 
     }
