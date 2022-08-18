@@ -12,12 +12,13 @@ public class FileCount {
     private static final Logger LOGGER = LogManager.getLogger(FileCount.class);
 
     public static void main(String[] args) throws IOException {
-        String readFile = FileUtils.readFileToString(new File("text.txt"), StandardCharsets.UTF_8.name());
+        File file=new File("text.txt");
+        String readFile = FileUtils.readFileToString(file, "UTF-8");
         if(Objects.equals(readFile, "")){
             LOGGER.error("File is empty !!!!");
         }
         else {
-            String[] split = readFile.split("\\s+");
+            String[] split = readFile.split("[\\s+ , . ( ) :]");
             HashMap<String, Integer> map = new HashMap<String, Integer>();
             for (int i = 0; i < split.length; i++) {
                 if (map.containsKey(split[i])) {
@@ -30,9 +31,6 @@ public class FileCount {
             FileUtils.writeLines(new File("uniqueWordNumber.txt"), StandardCharsets.UTF_8.name(), Collections.singleton(map));
             LOGGER.info(" Complected !!!! ");
         }
-
-
-
 
     }
 }
