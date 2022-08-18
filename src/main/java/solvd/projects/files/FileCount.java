@@ -1,5 +1,6 @@
 package solvd.projects.files;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -9,7 +10,8 @@ import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 public class FileCount {
-    private static final Logger LOGGER= LogManager.getLogger(FileCount.class);
+    private static final Logger LOGGER = LogManager.getLogger(FileCount.class);
+
     public static void main(String[] args) throws IOException {
         String readFile = FileUtils.readFileToString(new File("text.txt"), StandardCharsets.UTF_8.name());
         if(Objects.equals(readFile, "")){
@@ -21,6 +23,6 @@ public class FileCount {
             LOGGER.info(" Complected !!!! ");
         }
 
-    }
 
+    }
 }
