@@ -18,7 +18,7 @@ public class FileCount {
             LOGGER.error("File is empty !!!!");
         }
         else {
-            String[] split = readFile.split("[\\s+ , . ( ) :]");
+            String[] split = readFile.split("[\\s,.( ):]+");
             HashMap<String, Integer> map = new HashMap<String, Integer>();
             for (int i = 0; i < split.length; i++) {
                 if (map.containsKey(split[i])) {
