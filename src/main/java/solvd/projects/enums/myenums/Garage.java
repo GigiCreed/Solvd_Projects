@@ -6,9 +6,9 @@ public enum Garage {
     CAR2(TypeOfCar.SEDAN,Manufacturers.MERCEDES,Model.E63,MaxSpeed.HIGH.getSpeed()),
     CAR3(TypeOfCar.MINIVAN,Manufacturers.TOYOTA,Model.SIENNA,MaxSpeed.NORMAL.getSpeed());
 
-     private final TypeOfCar type;
-     private final Manufacturers manufacturers;
-     private final Model model;
+     private TypeOfCar type;
+     private Manufacturers manufacturers;
+     private Model model;
      private double maxSpeed;
      Garage(TypeOfCar type, Manufacturers manufacturers, Model model, double maxSpeed) {
         this.type = type;
