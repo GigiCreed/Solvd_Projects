@@ -6,7 +6,7 @@ import org.apache.logging.log4j.Logger;
 import java.util.Objects;
 
 public abstract class Vechile {
-    Logger logger = LogManager.getLogger(Vechile.class);
+    Logger LOGGER = LogManager.getLogger(Vechile.class);
     private String type;
     private int year;
 

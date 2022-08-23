@@ -41,7 +41,7 @@ public class Train extends Vechile {
 
     @Override
     public void isGoing(String firstStation, String secondStation) {
-        logger.info(super.getType()+" is going From "+firstStation+" to "+secondStation);
+        LOGGER.info(super.getType()+" is going From "+firstStation+" to "+secondStation);
     }
 
     @Override

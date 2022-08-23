@@ -66,7 +66,7 @@ public class Car extends Vechile {
 
     @Override
     public void isGoing(String firstStation, String secondStation) {
-        logger.info(super.getType() + " is moving From " + firstStation + ", to " + secondStation);
+        LOGGER.info(super.getType() + " is moving From " + firstStation + ", to " + secondStation);
     }
 
     @Override

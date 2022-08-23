@@ -25,7 +25,7 @@ public class Plane extends Vechile {
     }
     @Override
     public void isGoing(String firstStation, String secondStation) {
-        logger.info(super.getType()+" is flew away from "+firstStation+" to "+secondStation);
+        LOGGER.info(super.getType()+" is flew away from "+firstStation+" to "+secondStation);
     }
 
     @Override

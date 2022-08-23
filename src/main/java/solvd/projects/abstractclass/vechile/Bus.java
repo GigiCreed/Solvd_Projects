@@ -39,7 +39,7 @@ public class Bus extends Vechile{
 
     @Override
     public void isGoing(String firstStation, String secondStation) {
-        logger.info(super.getType()+" Number "+busNumber+" is moving from "+firstStation+" to "+secondStation);
+        LOGGER.info(super.getType()+" Number "+busNumber+" is moving from "+firstStation+" to "+secondStation);
     }
 
     @Override

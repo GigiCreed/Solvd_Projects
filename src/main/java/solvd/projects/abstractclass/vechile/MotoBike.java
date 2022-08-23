@@ -40,6 +40,6 @@ public class MotoBike extends Vechile {
 
     @Override
     public void isGoing(String firstStation, String secondStation) {
-        logger.info(super.getType() + " is moving from " + firstStation + " to " + secondStation);
+        LOGGER.info(super.getType() + " is moving from " + firstStation + " to " + secondStation);
     }
 }
