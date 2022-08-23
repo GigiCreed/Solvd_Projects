@@ -4,7 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class CustomLinkedList <V>{
-    Logger logger = LogManager.getLogger(CustomLinkedList.class);
+    private static final Logger LOGGER = LogManager.getLogger(CustomLinkedList.class);
     Node head;
 
     public void insert(V data) {
@@ -79,11 +79,11 @@ public class CustomLinkedList <V>{
     public void show() {
         Node currentNode = head;
         if(currentNode == null){
-            logger.info("Linked list is empty");
+            LOGGER.info("Linked list is empty");
         }
         else {
             while(currentNode != null) {
-                logger.info(currentNode.data + "\n");
+                LOGGER.info(currentNode.data + "\n");
                 currentNode = currentNode.next;
             }
         }

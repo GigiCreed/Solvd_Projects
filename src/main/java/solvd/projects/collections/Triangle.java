@@ -31,19 +31,19 @@ public class Triangle implements Comparable<Triangle> {
         return c;
     }
 
-    public int perimeter(){
+    public int writePerimeter(){
         return a+b+c;
     }
 
 
     @Override
     public int compareTo(Triangle o) {
-        return perimeter()-o.perimeter();
+        return writePerimeter()-o.writePerimeter();
 
     }
 
     @Override
     public String toString() {
-        return "P = "+perimeter();
+        return "P = "+ writePerimeter();
     }
 }
