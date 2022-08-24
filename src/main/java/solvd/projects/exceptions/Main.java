@@ -7,14 +7,14 @@ import org.apache.logging.log4j.Logger;
 import java.util.Scanner;
 
 public class Main {
-    private static final Logger logger = LogManager.getLogger(Main.class);
+    private static final Logger LOGGER = LogManager.getLogger(Main.class);
     public static void main(String[] args) throws IsThisTriangle, WriteOnlyZero {
 //        //------------------------------1
         System.out.println("1 Method");
         try {
             writeOnlyZero();
         } catch (WriteOnlyZero e) {
-            logger.error("Write only zero!!!!!!");
+            LOGGER.error("Write only zero!!!!!!");
         }
 
 
@@ -23,7 +23,7 @@ public class Main {
         try {
             divideByFive();
         }catch (DivideByFive e){
-            logger.error("Cant divide by 5");
+            LOGGER.error("Cant divide by 5");
         }
 
         //------------------------------3
@@ -32,7 +32,7 @@ public class Main {
         try {
             writeDiscriminant();
         } catch (DiscriminantLeesThanZero e){
-            logger.error("D is lees than 0");
+            LOGGER.error("D is lees than 0");
         }
 
         //-----------------------------4
@@ -41,14 +41,14 @@ public class Main {
         try {
             WriteCompany();
         }catch (OnlyInputSolvd e){
-            logger.error("Here is no written Solvd");
+            LOGGER.error("Here is no written Solvd");
         }
         //  ----------------------------5
         System.out.println("\n\t\t5 Method");
         try {
             writeTriangle();
         }catch (IsThisTriangle e){
-            logger.error("This is Not Triangle");
+            LOGGER.error("This is Not Triangle");
         }
 
 //     writeTriangle();
@@ -67,7 +67,7 @@ public class Main {
     public static void writeOnlyZero() throws WriteOnlyZero {
         Scanner scanner = new Scanner(System.in);
         while(true){
-            logger.info("x = ");
+            LOGGER.info("x = ");
             int x = Integer.parseInt(scanner.nextLine());
 
             if(x != 0){
@@ -82,15 +82,15 @@ public class Main {
         Scanner scanner =new Scanner(System.in);
         double a;
         double b;
-        logger.info("a = ");
+        LOGGER.info("a = ");
         a=scanner.nextInt();
-        logger.info("b = ");
+        LOGGER.info("b = ");
         b=scanner.nextInt();
         double z = a/b;
         if(b == 5)
             throw  new DivideByFive("/ by 5");
         else
-            logger.info(z);
+            LOGGER.info(z);
     }
 
     //                                  3
@@ -98,9 +98,9 @@ public class Main {
     public static void writeDiscriminant()throws DiscriminantLeesThanZero {
         Scanner scanner = new Scanner(System.in);
         double a; double b; double c;
-        logger.info("a = ");a=scanner.nextInt();
-        logger.info("b = ");b=scanner.nextInt();
-        logger.info("c = ");c=scanner.nextInt();
+        LOGGER.info("a = ");a=scanner.nextInt();
+        LOGGER.info("b = ");b=scanner.nextInt();
+        LOGGER.info("c = ");c=scanner.nextInt();
         double D=(b*b)-(4*a*c);
         if(D<0)
             throw new DiscriminantLeesThanZero("D < 0");
@@ -112,9 +112,9 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         String nameCompany;
         String solvd ="Solvd";
-        logger.info("Name of Company_");
+        LOGGER.info("Name of Company_");
         nameCompany=scanner.next();
-        if(nameCompany == solvd) logger.info("You are in Company Solvd");
+        if(nameCompany == solvd) LOGGER.info("You are in Company Solvd");
         else throw new OnlyInputSolvd("Can't find Solvd");
     }
 
@@ -123,11 +123,11 @@ public class Main {
     public static void writeTriangle() throws IsThisTriangle {
         Scanner scanner = new Scanner(System.in);
         double a; double b; double c;
-        logger.info("a = "); a=scanner.nextDouble();
-        logger.info("b = "); b=scanner.nextDouble();
-        logger.info("c = "); c=scanner.nextDouble();
+        LOGGER.info("a = "); a=scanner.nextDouble();
+        LOGGER.info("b = "); b=scanner.nextDouble();
+        LOGGER.info("c = "); c=scanner.nextDouble();
         if((a+b>c)&&(b+c>a)&&(c+a>b))
-            logger.info("This is Triangle");
+            LOGGER.info("This is Triangle");
         else throw new IsThisTriangle("This is Not Triangle");
     }
 
