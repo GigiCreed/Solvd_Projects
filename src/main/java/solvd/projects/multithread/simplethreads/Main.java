@@ -1,5 +1,4 @@
-package solvd.projects.multithread;
-import solvd.projects.multithread.simplethreads.*;
+package solvd.projects.multithread.simplethreads;
 public class Main {
     public static void main(String[] args) {
         MyThreadExample myThreadExample =new MyThreadExample();
