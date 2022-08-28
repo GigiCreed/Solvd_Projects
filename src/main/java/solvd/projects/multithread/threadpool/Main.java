@@ -1,5 +1,6 @@
 package solvd.projects.multithread.threadpool;
 
+import solvd.projects.multithread.thread.MyCallable;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;

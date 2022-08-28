@@ -1,4 +1,4 @@
-package solvd.projects.multithread.threadpool;
+package solvd.projects.multithread.thread;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
