@@ -4,6 +4,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.concurrent.Callable;
+/*
+////
+This is Thread witch one we are using in IFuture,ThreadPool tasks
+////
+ */
 
 public class MyCallable implements Callable<Long> {
     private static final Logger LOGGER = LogManager.getLogger(MyCallable.class);
