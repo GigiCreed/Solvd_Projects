@@ -1,6 +1,7 @@
 package solvd.projects.multithread.threadpool;
 
 import solvd.projects.multithread.thread.MyCallable;
+
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -13,7 +14,6 @@ public class Main {
             MyCallable myCallable = new MyCallable();
             threadPoolExecutor.submit(myCallable);
         }
-
         threadPoolExecutor.shutdown();
     }
 }

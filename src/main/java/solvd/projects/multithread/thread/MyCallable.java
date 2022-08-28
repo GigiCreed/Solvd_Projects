@@ -9,9 +9,9 @@ public class MyCallable implements Callable<Long> {
     private static final Logger LOGGER = LogManager.getLogger(MyCallable.class);
     @Override
     public Long call() {
-        LOGGER.info("Thread Working :" +Thread.currentThread().getId());
+        LOGGER.info("Thread is Working :" +Thread.currentThread().getId());
         try {
-            Thread.sleep(3000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             LOGGER.error("Error !!!");
         }
