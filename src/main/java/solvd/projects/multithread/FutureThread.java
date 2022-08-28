@@ -1,13 +1,12 @@
-package solvd.projects.multithread.ifuture;
-
+package solvd.projects.multithread;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import solvd.projects.multithread.thread.MyCallable;
 
 import java.util.concurrent.*;
 
-public class Main {
-    private static final Logger LOGGER = LogManager.getLogger(Main.class);
+public class FutureThread {
+    private static final Logger LOGGER = LogManager.getLogger(FutureThread.class);
     public static void main(String[] args) throws ExecutionException, InterruptedException {
 
         ExecutorService executorService = Executors.newFixedThreadPool(5);
