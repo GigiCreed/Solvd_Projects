@@ -20,6 +20,7 @@
     <org.apache.logging.log4j.version>2.18.0</org.apache.logging.log4j.version>
     <org.apache.commons.version>3.12.0</org.apache.commons.version>
     <commons-io.version>2.11.0</commons-io.version>
+    <mysql-connector-java.version>8.0.30</mysql-connector-java.version>
   </properties>
 
   <dependencies>
@@ -57,6 +58,12 @@
       <version>${commons-io.version}</version>
     </dependency>
 
+    <!--Connection-->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>${mysql-connector-java.version}</version>
+    </dependency>
 
   </dependencies>
 

@@ -1,9 +1,9 @@
 Use University;
 --                                                      INSERT
 
--- I am using tables : faculties, vice_rectors, reqtors, university and students.
+-- I am using tables : faculties, vice_rectors, rectors, university and students.
 
--- insert into reqtors(name,surname,age,phone_number,address,email) values ("Gigi","Mamaladze",'2002/08/19',599111111,"batumi","gigimama@gmai.com");
+-- insert into rectors(name,surname,age,phone_number,address,email) values ("Gigi","Mamaladze",'2002/08/19',599111111,"batumi","gigimama@gmai.com");
 -- insert into vice_rectors(name,surname,age,phone_number,addres,email) values ("nika","fartenadze",'2002/02/19',59904444,"batumi","nikafart@gmail.com");
 -- insert into universities(name,address,site_addres,email,Reqtors_id,Vice_Rectors_ID)values("Bsu","Batumi","bsu.portal","Bsu@gmail.com",1,1);
 -- insert into faculties(name,Universities_id) values("Computer science",1);
@@ -35,12 +35,12 @@ Use University;
 
 --                                                                 UPDATE
 
--- For second update comand I disable safe update. Tap Edit, next Preferences after this Sql Editor and Disable safe update and Refresh your connection;
+-- For second update command I disable safe update. Tap Edit, next Preferences after this Sql Editor and Disable safe update and Refresh your connection;
 
 -- UPDATE students SET course = 2 WHERE id =21;
 -- UPDATE students SET course = 2 WHERE course = 1;
--- UPDATE reqtors SET email ="gigimamaladze13@gmail.com" WHERE id =1;
--- UPDATE reqtors SET surname = "Mamo" WHERE id >2 AND id<4;
+-- UPDATE rectors SET email ="gigimamaladze13@gmail.com" WHERE id =1;
+-- UPDATE rectors SET surname = "Mamo" WHERE id >2 AND id<4;
 -- UPDATE vice_rectors SET name = "Nikolz" WHERE surname="fartenadze";
 -- UPDATE students SET course =3 WHERE name like "%ri";
 -- UPDATE vice_rectors SET phone_number =555 Where age like '____-02%';
@@ -54,9 +54,9 @@ Use University;
 
 --                                                               DELETE
 
--- in first comand i will delate reqtors that i created sudenly;
+-- in first command i will delete rectors that i created suddenly;
 
--- DELETE FROM reqtors WHERE id>1;
+-- DELETE FROM rectors WHERE id>1;
 -- DELETE FROM students WHERE name like "madara";
 -- DELETE FROM students where course = 5;
 -- DELETE FROM students where phone_number like '555%';
