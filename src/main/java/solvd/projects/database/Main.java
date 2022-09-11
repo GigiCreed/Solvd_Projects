@@ -158,12 +158,33 @@ public class Main {
 
 // -----------------------------------------Deccans----------------------------------------------------------------------
 
+//   DeccansDAO deccansDAO = new DeccansDAO();
+
+                                       //Insert
+//        Deccans deccans = new Deccans("lasha","turmanidze",new Date(232323321456L),"batumi",444444,"giorgi@gmail.com",1L,4L);
+//        deccansDAO.create(deccans);
 
 
+                                     //Remove
+//        deccansDAO.remove(3L);
+
+                                    //Update
+//        Deccans deccans = new Deccans("Luka","Qatamadze",new Date(232323321456L),"batumi",7777777,"Luka@gmail.com",1L,4L);
+//        deccansDAO.update("all",deccans,6L);
+
+                                    //SelectById
+
+//        Deccans deccans = new Deccans();
+//        deccansDAO.getBy(deccans,6L);
+//        LOGGER.info(deccans);
+
+                                 //SelectAll
+//        for (Deccans d:deccansDAO.getAllDeccans()) {
+//            LOGGER.info(d);
+//        }
 
 
-
-
+//-------------------------------------------Faculties----------------------------------------------------------------------
 
 
 
