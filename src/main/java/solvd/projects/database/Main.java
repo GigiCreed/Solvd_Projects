@@ -2,14 +2,8 @@ package solvd.projects.database;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import solvd.projects.database.mysql.dao.RectorsDAO;
-import solvd.projects.database.mysql.dao.StudentsDAO;
-import solvd.projects.database.mysql.dao.UniversitiesDAO;
-import solvd.projects.database.mysql.dao.ViceRectorsDAO;
-import solvd.projects.database.tableclasses.Rectors;
-import solvd.projects.database.tableclasses.Students;
-import solvd.projects.database.tableclasses.Universities;
-import solvd.projects.database.tableclasses.ViceRectors;
+import solvd.projects.database.mysql.dao.*;
+import solvd.projects.database.tableclasses.*;
 
 import java.sql.Date;
 
@@ -136,8 +130,33 @@ public class Main {
 //  ---------------------------------------------Lectors--------------------------------------------------------------
 
 
+//        LectorsDAO lectorsDAO = new LectorsDAO();
+
+                                            //Insert
+
+//        Lectors lectors = new Lectors("Cicino","Ketilidapatiosani",new Date(232323321456L),00001,"Batumi","cicino@gmail.com",1L);
+//        lectorsDAO.create(lectors);
+
+                                           //Update
+
+//          Lectors lectors = new Lectors("Cicino","sarajishvili",new Date(232323321456L),00001,"Batumi","cicino@gmail.com",1L);
+//          lectorsDAO.update("surname",lectors,3L);
+
+                                         //Delete
+//            lectorsDAO.remove(3L);
+
+                                         //SelectById
+//        Lectors lectors = new Lectors();
+//        lectorsDAO.getBy(lectors,1L);
+//        LOGGER.info(lectors);
+
+                                      //SelectALL
+//        for (Lectors l:lectorsDAO.getAllLectors()) {
+//            LOGGER.info(l);
+//        }
 
 
+// -----------------------------------------Deccans----------------------------------------------------------------------
 
 
 
