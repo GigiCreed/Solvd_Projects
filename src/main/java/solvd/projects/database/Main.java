@@ -77,7 +77,7 @@ public class Main {
 
 // -----------------------------------------------Vice_rectors----------------------------------------------------------
 
-        ViceRectorsDAO viceRectorsDAO =new ViceRectorsDAO();
+//        ViceRectorsDAO viceRectorsDAO =new ViceRectorsDAO();
 
                                                 //insert
 
@@ -105,6 +105,17 @@ public class Main {
 
 
 //  -----------------------------------------Universities---------------------------------------------------------------
+
+//        UniversitiesDAO universitiesDAO = new UniversitiesDAO();
+
+                                            //Insert
+//        Universities universities =new Universities("Tsu","tbilisi","tsu.com","tsu@gmail.com",8L,3L);
+//        universitiesDAO.create(universities);
+
+                                           //Update
+
+//          Universities universities = new Universities("BTU","tbilisi","BTU.com","BTU@gmail.com",8L,3L);
+//          universitiesDAO.update("all",universities,2L);
 
 
 

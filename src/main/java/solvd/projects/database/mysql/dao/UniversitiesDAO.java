@@ -123,6 +123,7 @@ public class UniversitiesDAO extends AbstractMySqlDAO implements IUniversitiesDA
                 preparedStatementAll.setString(4,universities.getEmail());
                 preparedStatementAll.setLong(5,universities.getRectorsId());
                 preparedStatementAll.setLong(6,universities.getViceRectorsId());
+                preparedStatementAll.setLong(7,id);
                 preparedStatementAll.executeUpdate();
                 preparedStatementAll.close();
                 break;
