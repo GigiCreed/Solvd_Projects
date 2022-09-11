@@ -5,9 +5,11 @@ import org.apache.logging.log4j.Logger;
 import solvd.projects.database.mysql.dao.RectorsDAO;
 import solvd.projects.database.mysql.dao.StudentsDAO;
 import solvd.projects.database.mysql.dao.UniversitiesDAO;
+import solvd.projects.database.mysql.dao.ViceRectorsDAO;
 import solvd.projects.database.tableclasses.Rectors;
 import solvd.projects.database.tableclasses.Students;
 import solvd.projects.database.tableclasses.Universities;
+import solvd.projects.database.tableclasses.ViceRectors;
 
 import java.sql.Date;
 
@@ -69,6 +71,40 @@ public class Main {
 
 //        Rectors rectors = new Rectors("Tiniko","Rodinadze",new Date(1028833200000L),599281101,"Tamar Mefis dasaxelba", "Tiniko@gmail.com");
 //        rectorsDAO.update("all",rectors,8L);
+
+
+
+
+// -----------------------------------------------Vice_rectors----------------------------------------------------------
+
+        ViceRectorsDAO viceRectorsDAO =new ViceRectorsDAO();
+
+                                                //insert
+
+//        ViceRectors viceRectors = new ViceRectors("Lela","turnamindze",new Date(232323321456L),55123,"batumi","lela@gmail.com");
+//        viceRectorsDAO.create(viceRectors);
+
+
+                                              //Update
+//        ViceRectors viceRectors = new ViceRectors("Nino","iremadze",new Date(232323321456L),11111,"batumius","nino@gmail.com");
+//        viceRectorsDAO.update("all",viceRectors,2L);
+
+
+                                             //Delete
+//        viceRectorsDAO.remove(2L);
+
+                                            //SelectById
+//        ViceRectors viceRectors = new ViceRectors();
+//        viceRectorsDAO.getBy(viceRectors,1L);
+//        LOGGER.info(viceRectors);
+
+                                           //SelectALL
+//        for (ViceRectors o:viceRectorsDAO.getAllViceRectors()) {
+//            LOGGER.info(o);
+//        }
+
+
+//  -----------------------------------------Universities---------------------------------------------------------------
 
 
 

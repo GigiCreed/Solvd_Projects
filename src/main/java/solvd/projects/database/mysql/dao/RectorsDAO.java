@@ -83,7 +83,7 @@ public class RectorsDAO extends AbstractMySqlDAO implements IRectorsDAO {
           switch (setParameter){
               case "name":PreparedStatement preparedStatementName =connection.prepareStatement("update rectors set name = ? where id = ?");
                   preparedStatementName.setString(1,rectors.getName());
-                  preparedStatementName.setLong(2,rectors.getId());
+                  preparedStatementName.setLong(2,id);
                   preparedStatementName.executeUpdate();
                   preparedStatementName.close();
               break;
