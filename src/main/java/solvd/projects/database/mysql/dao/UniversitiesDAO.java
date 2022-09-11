@@ -64,7 +64,7 @@ public class UniversitiesDAO extends AbstractMySqlDAO implements IUniversitiesDA
     public void remove(Long id) {
        try {
            Connection connection = ConnectionPool.getInstance().retrieve();
-           PreparedStatement preparedStatement = connection.prepareStatement("Delete universities where id = ?");
+           PreparedStatement preparedStatement = connection.prepareStatement("Delete From universities where id = ?");
            preparedStatement.setLong(1,id);
            preparedStatement.executeUpdate();
 

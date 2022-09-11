@@ -117,7 +117,23 @@ public class Main {
 //          Universities universities = new Universities("BTU","tbilisi","BTU.com","BTU@gmail.com",8L,3L);
 //          universitiesDAO.update("all",universities,2L);
 
+                                          //Remove
+//            universitiesDAO.remove(6L);
 
+                                          //SelectBy
+//        Universities universities = new Universities();
+//        universitiesDAO.getBy(universities,1L);
+//        LOGGER.info(universities);
+
+
+                                         //SelectAll
+//        for (Universities u:universitiesDAO.getAllUniversities()) {
+//            LOGGER.info(u);
+//        }
+
+
+
+//  ---------------------------------------------Lectors--------------------------------------------------------------
 
 
 
