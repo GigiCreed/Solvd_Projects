@@ -13,10 +13,11 @@ import java.util.List;
 
 public class StudentsDAO extends AbstractMySqlDAO implements IStudentsDAO {
     private static final Logger LOGGER = LogManager.getLogger(StudentsDAO.class);
+    private Connection connection = ConnectionPool.getInstance().retrieve();
     @Override
     public void create(Students students) {
         try {
-            Connection connection = ConnectionPool.getInstance().retrieve();
+
             PreparedStatement preparedStatement = connection.prepareStatement("insert into students (name,surname,age,phone_number,course,email,Universities_id,Faculties_id)  values ( ?,?,?,?,?,?,?,?)");
             preparedStatement.setString(1,students.getName());
             preparedStatement.setString(2,students.getSurname());
@@ -38,7 +39,7 @@ public class StudentsDAO extends AbstractMySqlDAO implements IStudentsDAO {
     @Override
     public Students getBy(Students students, Long id) {
         try {
-            Connection connection = ConnectionPool.getInstance().retrieve();
+
             PreparedStatement preparedStatement = connection.prepareStatement("select * from students Where id = ?");
             preparedStatement.setLong(1,id);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -67,7 +68,7 @@ public class StudentsDAO extends AbstractMySqlDAO implements IStudentsDAO {
     @Override
     public void remove(Long id) {
         try {
-            Connection connection = ConnectionPool.getInstance().retrieve();
+
             PreparedStatement preparedStatement = connection.prepareStatement("Delete from students Where id = ?");
             preparedStatement.setLong(1,id);
             preparedStatement.executeUpdate();
@@ -83,7 +84,7 @@ public class StudentsDAO extends AbstractMySqlDAO implements IStudentsDAO {
     @Override
     public void update(String setParameter,Students object, Long id) {
         try {
-            Connection connection = ConnectionPool.getInstance().retrieve();
+
             switch (setParameter) {
                 case "name":PreparedStatement preparedStatementName = connection.prepareStatement("Update students SET name = ? WHERE id = ?");
                     preparedStatementName.setString(1, object.getName());
@@ -168,7 +169,7 @@ public class StudentsDAO extends AbstractMySqlDAO implements IStudentsDAO {
     public List<Students> getAllStudents() {
         List<Students> students = new ArrayList<>();
         try {
-            Connection connection = ConnectionPool.getInstance().retrieve();
+
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("Select * From students");
             while (resultSet.next()){

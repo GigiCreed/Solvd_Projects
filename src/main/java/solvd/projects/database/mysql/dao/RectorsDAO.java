@@ -13,10 +13,12 @@ import java.util.List;
 
 public class RectorsDAO extends AbstractMySqlDAO implements IRectorsDAO {
     private static final Logger LOGGER = LogManager.getLogger(RectorsDAO.class);
+
+    private Connection connection = ConnectionPool.getInstance().retrieve();
     @Override
     public void create(Rectors rectors) {
        try {
-           Connection connection = ConnectionPool.getInstance().retrieve();
+
            PreparedStatement preparedStatement =connection.prepareStatement("insert into rectors (name,surname,age,phone_number,address,email)  values ( ?,?,?,?,?,?)");
            preparedStatement.setString(1,rectors.getName());
            preparedStatement.setString(2,rectors.getSurname());
@@ -38,7 +40,7 @@ public class RectorsDAO extends AbstractMySqlDAO implements IRectorsDAO {
     @Override
     public Rectors getBy(Rectors rectors, Long id) {
       try {
-          Connection connection =ConnectionPool.getInstance().retrieve();
+
           PreparedStatement preparedStatement =connection.prepareStatement("Select * from rectors where id = ?");
           preparedStatement.setLong(1,id);
           ResultSet resultSet =preparedStatement.executeQuery();
@@ -64,7 +66,7 @@ public class RectorsDAO extends AbstractMySqlDAO implements IRectorsDAO {
     @Override
     public void remove(Long id) {
        try {
-           Connection connection = ConnectionPool.getInstance().retrieve();
+
            PreparedStatement preparedStatement = connection.prepareStatement("Delete From rectors where id = ?");
            preparedStatement.setLong(1,id);
            preparedStatement.executeUpdate();
@@ -79,7 +81,7 @@ public class RectorsDAO extends AbstractMySqlDAO implements IRectorsDAO {
     @Override
     public void update(String setParameter, Rectors rectors, Long id) {
       try {
-          Connection connection =ConnectionPool.getInstance().retrieve();
+
           switch (setParameter){
               case "name":PreparedStatement preparedStatementName =connection.prepareStatement("update rectors set name = ? where id = ?");
                   preparedStatementName.setString(1,rectors.getName());
@@ -142,7 +144,7 @@ public class RectorsDAO extends AbstractMySqlDAO implements IRectorsDAO {
     public List<Rectors> getAllRectors() {
         List<Rectors> rectorsList = new ArrayList<>();
        try {
-           Connection connection = ConnectionPool.getInstance().retrieve();
+
            Statement statement = connection.createStatement();
            ResultSet resultSet = statement.executeQuery("Select * from rectors");
            while (resultSet.next()){

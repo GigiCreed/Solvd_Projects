@@ -186,7 +186,29 @@ public class Main {
 
 //-------------------------------------------Faculties----------------------------------------------------------------------
 
+//         FacultiesDAO facultiesDAO = new FacultiesDAO();
 
+                                       //inserting
+//        Faculties faculties = new Faculties("Medicine",1L);
+//        facultiesDAO.create(faculties);
+
+                                      //Updating
+//         Faculties faculties = new Faculties("Sport",1L);
+//         facultiesDAO.update("name",faculties,5L);
+
+
+                                   //remove
+//        facultiesDAO.remove(5L);
+
+                                  //SelectById
+//        Faculties faculties = new Faculties();
+//        facultiesDAO.getBy(faculties,4L);
+//        LOGGER.info(faculties);
+
+                                //SelectAll
+//        for (Faculties f: facultiesDAO.getAllFaculties()) {
+//            LOGGER.info(f);
+//        }
 
 
     }

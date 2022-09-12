@@ -14,10 +14,12 @@ import java.util.List;
 
 public class ViceRectorsDAO extends AbstractMySqlDAO implements IViceRectorsDAO {
     private static final Logger LOGGER = LogManager.getLogger(ViceRectorsDAO.class);
+
+    private Connection connection = ConnectionPool.getInstance().retrieve();
     @Override
     public void create(ViceRectors viceRectors) {
        try {
-           Connection connection = ConnectionPool.getInstance().retrieve();
+
            PreparedStatement preparedStatement =connection.prepareStatement("insert into vice_rectors (name,surname,age,phone_number,address,email)  values ( ?,?,?,?,?,?)");
            preparedStatement.setString(1,viceRectors.getName());
            preparedStatement.setString(2,viceRectors.getSurname());
@@ -37,7 +39,7 @@ public class ViceRectorsDAO extends AbstractMySqlDAO implements IViceRectorsDAO 
     @Override
     public ViceRectors getBy(ViceRectors viceRectors, Long id) {
         try {
-            Connection connection =ConnectionPool.getInstance().retrieve();
+
             PreparedStatement preparedStatement =connection.prepareStatement("Select * from vice_rectors where id = ?");
             preparedStatement.setLong(1,id);
             ResultSet resultSet =preparedStatement.executeQuery();
@@ -63,7 +65,7 @@ public class ViceRectorsDAO extends AbstractMySqlDAO implements IViceRectorsDAO 
     @Override
     public void remove(Long id) {
         try {
-            Connection connection = ConnectionPool.getInstance().retrieve();
+
             PreparedStatement preparedStatement = connection.prepareStatement("Delete From vice_rectors where id = ?");
             preparedStatement.setLong(1,id);
             preparedStatement.executeUpdate();
@@ -78,7 +80,7 @@ public class ViceRectorsDAO extends AbstractMySqlDAO implements IViceRectorsDAO 
     @Override
     public void update(String setParameter, ViceRectors viceRectors, Long id) {
         try {
-            Connection connection =ConnectionPool.getInstance().retrieve();
+
             switch (setParameter){
                 case "name":PreparedStatement preparedStatementName =connection.prepareStatement("update vice_rectors set name = ? where id = ?");
                     preparedStatementName.setString(1,viceRectors.getName());
@@ -141,7 +143,7 @@ public class ViceRectorsDAO extends AbstractMySqlDAO implements IViceRectorsDAO 
     public List<ViceRectors> getAllViceRectors() {
         List<ViceRectors> viceRectorsList = new ArrayList<>();
         try {
-            Connection connection = ConnectionPool.getInstance().retrieve();
+
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("Select * from vice_rectors");
             while (resultSet.next()){
