@@ -236,5 +236,34 @@ public class Main {
 //            LOGGER.info(s);
 //        }
 
+
+//------------------------------------------------Subjects--------------------------------------------------------------
+
+//      SubjectsDAO subjectsDAO = new SubjectsDAO();
+
+
+                                              //inserting
+
+//        Subjects subjects = new Subjects("Programing Language Java",3,1L);
+//        subjectsDAO.create(subjects);
+
+                                             //Upadate
+//          Subjects subjects = new Subjects("Programing Language C++",1,1L);
+//          subjectsDAO.update("course",subjects,2L);
+
+
+                                           //Remove
+//        subjectsDAO.remove(3L);
+
+                                           //SelectById
+//        Subjects subjects = new Subjects();
+//        subjectsDAO.getBy(subjects,1L);
+//        LOGGER.info(subjects);
+
+                                          //SelectAll
+//        for (Subjects s: subjectsDAO.getAllSubjects()) {
+//            LOGGER.info(s);
+//        }
+
     }
 }
