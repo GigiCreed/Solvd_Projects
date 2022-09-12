@@ -211,5 +211,30 @@ public class Main {
 //        }
 
 
+//   ---------------------------------------------Specialties-----------------------------------------------------------
+
+//        SpecialtiesDAO specialtiesDAO = new SpecialtiesDAO();
+
+                                                //insert
+//        Specialties specialties = new Specialties("Coach",1L);
+//        specialtiesDAO.create(specialties);
+
+                                              //Update
+//        Specialties specialties = new Specialties("Business",2L);
+//        specialtiesDAO.update("all",specialties,2L);
+
+                                              //remove
+//        specialtiesDAO.remove(3L);
+
+                                             //SelectById
+//        Specialties specialties = new Specialties();
+//        specialtiesDAO.getBy(specialties,1L);
+//        LOGGER.info(specialties);
+
+                                            //SelectAll
+//        for (Specialties s: specialtiesDAO.getAllSpecialties()) {
+//            LOGGER.info(s);
+//        }
+
     }
 }
