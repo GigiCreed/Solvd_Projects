@@ -2,7 +2,7 @@ package solvd.projects.database.tableclasses;
 
 public class TypeSpecialties {
     private Long id;
-    private String TypeName;
+    private String Type;
     private Long specialtiesId;
     private Long studentsId;
 
@@ -10,18 +10,26 @@ public class TypeSpecialties {
 
     }
 
-    public TypeSpecialties(String typeName, Long specialtiesId, Long studentsId) {
-        TypeName = typeName;
+    public TypeSpecialties(String type, Long specialtiesId, Long studentsId) {
+        Type = type;
         this.specialtiesId = specialtiesId;
         this.studentsId = studentsId;
     }
 
-    public String getTypeName() {
-        return TypeName;
+    public Long getId() {
+        return id;
     }
 
-    public void setTypeName(String typeName) {
-        TypeName = typeName;
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getType() {
+        return Type;
+    }
+
+    public void setType(String type) {
+        Type = type;
     }
 
     public Long getSpecialtiesId() {
@@ -44,7 +52,7 @@ public class TypeSpecialties {
     public String toString() {
         return "TypeSpecialties{" +
                 "id=" + id +
-                ", TypeName='" + TypeName + '\'' +
+                ", TypeName='" + Type + '\'' +
                 ", specialtiesId=" + specialtiesId +
                 ", studentsId=" + studentsId +
                 '}';

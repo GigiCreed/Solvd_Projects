@@ -268,7 +268,7 @@ public class Main {
 
 // ---------------------------------------------------------Type_Lectures-----------------------------------------------
 
-        TypeLecturesDAO typeLecturesDAO = new TypeLecturesDAO();
+//        TypeLecturesDAO typeLecturesDAO = new TypeLecturesDAO();
 
 
                                                 //inserting
@@ -297,7 +297,33 @@ public class Main {
 //---------------------------------------------------Type_Specialities--------------------------------------------------
 
 
+//        TypeSpecialtiesDAO typeSpecialtiesDAO = new TypeSpecialtiesDAO();
 
+
+                                             //inserting
+//        TypeSpecialties typeSpecialties = new TypeSpecialties("Minor",2L,24L);
+//        typeSpecialtiesDAO.create(typeSpecialties);
+
+                                           //Updating
+//         TypeSpecialties typeSpecialties = new TypeSpecialties("Main",2L, 24L);
+//         typeSpecialtiesDAO.update("all",typeSpecialties,2L);
+
+                                         //remove
+//        typeSpecialtiesDAO.remove(3L);
+
+                                         //selectById
+
+//         TypeSpecialties typeSpecialties = new TypeSpecialties();
+//         typeSpecialtiesDAO.getBy(typeSpecialties,1L);
+//         LOGGER.info(typeSpecialties);
+
+                                       //SelectAll
+//        for (TypeSpecialties t: typeSpecialtiesDAO.getAllTypeSpecialties()) {
+//            LOGGER.info(t);
+//        }
+
+
+//----------------------------------------------FINISH------------------------------------------------------------------
 
     }
 }
