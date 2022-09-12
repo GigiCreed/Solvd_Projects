@@ -131,9 +131,9 @@ public class Main {
 
 
 //        LectorsDAO lectorsDAO = new LectorsDAO();
-
-                                            //Insert
-
+//
+//                                            //Insert
+//
 //        Lectors lectors = new Lectors("Cicino","Ketilidapatiosani",new Date(232323321456L),00001,"Batumi","cicino@gmail.com",1L);
 //        lectorsDAO.create(lectors);
 
@@ -244,7 +244,7 @@ public class Main {
 
                                               //inserting
 
-//        Subjects subjects = new Subjects("Programing Language Java",3,1L);
+//        Subjects subjects = new Subjects("Programing Language JavaScript",4,1L);
 //        subjectsDAO.create(subjects);
 
                                              //Upadate
@@ -264,6 +264,40 @@ public class Main {
 //        for (Subjects s: subjectsDAO.getAllSubjects()) {
 //            LOGGER.info(s);
 //        }
+
+
+// ---------------------------------------------------------Type_Lectures-----------------------------------------------
+
+        TypeLecturesDAO typeLecturesDAO = new TypeLecturesDAO();
+
+
+                                                //inserting
+
+//        TypeLectures typeLectures = new TypeLectures("theoretical",4L,4L);
+//        typeLecturesDAO.create(typeLectures);
+
+                                               //Updating
+//         TypeLectures typeLectures = new TypeLectures("Practical",4L,4L);
+//         typeLecturesDAO.update("type",typeLectures,6L);
+
+                                              //remove
+//           typeLecturesDAO.remove(6L);
+
+                                              //SelectById
+//          TypeLectures typeLectures =new TypeLectures();
+//          typeLecturesDAO.getBy(typeLectures,1L);
+//          LOGGER.info(typeLectures);
+
+                                            //SelectAll
+//        for (TypeLectures t: typeLecturesDAO.getAllTypeLectures()) {
+//            LOGGER.info(t);
+//        }
+
+
+//---------------------------------------------------Type_Specialities--------------------------------------------------
+
+
+
 
     }
 }

@@ -98,6 +98,8 @@ public class SubjectsDAO extends AbstractMySqlDAO implements ISubjectsDAO {
                       preparedStatementAll.executeUpdate();
                       preparedStatementAll.close();
                       break;
+                  default:
+                      LOGGER.error("Parameter not exist");
               }
 
               connection.close();
