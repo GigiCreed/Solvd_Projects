@@ -16,9 +16,10 @@ public class DeccansDAO extends AbstractMySqlDAO implements IDeccansDAO {
 
     private Connection connection = ConnectionPool.getInstance().retrieve();
     @Override
-    public void create(Deccans deccans) {
+    public void create(Deccans deccans)  {
+        PreparedStatement preparedStatement = null;
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("insert into deccans (name,surname,age,address,phone_number,email,Faculties_id,Universities_id)  values ( ?,?,?,?,?,?,?,?)");
+            preparedStatement = connection.prepareStatement("insert into deccans (name,surname,age,address,phone_number,email,Faculties_id,Universities_id)  values ( ?,?,?,?,?,?,?,?)");
             preparedStatement.setString(1,deccans.getName());
             preparedStatement.setString(2,deccans.getSurname());
             preparedStatement.setDate(3,deccans.getAge());
@@ -30,20 +31,27 @@ public class DeccansDAO extends AbstractMySqlDAO implements IDeccansDAO {
             preparedStatement.executeUpdate();
 
 
-            connection.close();
-            preparedStatement.close();
-
         }catch (SQLException e){
             LOGGER.error(e);
+        }finally {
+            try {
+                preparedStatement.close();
+            } catch (SQLException e) {
+               LOGGER.error(e);
+            }
+            ConnectionPool.getInstance().putback(connection);
         }
     }
 
     @Override
-    public Deccans getBy(Deccans deccans, Long id) {
+    public Deccans getBy(Deccans deccans, Long id)  {
+        PreparedStatement preparedStatement=null;
+        ResultSet resultSet=null;
+
         try {
-            PreparedStatement preparedStatement =connection.prepareStatement("Select * from deccans where id = ?");
+            preparedStatement =connection.prepareStatement("Select * from deccans where id = ?");
             preparedStatement.setLong(1,id);
-            ResultSet resultSet =preparedStatement.executeQuery();
+            resultSet =preparedStatement.executeQuery();
             while (resultSet.next()){
                 deccans.setId(resultSet.getLong("id"));
                 deccans.setName(resultSet.getString("name"));
@@ -56,19 +64,25 @@ public class DeccansDAO extends AbstractMySqlDAO implements IDeccansDAO {
                 deccans.setUniversitiesId(resultSet.getLong("Universities_id"));
             }
 
-            connection.close();
-            preparedStatement.close();
-            resultSet.close();
         }catch (SQLException e){
             LOGGER.error(e);
+        }finally {
+            try {
+                resultSet.close();
+                preparedStatement.close();
+            } catch (SQLException e) {
+                LOGGER.error(e);
+            }
+            ConnectionPool.getInstance().putback(connection);
         }
         return deccans;
     }
 
     @Override
     public void remove(Long id) {
+        PreparedStatement preparedStatement = null;
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("Delete From deccans where id = ?");
+            preparedStatement = connection.prepareStatement("Delete From deccans where id = ?");
             preparedStatement.setLong(1,id);
             preparedStatement.executeUpdate();
 
@@ -76,6 +90,13 @@ public class DeccansDAO extends AbstractMySqlDAO implements IDeccansDAO {
             preparedStatement.close();
         }catch (SQLException e){
             LOGGER.error(e);
+        }finally {
+            try {
+                preparedStatement.close();
+            } catch (SQLException e) {
+               LOGGER.error(e);
+            }
+            ConnectionPool.getInstance().putback(connection);
         }
     }
 
@@ -83,7 +104,8 @@ public class DeccansDAO extends AbstractMySqlDAO implements IDeccansDAO {
     public void update(String setParameter, Deccans deccans, Long id) {
         try {
             switch (setParameter){
-                case "name":PreparedStatement preparedStatementName =connection.prepareStatement("update deccans set name = ? where id = ?");
+                case "name":
+                    PreparedStatement preparedStatementName =connection.prepareStatement("update deccans set name = ? where id = ?");
                     preparedStatementName.setString(1,deccans.getName());
                     preparedStatementName.setLong(2,id);
                     preparedStatementName.executeUpdate();
@@ -149,19 +171,23 @@ public class DeccansDAO extends AbstractMySqlDAO implements IDeccansDAO {
                 default:
                     LOGGER.error("Parameter don't exist");
             }
-            connection.close();
 
         }catch (SQLException e){
             LOGGER.error(e);
+        }finally {
+            ConnectionPool.getInstance().putback(connection);
         }
     }
 
     @Override
     public List<Deccans> getAllDeccans() {
         List<Deccans> deccansList = new ArrayList<>();
+        Statement statement=null;
+        ResultSet resultSet = null;
+
         try {
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("Select * from deccans");
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery("Select * from deccans");
             while (resultSet.next()){
                 Deccans deccans = new Deccans();
 
@@ -177,11 +203,17 @@ public class DeccansDAO extends AbstractMySqlDAO implements IDeccansDAO {
 
                 deccansList.add(deccans);
             }
-            connection.close();
-            statement.close();
-            resultSet.close();
+
         }catch (SQLException e){
             LOGGER.error(e);
+        }finally {
+            try {
+                statement.close();
+                resultSet.close();
+            } catch (SQLException e) {
+               LOGGER.error(e);
+            }
+            ConnectionPool.getInstance().putback(connection);
         }
         return deccansList;
     }
