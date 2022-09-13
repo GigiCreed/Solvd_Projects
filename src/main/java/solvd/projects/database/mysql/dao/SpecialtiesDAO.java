@@ -5,7 +5,6 @@ import org.apache.logging.log4j.Logger;
 import solvd.projects.database.interfaces.ISpecialtiesDAO;
 import solvd.projects.database.mysql.AbstractMySqlDAO;
 import solvd.projects.database.mysql.connectionpool.ConnectionPool;
-import solvd.projects.database.tableclasses.Faculties;
 import solvd.projects.database.tableclasses.Specialties;
 
 import java.sql.*;
