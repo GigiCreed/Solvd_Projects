@@ -1,4 +1,4 @@
-package solvd.projects.database.interfaces;
+package solvd.projects.database.mysql.dao.interfaces;
 
 public interface IBaseDAO<T>{
     void create(T object);

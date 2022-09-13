@@ -1,4 +1,4 @@
-package solvd.projects.database.interfaces;
+package solvd.projects.database.mysql.dao.interfaces;
 
 import solvd.projects.database.tableclasses.Subjects;
 

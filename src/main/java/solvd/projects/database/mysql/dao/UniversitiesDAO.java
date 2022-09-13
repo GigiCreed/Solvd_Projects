@@ -2,7 +2,7 @@ package solvd.projects.database.mysql.dao;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import solvd.projects.database.interfaces.IUniversitiesDAO;
+import solvd.projects.database.mysql.dao.interfaces.IUniversitiesDAO;
 import solvd.projects.database.mysql.AbstractMySqlDAO;
 import solvd.projects.database.mysql.connectionpool.ConnectionPool;
 import solvd.projects.database.tableclasses.Universities;
