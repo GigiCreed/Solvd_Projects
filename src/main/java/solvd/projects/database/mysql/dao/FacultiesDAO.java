@@ -16,8 +16,9 @@ public class FacultiesDAO extends AbstractMySqlDAO implements IFacultiesDAO {
     private Connection connection = ConnectionPool.getInstance().retrieve();
     @Override
     public void create(Faculties faculties) {
+        PreparedStatement preparedStatement =null;
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("insert into faculties (name,Universities_id) Values (?,?)");
+            preparedStatement = connection.prepareStatement("insert into faculties (name,Universities_id) Values (?,?)");
             preparedStatement.setString(1,faculties.getName());
             preparedStatement.setLong(2,faculties.getUniversitiesId());
             preparedStatement.executeUpdate();
@@ -26,41 +27,63 @@ public class FacultiesDAO extends AbstractMySqlDAO implements IFacultiesDAO {
             preparedStatement.close();
         }catch (SQLException e){
             LOGGER.error(e);
+        }finally {
+            try {
+                preparedStatement.close();
+            }catch (SQLException e){
+                LOGGER.error(e);
+            }
+            ConnectionPool.getInstance().putback(connection);
         }
-
     }
 
     @Override
     public Faculties getBy(Faculties faculties, Long id) {
+        PreparedStatement preparedStatement=null;
+        ResultSet resultSet =null;
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("Select * from faculties Where id = ?");
+            preparedStatement = connection.prepareStatement("Select * from faculties Where id = ?");
             preparedStatement.setLong(1,id);
-            ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
                 faculties.setId(resultSet.getLong("id"));
                 faculties.setName(resultSet.getString("name"));
                 faculties.setUniversitiesId(resultSet.getLong("Universities_id"));
             }
 
-            connection.close();
-            preparedStatement.close();
-            resultSet.close();
+
         }catch (SQLException e){
             LOGGER.error(e);
+        }finally {
+            try {
+                preparedStatement.close();
+                resultSet.close();
+            }catch (SQLException e){
+                LOGGER.error(e);
+            }
+            ConnectionPool.getInstance().putback(connection);
         }
         return faculties;
     }
 
     @Override
     public void remove(Long id) {
+        PreparedStatement preparedStatement = null;
        try {
-           PreparedStatement preparedStatement = connection.prepareStatement("delete from faculties where id = ?");
+           preparedStatement = connection.prepareStatement("delete from faculties where id = ?");
            preparedStatement.setLong(1,id);
            preparedStatement.executeUpdate();
 
            preparedStatement.close();
        }catch (SQLException e){
            LOGGER.error(e);
+       }finally {
+           try {
+               preparedStatement.close();
+           }catch (SQLException e){
+               LOGGER.error(e);
+           }
+           ConnectionPool.getInstance().putback(connection);
        }
 
     }
@@ -96,15 +119,19 @@ public class FacultiesDAO extends AbstractMySqlDAO implements IFacultiesDAO {
             }
         }catch (SQLException e){
             LOGGER.error(e);
+        }finally {
+            ConnectionPool.getInstance().putback(connection);
         }
     }
 
     @Override
     public List<Faculties> getAllFaculties() {
         List<Faculties> facultiesList = new ArrayList<>();
+        Statement statement =null;
+        ResultSet resultSet =null;
        try {
-           Statement statement = connection.createStatement();
-           ResultSet resultSet = statement.executeQuery("Select * from faculties");
+           statement = connection.createStatement();
+           resultSet = statement.executeQuery("Select * from faculties");
            while (resultSet.next()) {
                Faculties faculties = new Faculties();
                faculties.setId(resultSet.getLong("id"));
@@ -113,11 +140,17 @@ public class FacultiesDAO extends AbstractMySqlDAO implements IFacultiesDAO {
 
                facultiesList.add(faculties);
            }
-           statement.close();
-           resultSet.close();
-           connection.close();
+
        }catch (SQLException e){
            LOGGER.error(e);
+       }finally {
+           try {
+               statement.close();
+               resultSet.close();
+           }catch (SQLException e){
+               LOGGER.error(e);
+           }
+           ConnectionPool.getInstance().putback(connection);
        }
 
        return facultiesList;

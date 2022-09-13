@@ -17,9 +17,10 @@ public class LectorsDAO extends AbstractMySqlDAO implements ILectorsDAO {
     private Connection connection = ConnectionPool.getInstance().retrieve();
     @Override
     public void create(Lectors lectors) {
+        PreparedStatement preparedStatement=null;
         try {
 
-            PreparedStatement preparedStatement = connection.prepareStatement("insert into lectors (name,surname,age,phone_number,address,email,Universities_id)  values ( ?,?,?,?,?,?,?)");
+            preparedStatement = connection.prepareStatement("insert into lectors (name,surname,age,phone_number,address,email,Universities_id)  values ( ?,?,?,?,?,?,?)");
             preparedStatement.setString(1,lectors.getName());
             preparedStatement.setString(2,lectors.getSurname());
             preparedStatement.setDate(3,lectors.getAge());
@@ -29,21 +30,28 @@ public class LectorsDAO extends AbstractMySqlDAO implements ILectorsDAO {
             preparedStatement.setLong(7,lectors.getUniversitiesId());
             preparedStatement.executeUpdate();
 
-            connection.close();
-            preparedStatement.close();
+
 
         }catch (SQLException e){
              LOGGER.error(e);
+        }finally {
+            try {
+                preparedStatement.close();
+            }catch (SQLException e){
+                LOGGER.error(e);
+            }
+            ConnectionPool.getInstance().putback(connection);
         }
     }
 
     @Override
     public Lectors getBy(Lectors lectors, Long id) {
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
         try {
-
-            PreparedStatement preparedStatement =connection.prepareStatement("Select * from lectors where id = ?");
+            preparedStatement =connection.prepareStatement("Select * from lectors where id = ?");
             preparedStatement.setLong(1,id);
-            ResultSet resultSet =preparedStatement.executeQuery();
+            resultSet =preparedStatement.executeQuery();
             while (resultSet.next()){
                 lectors.setId(resultSet.getLong("id"));
                 lectors.setName(resultSet.getString("name"));
@@ -55,27 +63,39 @@ public class LectorsDAO extends AbstractMySqlDAO implements ILectorsDAO {
                 lectors.setUniversitiesId(resultSet.getLong("Universities_id"));
             }
 
-            connection.close();
-            preparedStatement.close();
-            resultSet.close();
+
         }catch (SQLException e){
             LOGGER.error(e);
+        }finally {
+           try {
+               preparedStatement.close();
+               resultSet.close();
+           }catch (SQLException e){
+               LOGGER.error(e);
+           }
+           ConnectionPool.getInstance().putback(connection);
         }
         return lectors;
     }
 
     @Override
     public void remove(Long id) {
+        PreparedStatement preparedStatement =null;
         try {
-
-            PreparedStatement preparedStatement = connection.prepareStatement("Delete From lectors where id = ?");
+            preparedStatement = connection.prepareStatement("Delete From lectors where id = ?");
             preparedStatement.setLong(1,id);
             preparedStatement.executeUpdate();
 
-            connection.close();
-            preparedStatement.close();
+
         }catch (SQLException e){
             LOGGER.error(e);
+        }finally {
+            try {
+                preparedStatement.close();
+            }catch (SQLException e){
+                LOGGER.error(e);
+            }
+            ConnectionPool.getInstance().putback(connection);
         }
     }
 
@@ -142,20 +162,23 @@ public class LectorsDAO extends AbstractMySqlDAO implements ILectorsDAO {
                 default:
                     LOGGER.error("Parameter don't exist");
             }
-            connection.close();
+
 
         }catch (SQLException e){
             LOGGER.error(e);
+        }finally {
+            ConnectionPool.getInstance().putback(connection);
         }
     }
 
     @Override
     public List<Lectors> getAllLectors() {
         List<Lectors> lectorsList = new ArrayList<>();
+        Statement statement=null;
+        ResultSet resultSet=null;
         try {
-
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("Select * from lectors");
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery("Select * from lectors");
             while (resultSet.next()){
                 Lectors lectors = new Lectors();
 
@@ -170,13 +193,18 @@ public class LectorsDAO extends AbstractMySqlDAO implements ILectorsDAO {
 
                 lectorsList.add(lectors);
             }
-            connection.close();
-            statement.close();
-            resultSet.close();
+
         }catch (SQLException e){
             LOGGER.error(e);
+        }finally {
+            try {
+                statement.close();
+                resultSet.close();
+            }catch (SQLException e){
+                LOGGER.error(e);
+            }
+            ConnectionPool.getInstance().putback(connection);
         }
         return lectorsList;
-
     }
 }
