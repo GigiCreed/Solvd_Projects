@@ -15,104 +15,135 @@ public class TypeLecturesDAO extends AbstractMySqlDAO implements ITypeLecturesDA
 
     private static final Logger LOGGER = LogManager.getLogger(TypeLecturesDAO.class);
 
-    private Connection connection = ConnectionPool.getInstance().retrieve();
+    private final Connection connection = ConnectionPool.getInstance().retrieve();
 
     @Override
     public void create(TypeLectures typeLectures) {
+        PreparedStatement preparedStatement=null;
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("Insert into type_lectures (type, Lectors_id, Subjects_id) values (?,?,?)");
+            preparedStatement = connection.prepareStatement("Insert into type_lectures (type, Lectors_id, Subjects_id) values (?,?,?)");
             preparedStatement.setString(1,typeLectures.getType());
             preparedStatement.setLong(2,typeLectures.getLectorsId());
             preparedStatement.setLong(3,typeLectures.getSubjectsId());
             preparedStatement.executeUpdate();
 
-            preparedStatement.close();
+
         }catch (SQLException e){
             LOGGER.error(e);
+        }finally {
+            try {
+                assert preparedStatement != null;
+                preparedStatement.close();
+            }catch (SQLException e){
+                LOGGER.error(e);
+            }
+            ConnectionPool.getInstance().putback(connection);
         }
     }
 
     @Override
     public TypeLectures getBy(TypeLectures typeLectures, Long id) {
+        PreparedStatement preparedStatement=null;
+        ResultSet resultSet=null;
        try {
-           PreparedStatement preparedStatement = connection.prepareStatement("Select * from type_lectures where id = ?");
+           preparedStatement = connection.prepareStatement("Select * from type_lectures where id = ?");
            preparedStatement.setLong(1,id);
-           ResultSet resultSet = preparedStatement.executeQuery();
+           resultSet = preparedStatement.executeQuery();
            while (resultSet.next()){
                typeLectures.setId(resultSet.getLong("id"));
                typeLectures.setType(resultSet.getString("type"));
                typeLectures.setLectorsId(resultSet.getLong("Lectors_id"));
                typeLectures.setSubjectsId(resultSet.getLong("Subjects_id"));
            }
-           preparedStatement.close();
-           resultSet.close();
+
        }catch (SQLException e){
            LOGGER.error(e);
+       }finally {
+           try {
+               assert resultSet != null;
+               resultSet.close();
+               preparedStatement.close();
+           }catch (SQLException e){
+               LOGGER.error(e);
+           }
+           ConnectionPool.getInstance().putback(connection);
        }
         return typeLectures;
     }
 
     @Override
     public void remove(Long id) {
+        PreparedStatement preparedStatement=null;
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("Delete from type_lectures where id = ?");
+            preparedStatement = connection.prepareStatement("Delete from type_lectures where id = ?");
             preparedStatement.setLong(1,id);
             preparedStatement.executeUpdate();
-            preparedStatement.close();
+
         }catch (SQLException e){
             LOGGER.error(e);
+        }finally {
+            try {
+                assert preparedStatement != null;
+                preparedStatement.close();
+            }catch (SQLException e){
+                LOGGER.error(e);
+            }
+            ConnectionPool.getInstance().putback(connection);
         }
     }
 
     @Override
     public void update(String setParameter, TypeLectures typeLectures, Long id) {
        try {
-           switch (setParameter){
-               case "type":
+           switch (setParameter) {
+               case "type" -> {
                    PreparedStatement preparedStatementType = connection.prepareStatement("Update type_lectures Set type = ? where id = ?");
-                   preparedStatementType.setString(1,typeLectures.getType());
-                   preparedStatementType.setLong(2,id);
+                   preparedStatementType.setString(1, typeLectures.getType());
+                   preparedStatementType.setLong(2, id);
                    preparedStatementType.executeUpdate();
                    preparedStatementType.close();
-                   break;
-               case "Lectors_id":
+               }
+               case "Lectors_id" -> {
                    PreparedStatement preparedStatementLectorsId = connection.prepareStatement("Update type_lectures Set Lectors_id = ? where id = ?");
-                   preparedStatementLectorsId.setLong(1,typeLectures.getLectorsId());
-                   preparedStatementLectorsId.setLong(2,id);
+                   preparedStatementLectorsId.setLong(1, typeLectures.getLectorsId());
+                   preparedStatementLectorsId.setLong(2, id);
                    preparedStatementLectorsId.executeUpdate();
                    preparedStatementLectorsId.close();
-                   break;
-               case "Subjects_id":
+               }
+               case "Subjects_id" -> {
                    PreparedStatement preparedStatementSubjectsId = connection.prepareStatement("Update type_lectures Set Subjects_id = ? where id = ?");
-                   preparedStatementSubjectsId.setLong(1,typeLectures.getSubjectsId());
-                   preparedStatementSubjectsId.setLong(2,id);
+                   preparedStatementSubjectsId.setLong(1, typeLectures.getSubjectsId());
+                   preparedStatementSubjectsId.setLong(2, id);
                    preparedStatementSubjectsId.executeUpdate();
                    preparedStatementSubjectsId.close();
-                   break;
-               case "all":
+               }
+               case "all" -> {
                    PreparedStatement preparedStatementAll = connection.prepareStatement("Update type_lectures Set type = ?,Lectors_id = ? , Subjects_id = ? where id = ?");
-                   preparedStatementAll.setString(1,typeLectures.getType());
-                   preparedStatementAll.setLong(2,typeLectures.getLectorsId());
-                   preparedStatementAll.setLong(3,typeLectures.getSubjectsId());
-                   preparedStatementAll.setLong(4,id);
+                   preparedStatementAll.setString(1, typeLectures.getType());
+                   preparedStatementAll.setLong(2, typeLectures.getLectorsId());
+                   preparedStatementAll.setLong(3, typeLectures.getSubjectsId());
+                   preparedStatementAll.setLong(4, id);
                    preparedStatementAll.executeUpdate();
                    preparedStatementAll.close();
-                   break;
-               default:
-                   LOGGER.error("Parameter not exist");
+               }
+               default -> LOGGER.error("Parameter not exist");
            }
-           connection.close();
+
        }catch (SQLException e){
            LOGGER.error(e);
+       }finally {
+           ConnectionPool.getInstance().putback(connection);
        }
     }
 
     @Override
     public List<TypeLectures> getAllTypeLectures() {
         List<TypeLectures> typeLecturesList = new ArrayList<>();
+        Statement statement=null;
+        ResultSet resultSet=null;
         try {
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("Select * from type_lectures");
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery("Select * from type_lectures");
             while (resultSet.next()){
                 TypeLectures typeLectures = new TypeLectures();
 
@@ -123,10 +154,18 @@ public class TypeLecturesDAO extends AbstractMySqlDAO implements ITypeLecturesDA
 
                 typeLecturesList.add(typeLectures);
             }
-            statement.close();
-            resultSet.close();
+
         }catch (SQLException e){
             LOGGER.error(e);
+        }finally {
+          try {
+              assert resultSet != null;
+              resultSet.close();
+              statement.close();
+          }catch (SQLException e){
+              LOGGER.error(e);
+          }
+          ConnectionPool.getInstance().putback(connection);
         }
         return typeLecturesList;
     }

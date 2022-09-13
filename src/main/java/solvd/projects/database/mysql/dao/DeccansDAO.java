@@ -14,7 +14,7 @@ import java.util.List;
 public class DeccansDAO extends AbstractMySqlDAO implements IDeccansDAO {
     private static final Logger LOGGER = LogManager.getLogger(DeccansDAO.class);
 
-    private Connection connection = ConnectionPool.getInstance().retrieve();
+    private final Connection connection = ConnectionPool.getInstance().retrieve();
     @Override
     public void create(Deccans deccans)  {
         PreparedStatement preparedStatement = null;
@@ -35,6 +35,7 @@ public class DeccansDAO extends AbstractMySqlDAO implements IDeccansDAO {
             LOGGER.error(e);
         }finally {
             try {
+                assert preparedStatement != null;
                 preparedStatement.close();
             } catch (SQLException e) {
                LOGGER.error(e);
@@ -47,7 +48,6 @@ public class DeccansDAO extends AbstractMySqlDAO implements IDeccansDAO {
     public Deccans getBy(Deccans deccans, Long id)  {
         PreparedStatement preparedStatement=null;
         ResultSet resultSet=null;
-
         try {
             preparedStatement =connection.prepareStatement("Select * from deccans where id = ?");
             preparedStatement.setLong(1,id);
@@ -68,11 +68,13 @@ public class DeccansDAO extends AbstractMySqlDAO implements IDeccansDAO {
             LOGGER.error(e);
         }finally {
             try {
+                assert resultSet != null;
                 resultSet.close();
                 preparedStatement.close();
             } catch (SQLException e) {
                 LOGGER.error(e);
             }
+
             ConnectionPool.getInstance().putback(connection);
         }
         return deccans;
@@ -86,12 +88,12 @@ public class DeccansDAO extends AbstractMySqlDAO implements IDeccansDAO {
             preparedStatement.setLong(1,id);
             preparedStatement.executeUpdate();
 
-            connection.close();
-            preparedStatement.close();
+
         }catch (SQLException e){
             LOGGER.error(e);
         }finally {
             try {
+                assert preparedStatement != null;
                 preparedStatement.close();
             } catch (SQLException e) {
                LOGGER.error(e);
@@ -103,73 +105,78 @@ public class DeccansDAO extends AbstractMySqlDAO implements IDeccansDAO {
     @Override
     public void update(String setParameter, Deccans deccans, Long id) {
         try {
-            switch (setParameter){
-                case "name":
-                    PreparedStatement preparedStatementName =connection.prepareStatement("update deccans set name = ? where id = ?");
-                    preparedStatementName.setString(1,deccans.getName());
-                    preparedStatementName.setLong(2,id);
+            switch (setParameter) {
+                case "name" -> {
+                    PreparedStatement preparedStatementName = connection.prepareStatement("update deccans set name = ? where id = ?");
+                    preparedStatementName.setString(1, deccans.getName());
+                    preparedStatementName.setLong(2, id);
                     preparedStatementName.executeUpdate();
                     preparedStatementName.close();
-                    break;
-                case "surname":PreparedStatement preparedStatementSurname = connection.prepareStatement("update deccans set surname = ? where id = ?");
-                    preparedStatementSurname.setString(1,deccans.getSurname());
-                    preparedStatementSurname.setLong(2,id);
+                }
+                case "surname" -> {
+                    PreparedStatement preparedStatementSurname = connection.prepareStatement("update deccans set surname = ? where id = ?");
+                    preparedStatementSurname.setString(1, deccans.getSurname());
+                    preparedStatementSurname.setLong(2, id);
                     preparedStatementSurname.executeUpdate();
                     preparedStatementSurname.close();
-                    break;
-                case "age":PreparedStatement preparedStatementAge = connection.prepareStatement("update deccans set age = ? where id = ?");
-                    preparedStatementAge.setDate(1,deccans.getAge());
-                    preparedStatementAge.setLong(2,id);
+                }
+                case "age" -> {
+                    PreparedStatement preparedStatementAge = connection.prepareStatement("update deccans set age = ? where id = ?");
+                    preparedStatementAge.setDate(1, deccans.getAge());
+                    preparedStatementAge.setLong(2, id);
                     preparedStatementAge.executeUpdate();
                     preparedStatementAge.close();
-                    break;
-                case "phone_number":PreparedStatement preparedStatementPhoneNumber = connection.prepareStatement("update deccans set phone_number = ? where id = ?");
-                    preparedStatementPhoneNumber.setInt(1,deccans.getPhone_number());
-                    preparedStatementPhoneNumber.setLong(2,id);
+                }
+                case "phone_number" -> {
+                    PreparedStatement preparedStatementPhoneNumber = connection.prepareStatement("update deccans set phone_number = ? where id = ?");
+                    preparedStatementPhoneNumber.setInt(1, deccans.getPhone_number());
+                    preparedStatementPhoneNumber.setLong(2, id);
                     preparedStatementPhoneNumber.executeUpdate();
                     preparedStatementPhoneNumber.close();
-                    break;
-                case "address":PreparedStatement preparedStatementAddress = connection.prepareStatement("update deccans set address = ? where id = ?");
-                    preparedStatementAddress.setString(1,deccans.getAddress());
-                    preparedStatementAddress.setLong(2,id);
+                }
+                case "address" -> {
+                    PreparedStatement preparedStatementAddress = connection.prepareStatement("update deccans set address = ? where id = ?");
+                    preparedStatementAddress.setString(1, deccans.getAddress());
+                    preparedStatementAddress.setLong(2, id);
                     preparedStatementAddress.executeUpdate();
                     preparedStatementAddress.close();
-                    break;
-                case "email":PreparedStatement preparedStatementEmail = connection.prepareStatement("update deccans set email = ? where id = ?");
-                    preparedStatementEmail.setString(1,deccans.getEmail());
-                    preparedStatementEmail.setLong(2,id);
+                }
+                case "email" -> {
+                    PreparedStatement preparedStatementEmail = connection.prepareStatement("update deccans set email = ? where id = ?");
+                    preparedStatementEmail.setString(1, deccans.getEmail());
+                    preparedStatementEmail.setLong(2, id);
                     preparedStatementEmail.executeUpdate();
                     preparedStatementEmail.close();
-                    break;
-                case "Faculties_id":
+                }
+                case "Faculties_id" -> {
                     PreparedStatement preparedStatementFacultiesId = connection.prepareStatement("Update deccans SET Faculties_id = ? WHERE id = ?");
                     preparedStatementFacultiesId.setLong(1, deccans.getFacultiesId());
                     preparedStatementFacultiesId.setLong(2, id);
                     preparedStatementFacultiesId.executeUpdate();
                     preparedStatementFacultiesId.close();
-                    break;
-                case "Universities_id":
+                }
+                case "Universities_id" -> {
                     PreparedStatement preparedStatementUniversitiesId = connection.prepareStatement("Update deccans SET Universities_id = ? WHERE id = ?");
                     preparedStatementUniversitiesId.setLong(1, deccans.getUniversitiesId());
                     preparedStatementUniversitiesId.setLong(2, id);
                     preparedStatementUniversitiesId.executeUpdate();
                     preparedStatementUniversitiesId.close();
-                    break;
-                case "all":PreparedStatement preparedStatementAll = connection.prepareStatement("update deccans set name = ? , surname = ?, age = ?, address = ?, phone_number= ?, email = ?, Faculties_id = ?, Universities_id= ? where id = ?");
-                    preparedStatementAll.setString(1,deccans.getName());
-                    preparedStatementAll.setString(2,deccans.getSurname());
-                    preparedStatementAll.setDate(3,deccans.getAge());
-                    preparedStatementAll.setString(4,deccans.getAddress());
-                    preparedStatementAll.setInt(5,deccans.getPhone_number());
-                    preparedStatementAll.setString(6,deccans.getEmail());
-                    preparedStatementAll.setLong(7,deccans.getFacultiesId());
-                    preparedStatementAll.setLong(8,deccans.getUniversitiesId());
-                    preparedStatementAll.setLong(9,id);
+                }
+                case "all" -> {
+                    PreparedStatement preparedStatementAll = connection.prepareStatement("update deccans set name = ? , surname = ?, age = ?, address = ?, phone_number= ?, email = ?, Faculties_id = ?, Universities_id= ? where id = ?");
+                    preparedStatementAll.setString(1, deccans.getName());
+                    preparedStatementAll.setString(2, deccans.getSurname());
+                    preparedStatementAll.setDate(3, deccans.getAge());
+                    preparedStatementAll.setString(4, deccans.getAddress());
+                    preparedStatementAll.setInt(5, deccans.getPhone_number());
+                    preparedStatementAll.setString(6, deccans.getEmail());
+                    preparedStatementAll.setLong(7, deccans.getFacultiesId());
+                    preparedStatementAll.setLong(8, deccans.getUniversitiesId());
+                    preparedStatementAll.setLong(9, id);
                     preparedStatementAll.executeUpdate();
                     preparedStatementAll.close();
-                    break;
-                default:
-                    LOGGER.error("Parameter don't exist");
+                }
+                default -> LOGGER.error("Parameter don't exist");
             }
 
         }catch (SQLException e){
@@ -208,7 +215,9 @@ public class DeccansDAO extends AbstractMySqlDAO implements IDeccansDAO {
             LOGGER.error(e);
         }finally {
             try {
+                assert statement != null;
                 statement.close();
+                assert resultSet != null;
                 resultSet.close();
             } catch (SQLException e) {
                LOGGER.error(e);

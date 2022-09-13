@@ -14,12 +14,12 @@ import java.util.List;
 public class RectorsDAO extends AbstractMySqlDAO implements IRectorsDAO {
     private static final Logger LOGGER = LogManager.getLogger(RectorsDAO.class);
 
-    private Connection connection = ConnectionPool.getInstance().retrieve();
+    private final Connection connection = ConnectionPool.getInstance().retrieve();
     @Override
     public void create(Rectors rectors) {
+        PreparedStatement preparedStatement = null;
        try {
-
-           PreparedStatement preparedStatement =connection.prepareStatement("insert into rectors (name,surname,age,phone_number,address,email)  values ( ?,?,?,?,?,?)");
+           preparedStatement =connection.prepareStatement("insert into rectors (name,surname,age,phone_number,address,email)  values ( ?,?,?,?,?,?)");
            preparedStatement.setString(1,rectors.getName());
            preparedStatement.setString(2,rectors.getSurname());
            preparedStatement.setDate(3,rectors.getAge());
@@ -28,22 +28,28 @@ public class RectorsDAO extends AbstractMySqlDAO implements IRectorsDAO {
            preparedStatement.setString(6, rectors.getEmail());
            preparedStatement.executeUpdate();
 
-           connection.close();
-           preparedStatement.close();
-
        }catch (SQLException e){
            LOGGER.error(e);
+       }finally {
+           try {
+               assert preparedStatement != null;
+               preparedStatement.close();
+           }catch (SQLException e){
+               LOGGER.error(e);
+           }
+           ConnectionPool.getInstance().putback(connection);
        }
 
     }
 
     @Override
     public Rectors getBy(Rectors rectors, Long id) {
+        PreparedStatement preparedStatement=null;
+        ResultSet resultSet=null;
       try {
-
-          PreparedStatement preparedStatement =connection.prepareStatement("Select * from rectors where id = ?");
+          preparedStatement =connection.prepareStatement("Select * from rectors where id = ?");
           preparedStatement.setLong(1,id);
-          ResultSet resultSet =preparedStatement.executeQuery();
+          resultSet =preparedStatement.executeQuery();
           while (resultSet.next()){
               rectors.setId(resultSet.getLong("id"));
               rectors.setName(resultSet.getString("name"));
@@ -54,99 +60,121 @@ public class RectorsDAO extends AbstractMySqlDAO implements IRectorsDAO {
               rectors.setEmail(resultSet.getString("email"));
           }
 
-          connection.close();
-          preparedStatement.close();
-          resultSet.close();
+
       }catch (SQLException e){
           LOGGER.error(e);
+      }finally {
+          try {
+              assert preparedStatement != null;
+              preparedStatement.close();
+              assert resultSet != null;
+              resultSet.close();
+          }catch (SQLException e){
+              LOGGER.error(e);
+          }
+          ConnectionPool.getInstance().putback(connection);
       }
         return rectors;
     }
 
     @Override
     public void remove(Long id) {
+        PreparedStatement preparedStatement=null;
        try {
-
-           PreparedStatement preparedStatement = connection.prepareStatement("Delete From rectors where id = ?");
+           preparedStatement = connection.prepareStatement("Delete From rectors where id = ?");
            preparedStatement.setLong(1,id);
            preparedStatement.executeUpdate();
 
-           connection.close();
-           preparedStatement.close();
        }catch (SQLException e){
            LOGGER.error(e);
+       }finally {
+          try {
+              assert preparedStatement != null;
+              preparedStatement.close();
+          }catch (SQLException e){
+              LOGGER.error(e);
+          }
+          ConnectionPool.getInstance().putback(connection);
        }
     }
 
     @Override
     public void update(String setParameter, Rectors rectors, Long id) {
       try {
-
-          switch (setParameter){
-              case "name":PreparedStatement preparedStatementName =connection.prepareStatement("update rectors set name = ? where id = ?");
-                  preparedStatementName.setString(1,rectors.getName());
-                  preparedStatementName.setLong(2,id);
+          switch (setParameter) {
+              case "name" -> {
+                  PreparedStatement preparedStatementName = connection.prepareStatement("update rectors set name = ? where id = ?");
+                  preparedStatementName.setString(1, rectors.getName());
+                  preparedStatementName.setLong(2, id);
                   preparedStatementName.executeUpdate();
                   preparedStatementName.close();
-              break;
-              case "surname":PreparedStatement preparedStatementSurname = connection.prepareStatement("update rectors set surname = ? where id = ?");
-                  preparedStatementSurname.setString(1,rectors.getSurname());
-                  preparedStatementSurname.setLong(2,id);
+              }
+              case "surname" -> {
+                  PreparedStatement preparedStatementSurname = connection.prepareStatement("update rectors set surname = ? where id = ?");
+                  preparedStatementSurname.setString(1, rectors.getSurname());
+                  preparedStatementSurname.setLong(2, id);
                   preparedStatementSurname.executeUpdate();
                   preparedStatementSurname.close();
-              break;
-              case "age":PreparedStatement preparedStatementAge = connection.prepareStatement("update rectors set age = ? where id = ?");
-                  preparedStatementAge.setDate(1,rectors.getAge());
-                  preparedStatementAge.setLong(2,id);
+              }
+              case "age" -> {
+                  PreparedStatement preparedStatementAge = connection.prepareStatement("update rectors set age = ? where id = ?");
+                  preparedStatementAge.setDate(1, rectors.getAge());
+                  preparedStatementAge.setLong(2, id);
                   preparedStatementAge.executeUpdate();
                   preparedStatementAge.close();
-              break;
-              case "phone_number":PreparedStatement preparedStatementPhoneNumber = connection.prepareStatement("update rectors set phone_number = ? where id = ?");
-                  preparedStatementPhoneNumber.setInt(1,rectors.getPhone_number());
-                  preparedStatementPhoneNumber.setLong(2,id);
+              }
+              case "phone_number" -> {
+                  PreparedStatement preparedStatementPhoneNumber = connection.prepareStatement("update rectors set phone_number = ? where id = ?");
+                  preparedStatementPhoneNumber.setInt(1, rectors.getPhone_number());
+                  preparedStatementPhoneNumber.setLong(2, id);
                   preparedStatementPhoneNumber.executeUpdate();
                   preparedStatementPhoneNumber.close();
-              break;
-              case "address":PreparedStatement preparedStatementAddress = connection.prepareStatement("update rectors set address = ? where id = ?");
-                  preparedStatementAddress.setString(1,rectors.getAddress());
-                  preparedStatementAddress.setLong(2,id);
+              }
+              case "address" -> {
+                  PreparedStatement preparedStatementAddress = connection.prepareStatement("update rectors set address = ? where id = ?");
+                  preparedStatementAddress.setString(1, rectors.getAddress());
+                  preparedStatementAddress.setLong(2, id);
                   preparedStatementAddress.executeUpdate();
                   preparedStatementAddress.close();
-              break;
-              case "email":PreparedStatement preparedStatementEmail = connection.prepareStatement("update rectors set email = ? where id = ?");
-                  preparedStatementEmail.setString(1,rectors.getEmail());
-                  preparedStatementEmail.setLong(2,id);
+              }
+              case "email" -> {
+                  PreparedStatement preparedStatementEmail = connection.prepareStatement("update rectors set email = ? where id = ?");
+                  preparedStatementEmail.setString(1, rectors.getEmail());
+                  preparedStatementEmail.setLong(2, id);
                   preparedStatementEmail.executeUpdate();
                   preparedStatementEmail.close();
-              break;
-              case "all":PreparedStatement preparedStatementAll = connection.prepareStatement("update rectors set name = ? , surname = ?, age = ?, phone_number= ?, address = ?, email = ? where id = ?");
-                  preparedStatementAll.setString(1,rectors.getName());
-                  preparedStatementAll.setString(2,rectors.getSurname());
-                  preparedStatementAll.setDate(3,rectors.getAge());
-                  preparedStatementAll.setInt(4,rectors.getPhone_number());
-                  preparedStatementAll.setString(5,rectors.getAddress());
-                  preparedStatementAll.setString(6,rectors.getEmail());
-                  preparedStatementAll.setLong(7,id);
+              }
+              case "all" -> {
+                  PreparedStatement preparedStatementAll = connection.prepareStatement("update rectors set name = ? , surname = ?, age = ?, phone_number= ?, address = ?, email = ? where id = ?");
+                  preparedStatementAll.setString(1, rectors.getName());
+                  preparedStatementAll.setString(2, rectors.getSurname());
+                  preparedStatementAll.setDate(3, rectors.getAge());
+                  preparedStatementAll.setInt(4, rectors.getPhone_number());
+                  preparedStatementAll.setString(5, rectors.getAddress());
+                  preparedStatementAll.setString(6, rectors.getEmail());
+                  preparedStatementAll.setLong(7, id);
                   preparedStatementAll.executeUpdate();
                   preparedStatementAll.close();
-              break;
-              default:
-                  LOGGER.error("Parameter don't exist");
+              }
+              default -> LOGGER.error("Parameter don't exist");
           }
-          connection.close();
+
 
       }catch (SQLException e){
           LOGGER.error(e);
+      }finally {
+          ConnectionPool.getInstance().putback(connection);
       }
     }
 
     @Override
     public List<Rectors> getAllRectors() {
         List<Rectors> rectorsList = new ArrayList<>();
+        Statement statement = null;
+        ResultSet resultSet =null;
        try {
-
-           Statement statement = connection.createStatement();
-           ResultSet resultSet = statement.executeQuery("Select * from rectors");
+           statement = connection.createStatement();
+           resultSet = statement.executeQuery("Select * from rectors");
            while (resultSet.next()){
                Rectors rectors = new Rectors();
 
@@ -160,11 +188,19 @@ public class RectorsDAO extends AbstractMySqlDAO implements IRectorsDAO {
 
                rectorsList.add(rectors);
            }
-          connection.close();
-          statement.close();
-          resultSet.close();
+
        }catch (SQLException e){
            LOGGER.error(e);
+       }finally {
+           try {
+               assert statement != null;
+               statement.close();
+               assert resultSet != null;
+               resultSet.close();
+           }catch (SQLException e){
+               LOGGER.error(e);
+           }
+           ConnectionPool.getInstance().putback(connection);
        }
         return rectorsList;
     }

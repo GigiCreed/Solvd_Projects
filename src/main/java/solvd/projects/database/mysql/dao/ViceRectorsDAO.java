@@ -15,12 +15,12 @@ import java.util.List;
 public class ViceRectorsDAO extends AbstractMySqlDAO implements IViceRectorsDAO {
     private static final Logger LOGGER = LogManager.getLogger(ViceRectorsDAO.class);
 
-    private Connection connection = ConnectionPool.getInstance().retrieve();
+    private final Connection connection = ConnectionPool.getInstance().retrieve();
     @Override
     public void create(ViceRectors viceRectors) {
+        PreparedStatement preparedStatement=null;
        try {
-
-           PreparedStatement preparedStatement =connection.prepareStatement("insert into vice_rectors (name,surname,age,phone_number,address,email)  values ( ?,?,?,?,?,?)");
+           preparedStatement =connection.prepareStatement("insert into vice_rectors (name,surname,age,phone_number,address,email)  values ( ?,?,?,?,?,?)");
            preparedStatement.setString(1,viceRectors.getName());
            preparedStatement.setString(2,viceRectors.getSurname());
            preparedStatement.setDate(3,viceRectors.getAge());
@@ -29,20 +29,28 @@ public class ViceRectorsDAO extends AbstractMySqlDAO implements IViceRectorsDAO 
            preparedStatement.setString(6, viceRectors.getEmail());
            preparedStatement.executeUpdate();
 
-           connection.close();
-           preparedStatement.close();
+
        }catch (SQLException e){
            LOGGER.error(e);
+       }finally {
+           try {
+               assert preparedStatement != null;
+               preparedStatement.close();
+           }catch (SQLException e){
+               LOGGER.error(e);
+           }
+           ConnectionPool.getInstance().putback(connection);
        }
     }
 
     @Override
     public ViceRectors getBy(ViceRectors viceRectors, Long id) {
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet=null;
         try {
-
-            PreparedStatement preparedStatement =connection.prepareStatement("Select * from vice_rectors where id = ?");
+            preparedStatement =connection.prepareStatement("Select * from vice_rectors where id = ?");
             preparedStatement.setLong(1,id);
-            ResultSet resultSet =preparedStatement.executeQuery();
+            resultSet =preparedStatement.executeQuery();
             while (resultSet.next()){
                 viceRectors.setId(resultSet.getLong("id"));
                 viceRectors.setName(resultSet.getString("name"));
@@ -53,27 +61,41 @@ public class ViceRectorsDAO extends AbstractMySqlDAO implements IViceRectorsDAO 
                 viceRectors.setEmail(resultSet.getString("email"));
             }
 
-            connection.close();
-            preparedStatement.close();
-            resultSet.close();
+
         }catch (SQLException e){
             LOGGER.error(e);
+        }finally {
+            try {
+                assert resultSet != null;
+                resultSet.close();
+                preparedStatement.close();
+            }catch (SQLException e){
+                LOGGER.error(e);
+            }
+            ConnectionPool.getInstance().putback(connection);
         }
         return viceRectors;
     }
 
     @Override
     public void remove(Long id) {
+        PreparedStatement preparedStatement = null;
         try {
-
-            PreparedStatement preparedStatement = connection.prepareStatement("Delete From vice_rectors where id = ?");
+            preparedStatement = connection.prepareStatement("Delete From vice_rectors where id = ?");
             preparedStatement.setLong(1,id);
             preparedStatement.executeUpdate();
 
-            connection.close();
-            preparedStatement.close();
+
         }catch (SQLException e){
             LOGGER.error(e);
+        }finally {
+            try {
+                assert preparedStatement != null;
+                preparedStatement.close();
+            }catch (SQLException e){
+                LOGGER.error(e);
+            }
+            ConnectionPool.getInstance().putback(connection);
         }
     }
 
@@ -81,71 +103,81 @@ public class ViceRectorsDAO extends AbstractMySqlDAO implements IViceRectorsDAO 
     public void update(String setParameter, ViceRectors viceRectors, Long id) {
         try {
 
-            switch (setParameter){
-                case "name":PreparedStatement preparedStatementName =connection.prepareStatement("update vice_rectors set name = ? where id = ?");
-                    preparedStatementName.setString(1,viceRectors.getName());
-                    preparedStatementName.setLong(2,id);
+            switch (setParameter) {
+                case "name" -> {
+                    PreparedStatement preparedStatementName = connection.prepareStatement("update vice_rectors set name = ? where id = ?");
+                    preparedStatementName.setString(1, viceRectors.getName());
+                    preparedStatementName.setLong(2, id);
                     preparedStatementName.executeUpdate();
                     preparedStatementName.close();
-                    break;
-                case "surname":PreparedStatement preparedStatementSurname = connection.prepareStatement("update vice_rectors set surname = ? where id = ?");
-                    preparedStatementSurname.setString(1,viceRectors.getSurname());
-                    preparedStatementSurname.setLong(2,id);
+                }
+                case "surname" -> {
+                    PreparedStatement preparedStatementSurname = connection.prepareStatement("update vice_rectors set surname = ? where id = ?");
+                    preparedStatementSurname.setString(1, viceRectors.getSurname());
+                    preparedStatementSurname.setLong(2, id);
                     preparedStatementSurname.executeUpdate();
                     preparedStatementSurname.close();
-                    break;
-                case "age":PreparedStatement preparedStatementAge = connection.prepareStatement("update vice_rectors set age = ? where id = ?");
-                    preparedStatementAge.setDate(1,viceRectors.getAge());
-                    preparedStatementAge.setLong(2,id);
+                }
+                case "age" -> {
+                    PreparedStatement preparedStatementAge = connection.prepareStatement("update vice_rectors set age = ? where id = ?");
+                    preparedStatementAge.setDate(1, viceRectors.getAge());
+                    preparedStatementAge.setLong(2, id);
                     preparedStatementAge.executeUpdate();
                     preparedStatementAge.close();
-                    break;
-                case "phone_number":PreparedStatement preparedStatementPhoneNumber = connection.prepareStatement("update vice_rectors set phone_number = ? where id = ?");
-                    preparedStatementPhoneNumber.setInt(1,viceRectors.getPhone_number());
-                    preparedStatementPhoneNumber.setLong(2,id);
+                }
+                case "phone_number" -> {
+                    PreparedStatement preparedStatementPhoneNumber = connection.prepareStatement("update vice_rectors set phone_number = ? where id = ?");
+                    preparedStatementPhoneNumber.setInt(1, viceRectors.getPhone_number());
+                    preparedStatementPhoneNumber.setLong(2, id);
                     preparedStatementPhoneNumber.executeUpdate();
                     preparedStatementPhoneNumber.close();
-                    break;
-                case "address":PreparedStatement preparedStatementAddress = connection.prepareStatement("update vice_rectors set address = ? where id = ?");
-                    preparedStatementAddress.setString(1,viceRectors.getAddress());
-                    preparedStatementAddress.setLong(2,id);
+                }
+                case "address" -> {
+                    PreparedStatement preparedStatementAddress = connection.prepareStatement("update vice_rectors set address = ? where id = ?");
+                    preparedStatementAddress.setString(1, viceRectors.getAddress());
+                    preparedStatementAddress.setLong(2, id);
                     preparedStatementAddress.executeUpdate();
                     preparedStatementAddress.close();
-                    break;
-                case "email":PreparedStatement preparedStatementEmail = connection.prepareStatement("update vice_rectors set email = ? where id = ?");
-                    preparedStatementEmail.setString(1,viceRectors.getEmail());
-                    preparedStatementEmail.setLong(2,id);
+                }
+                case "email" -> {
+                    PreparedStatement preparedStatementEmail = connection.prepareStatement("update vice_rectors set email = ? where id = ?");
+                    preparedStatementEmail.setString(1, viceRectors.getEmail());
+                    preparedStatementEmail.setLong(2, id);
                     preparedStatementEmail.executeUpdate();
                     preparedStatementEmail.close();
-                    break;
-                case "all":PreparedStatement preparedStatementAll = connection.prepareStatement("update vice_rectors set name = ? , surname = ?, age = ?, phone_number= ?, address = ?, email = ? where id = ?");
-                    preparedStatementAll.setString(1,viceRectors.getName());
-                    preparedStatementAll.setString(2,viceRectors.getSurname());
-                    preparedStatementAll.setDate(3,viceRectors.getAge());
-                    preparedStatementAll.setInt(4,viceRectors.getPhone_number());
-                    preparedStatementAll.setString(5,viceRectors.getAddress());
-                    preparedStatementAll.setString(6,viceRectors.getEmail());
-                    preparedStatementAll.setLong(7,id);
+                }
+                case "all" -> {
+                    PreparedStatement preparedStatementAll = connection.prepareStatement("update vice_rectors set name = ? , surname = ?, age = ?, phone_number= ?, address = ?, email = ? where id = ?");
+                    preparedStatementAll.setString(1, viceRectors.getName());
+                    preparedStatementAll.setString(2, viceRectors.getSurname());
+                    preparedStatementAll.setDate(3, viceRectors.getAge());
+                    preparedStatementAll.setInt(4, viceRectors.getPhone_number());
+                    preparedStatementAll.setString(5, viceRectors.getAddress());
+                    preparedStatementAll.setString(6, viceRectors.getEmail());
+                    preparedStatementAll.setLong(7, id);
                     preparedStatementAll.executeUpdate();
                     preparedStatementAll.close();
-                    break;
-                default:
-                    LOGGER.error("Parameter don't exist");
+                }
+                default -> LOGGER.error("Parameter don't exist");
             }
-            connection.close();
+
 
         }catch (SQLException e){
             LOGGER.error(e);
+        }finally {
+            ConnectionPool.getInstance().putback(connection);
         }
     }
 
     @Override
     public List<ViceRectors> getAllViceRectors() {
         List<ViceRectors> viceRectorsList = new ArrayList<>();
+        Statement statement=null;
+        ResultSet resultSet=null;
         try {
 
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("Select * from vice_rectors");
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery("Select * from vice_rectors");
             while (resultSet.next()){
                 ViceRectors viceRectors = new ViceRectors();
 
@@ -159,11 +191,18 @@ public class ViceRectorsDAO extends AbstractMySqlDAO implements IViceRectorsDAO 
 
                 viceRectorsList.add(viceRectors);
             }
-            connection.close();
-            statement.close();
-            resultSet.close();
+
         }catch (SQLException e){
             LOGGER.error(e);
+        }finally {
+            try {
+                assert resultSet != null;
+                resultSet.close();
+                statement.close();
+            }catch (SQLException e){
+                LOGGER.error(e);
+            }
+            ConnectionPool.getInstance().putback(connection);
         }
         return viceRectorsList;
     }

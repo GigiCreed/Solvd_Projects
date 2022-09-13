@@ -13,7 +13,7 @@ import java.util.List;
 
 public class FacultiesDAO extends AbstractMySqlDAO implements IFacultiesDAO {
     private static final Logger LOGGER = LogManager.getLogger(FacultiesDAO.class);
-    private Connection connection = ConnectionPool.getInstance().retrieve();
+    private final Connection connection = ConnectionPool.getInstance().retrieve();
     @Override
     public void create(Faculties faculties) {
         PreparedStatement preparedStatement =null;
@@ -23,12 +23,12 @@ public class FacultiesDAO extends AbstractMySqlDAO implements IFacultiesDAO {
             preparedStatement.setLong(2,faculties.getUniversitiesId());
             preparedStatement.executeUpdate();
 
-            connection.close();
-            preparedStatement.close();
+
         }catch (SQLException e){
             LOGGER.error(e);
         }finally {
             try {
+                assert preparedStatement != null;
                 preparedStatement.close();
             }catch (SQLException e){
                 LOGGER.error(e);
@@ -56,7 +56,9 @@ public class FacultiesDAO extends AbstractMySqlDAO implements IFacultiesDAO {
             LOGGER.error(e);
         }finally {
             try {
+                assert preparedStatement != null;
                 preparedStatement.close();
+                assert resultSet != null;
                 resultSet.close();
             }catch (SQLException e){
                 LOGGER.error(e);
@@ -74,11 +76,12 @@ public class FacultiesDAO extends AbstractMySqlDAO implements IFacultiesDAO {
            preparedStatement.setLong(1,id);
            preparedStatement.executeUpdate();
 
-           preparedStatement.close();
+
        }catch (SQLException e){
            LOGGER.error(e);
        }finally {
            try {
+               assert preparedStatement != null;
                preparedStatement.close();
            }catch (SQLException e){
                LOGGER.error(e);
@@ -91,31 +94,30 @@ public class FacultiesDAO extends AbstractMySqlDAO implements IFacultiesDAO {
     @Override
     public void update(String setParameter, Faculties faculties, Long id) {
         try {
-            switch (setParameter){
-                case "name":
+            switch (setParameter) {
+                case "name" -> {
                     PreparedStatement preparedStatementName = connection.prepareStatement("Update faculties Set name = ? where id = ?");
-                    preparedStatementName.setString(1,faculties.getName());
-                    preparedStatementName.setLong(2,id);
+                    preparedStatementName.setString(1, faculties.getName());
+                    preparedStatementName.setLong(2, id);
                     preparedStatementName.executeUpdate();
                     preparedStatementName.close();
-                    break;
-                case "Universities_id":
+                }
+                case "Universities_id" -> {
                     PreparedStatement preparedStatementUniversitiesId = connection.prepareStatement("Update faculties Set Universities_id = ? where id = ?");
-                    preparedStatementUniversitiesId.setLong(1,faculties.getUniversitiesId());
-                    preparedStatementUniversitiesId.setLong(2,id);
+                    preparedStatementUniversitiesId.setLong(1, faculties.getUniversitiesId());
+                    preparedStatementUniversitiesId.setLong(2, id);
                     preparedStatementUniversitiesId.executeUpdate();
                     preparedStatementUniversitiesId.close();
-                    break;
-                case "all":
+                }
+                case "all" -> {
                     PreparedStatement preparedStatementAll = connection.prepareStatement("Update faculties Set name = ?, Universities_id = ? where id = ?");
-                    preparedStatementAll.setString(1,faculties.getName());
-                    preparedStatementAll.setLong(2,faculties.getUniversitiesId());
-                    preparedStatementAll.setLong(3,id);
+                    preparedStatementAll.setString(1, faculties.getName());
+                    preparedStatementAll.setLong(2, faculties.getUniversitiesId());
+                    preparedStatementAll.setLong(3, id);
                     preparedStatementAll.executeUpdate();
                     preparedStatementAll.close();
-                    break;
-                default:
-                    LOGGER.error("Parameter not exist");
+                }
+                default -> LOGGER.error("Parameter not exist");
             }
         }catch (SQLException e){
             LOGGER.error(e);
@@ -145,7 +147,9 @@ public class FacultiesDAO extends AbstractMySqlDAO implements IFacultiesDAO {
            LOGGER.error(e);
        }finally {
            try {
+               assert statement != null;
                statement.close();
+               assert resultSet != null;
                resultSet.close();
            }catch (SQLException e){
                LOGGER.error(e);
