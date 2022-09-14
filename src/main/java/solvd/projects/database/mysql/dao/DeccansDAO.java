@@ -14,9 +14,10 @@ import java.util.List;
 public class DeccansDAO extends AbstractMySqlDAO implements IDeccansDAO {
     private static final Logger LOGGER = LogManager.getLogger(DeccansDAO.class);
 
-    private final Connection connection = ConnectionPool.getInstance().retrieve();
+
     @Override
     public void create(Deccans deccans)  {
+        Connection connection = ConnectionPool.getInstance().retrieve();
         PreparedStatement preparedStatement = null;
         try {
             preparedStatement = connection.prepareStatement("insert into deccans (name,surname,age,address,phone_number,email,Faculties_id,Universities_id)  values ( ?,?,?,?,?,?,?,?)");
@@ -46,6 +47,7 @@ public class DeccansDAO extends AbstractMySqlDAO implements IDeccansDAO {
 
     @Override
     public Deccans getBy(Deccans deccans, Long id)  {
+        Connection connection = ConnectionPool.getInstance().retrieve();
         PreparedStatement preparedStatement=null;
         ResultSet resultSet=null;
         try {
@@ -82,6 +84,7 @@ public class DeccansDAO extends AbstractMySqlDAO implements IDeccansDAO {
 
     @Override
     public void remove(Long id) {
+        Connection connection = ConnectionPool.getInstance().retrieve();
         PreparedStatement preparedStatement = null;
         try {
             preparedStatement = connection.prepareStatement("Delete From deccans where id = ?");
@@ -104,6 +107,7 @@ public class DeccansDAO extends AbstractMySqlDAO implements IDeccansDAO {
 
     @Override
     public void update(String setParameter, Deccans deccans, Long id) {
+        Connection connection = ConnectionPool.getInstance().retrieve();
         try {
             switch (setParameter) {
                 case "name" -> {
@@ -188,6 +192,7 @@ public class DeccansDAO extends AbstractMySqlDAO implements IDeccansDAO {
 
     @Override
     public List<Deccans> getAllDeccans() {
+        Connection connection = ConnectionPool.getInstance().retrieve();
         List<Deccans> deccansList = new ArrayList<>();
         Statement statement=null;
         ResultSet resultSet = null;

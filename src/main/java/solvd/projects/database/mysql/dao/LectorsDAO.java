@@ -14,9 +14,10 @@ import java.util.List;
 public class LectorsDAO extends AbstractMySqlDAO implements ILectorsDAO {
     private static final Logger LOGGER = LogManager.getLogger(LectorsDAO.class);
 
-    private final Connection connection = ConnectionPool.getInstance().retrieve();
+
     @Override
     public void create(Lectors lectors) {
+        Connection connection = ConnectionPool.getInstance().retrieve();
         PreparedStatement preparedStatement=null;
         try {
 
@@ -47,6 +48,7 @@ public class LectorsDAO extends AbstractMySqlDAO implements ILectorsDAO {
 
     @Override
     public Lectors getBy(Lectors lectors, Long id) {
+        Connection connection = ConnectionPool.getInstance().retrieve();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         try {
@@ -83,6 +85,7 @@ public class LectorsDAO extends AbstractMySqlDAO implements ILectorsDAO {
 
     @Override
     public void remove(Long id) {
+        Connection connection = ConnectionPool.getInstance().retrieve();
         PreparedStatement preparedStatement =null;
         try {
             preparedStatement = connection.prepareStatement("Delete From lectors where id = ?");
@@ -105,6 +108,7 @@ public class LectorsDAO extends AbstractMySqlDAO implements ILectorsDAO {
 
     @Override
     public void update(String setParameter, Lectors lectors, Long id) {
+        Connection connection = ConnectionPool.getInstance().retrieve();
         try {
 
             switch (setParameter) {
@@ -183,6 +187,7 @@ public class LectorsDAO extends AbstractMySqlDAO implements ILectorsDAO {
 
     @Override
     public List<Lectors> getAllLectors() {
+        Connection connection = ConnectionPool.getInstance().retrieve();
         List<Lectors> lectorsList = new ArrayList<>();
         Statement statement=null;
         ResultSet resultSet=null;

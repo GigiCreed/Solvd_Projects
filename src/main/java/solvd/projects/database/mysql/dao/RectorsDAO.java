@@ -14,9 +14,9 @@ import java.util.List;
 public class RectorsDAO extends AbstractMySqlDAO implements IRectorsDAO {
     private static final Logger LOGGER = LogManager.getLogger(RectorsDAO.class);
 
-    private final Connection connection = ConnectionPool.getInstance().retrieve();
     @Override
     public void create(Rectors rectors) {
+        Connection connection = ConnectionPool.getInstance().retrieve();
         PreparedStatement preparedStatement = null;
        try {
            preparedStatement =connection.prepareStatement("insert into rectors (name,surname,age,phone_number,address,email)  values ( ?,?,?,?,?,?)");
@@ -44,6 +44,7 @@ public class RectorsDAO extends AbstractMySqlDAO implements IRectorsDAO {
 
     @Override
     public Rectors getBy(Rectors rectors, Long id) {
+        Connection connection = ConnectionPool.getInstance().retrieve();
         PreparedStatement preparedStatement=null;
         ResultSet resultSet=null;
       try {
@@ -79,6 +80,7 @@ public class RectorsDAO extends AbstractMySqlDAO implements IRectorsDAO {
 
     @Override
     public void remove(Long id) {
+        Connection connection = ConnectionPool.getInstance().retrieve();
         PreparedStatement preparedStatement=null;
        try {
            preparedStatement = connection.prepareStatement("Delete From rectors where id = ?");
@@ -100,6 +102,7 @@ public class RectorsDAO extends AbstractMySqlDAO implements IRectorsDAO {
 
     @Override
     public void update(String setParameter, Rectors rectors, Long id) {
+        Connection connection = ConnectionPool.getInstance().retrieve();
       try {
           switch (setParameter) {
               case "name" -> {
@@ -169,10 +172,12 @@ public class RectorsDAO extends AbstractMySqlDAO implements IRectorsDAO {
 
     @Override
     public List<Rectors> getAllRectors() {
+        Connection connection = ConnectionPool.getInstance().retrieve();
         List<Rectors> rectorsList = new ArrayList<>();
         Statement statement = null;
         ResultSet resultSet =null;
        try {
+
            statement = connection.createStatement();
            resultSet = statement.executeQuery("Select * from rectors");
            while (resultSet.next()){

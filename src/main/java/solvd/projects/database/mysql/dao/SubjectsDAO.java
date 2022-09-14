@@ -14,10 +14,11 @@ import java.util.List;
 public class SubjectsDAO extends AbstractMySqlDAO implements ISubjectsDAO {
     private static final Logger LOGGER = LogManager.getLogger(SubjectsDAO.class);
 
-    private final Connection connection = ConnectionPool.getInstance().retrieve();
+
 
     @Override
     public void create(Subjects subjects) {
+        Connection connection = ConnectionPool.getInstance().retrieve();
         PreparedStatement preparedStatement = null;
         try {
             preparedStatement = connection.prepareStatement("Insert into subjects (name,course,Specialties_id) values (?,?,?)");
@@ -41,6 +42,7 @@ public class SubjectsDAO extends AbstractMySqlDAO implements ISubjectsDAO {
 
     @Override
     public Subjects getBy(Subjects subjects, Long id) {
+        Connection connection = ConnectionPool.getInstance().retrieve();
         PreparedStatement preparedStatement=null;
         ResultSet resultSet=null;
         try {
@@ -70,6 +72,7 @@ public class SubjectsDAO extends AbstractMySqlDAO implements ISubjectsDAO {
 
     @Override
     public void remove(Long id) {
+        Connection connection = ConnectionPool.getInstance().retrieve();
         PreparedStatement preparedStatement=null;
        try {
            preparedStatement = connection.prepareStatement("Delete from subjects where id = ?");
@@ -91,6 +94,7 @@ public class SubjectsDAO extends AbstractMySqlDAO implements ISubjectsDAO {
 
     @Override
     public void update(String setParameter, Subjects subjects, Long id) {
+        Connection connection = ConnectionPool.getInstance().retrieve();
           try {
               switch (setParameter) {
                   case "name" -> {
@@ -136,6 +140,7 @@ public class SubjectsDAO extends AbstractMySqlDAO implements ISubjectsDAO {
 
     @Override
     public List<Subjects> getAllSubjects() {
+        Connection connection = ConnectionPool.getInstance().retrieve();
         List<Subjects> subjectsList = new ArrayList<>();
         Statement statement=null;
         ResultSet resultSet=null;

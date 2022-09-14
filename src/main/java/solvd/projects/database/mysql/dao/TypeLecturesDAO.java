@@ -15,10 +15,11 @@ public class TypeLecturesDAO extends AbstractMySqlDAO implements ITypeLecturesDA
 
     private static final Logger LOGGER = LogManager.getLogger(TypeLecturesDAO.class);
 
-    private final Connection connection = ConnectionPool.getInstance().retrieve();
+
 
     @Override
     public void create(TypeLectures typeLectures) {
+        Connection connection = ConnectionPool.getInstance().retrieve();
         PreparedStatement preparedStatement=null;
         try {
             preparedStatement = connection.prepareStatement("Insert into type_lectures (type, Lectors_id, Subjects_id) values (?,?,?)");
@@ -43,6 +44,7 @@ public class TypeLecturesDAO extends AbstractMySqlDAO implements ITypeLecturesDA
 
     @Override
     public TypeLectures getBy(TypeLectures typeLectures, Long id) {
+        Connection connection = ConnectionPool.getInstance().retrieve();
         PreparedStatement preparedStatement=null;
         ResultSet resultSet=null;
        try {
@@ -73,6 +75,7 @@ public class TypeLecturesDAO extends AbstractMySqlDAO implements ITypeLecturesDA
 
     @Override
     public void remove(Long id) {
+        Connection connection = ConnectionPool.getInstance().retrieve();
         PreparedStatement preparedStatement=null;
         try {
             preparedStatement = connection.prepareStatement("Delete from type_lectures where id = ?");
@@ -94,6 +97,7 @@ public class TypeLecturesDAO extends AbstractMySqlDAO implements ITypeLecturesDA
 
     @Override
     public void update(String setParameter, TypeLectures typeLectures, Long id) {
+        Connection connection = ConnectionPool.getInstance().retrieve();
        try {
            switch (setParameter) {
                case "type" -> {
@@ -138,6 +142,7 @@ public class TypeLecturesDAO extends AbstractMySqlDAO implements ITypeLecturesDA
 
     @Override
     public List<TypeLectures> getAllTypeLectures() {
+        Connection connection = ConnectionPool.getInstance().retrieve();
         List<TypeLectures> typeLecturesList = new ArrayList<>();
         Statement statement=null;
         ResultSet resultSet=null;

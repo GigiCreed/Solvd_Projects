@@ -14,11 +14,11 @@ import java.util.List;
 public class TypeSpecialtiesDAO extends AbstractMySqlDAO implements ITypeSpecialtiesDAO {
     private static final Logger LOGGER = LogManager.getLogger(TypeSpecialtiesDAO.class);
 
-    private final Connection connection = ConnectionPool.getInstance().retrieve();
 
 
     @Override
     public void create(TypeSpecialties typeSpecialties) {
+        Connection connection = ConnectionPool.getInstance().retrieve();
         PreparedStatement preparedStatement=null;
        try {
            preparedStatement = connection.prepareStatement("Insert into type_specialties (type, Specialties_id,Students_id) values (?,?,?)");
@@ -42,6 +42,7 @@ public class TypeSpecialtiesDAO extends AbstractMySqlDAO implements ITypeSpecial
 
     @Override
     public TypeSpecialties getBy(TypeSpecialties typeSpecialties, Long id) {
+        Connection connection = ConnectionPool.getInstance().retrieve();
         PreparedStatement preparedStatement=null;
         ResultSet resultSet =null;
         try {
@@ -73,6 +74,7 @@ public class TypeSpecialtiesDAO extends AbstractMySqlDAO implements ITypeSpecial
 
     @Override
     public void remove(Long id) {
+        Connection connection = ConnectionPool.getInstance().retrieve();
         PreparedStatement preparedStatement =null;
         try {
             preparedStatement = connection.prepareStatement("delete from type_specialties where id = ?");
@@ -94,6 +96,7 @@ public class TypeSpecialtiesDAO extends AbstractMySqlDAO implements ITypeSpecial
 
     @Override
     public void update(String setParameter, TypeSpecialties typeSpecialties, Long id) {
+        Connection connection = ConnectionPool.getInstance().retrieve();
         try {
             switch (setParameter) {
                 case "type" -> {
@@ -138,6 +141,7 @@ public class TypeSpecialtiesDAO extends AbstractMySqlDAO implements ITypeSpecial
 
     @Override
     public List<TypeSpecialties> getAllTypeSpecialties() {
+        Connection connection = ConnectionPool.getInstance().retrieve();
         List<TypeSpecialties> typeSpecialtiesList = new ArrayList<>();
         Statement statement=null;
         ResultSet resultSet=null;

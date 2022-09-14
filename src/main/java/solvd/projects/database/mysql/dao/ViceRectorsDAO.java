@@ -15,9 +15,10 @@ import java.util.List;
 public class ViceRectorsDAO extends AbstractMySqlDAO implements IViceRectorsDAO {
     private static final Logger LOGGER = LogManager.getLogger(ViceRectorsDAO.class);
 
-    private final Connection connection = ConnectionPool.getInstance().retrieve();
+
     @Override
     public void create(ViceRectors viceRectors) {
+        Connection connection = ConnectionPool.getInstance().retrieve();
         PreparedStatement preparedStatement=null;
        try {
            preparedStatement =connection.prepareStatement("insert into vice_rectors (name,surname,age,phone_number,address,email)  values ( ?,?,?,?,?,?)");
@@ -45,6 +46,7 @@ public class ViceRectorsDAO extends AbstractMySqlDAO implements IViceRectorsDAO 
 
     @Override
     public ViceRectors getBy(ViceRectors viceRectors, Long id) {
+        Connection connection = ConnectionPool.getInstance().retrieve();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet=null;
         try {
@@ -79,6 +81,7 @@ public class ViceRectorsDAO extends AbstractMySqlDAO implements IViceRectorsDAO 
 
     @Override
     public void remove(Long id) {
+        Connection connection = ConnectionPool.getInstance().retrieve();
         PreparedStatement preparedStatement = null;
         try {
             preparedStatement = connection.prepareStatement("Delete From vice_rectors where id = ?");
@@ -101,6 +104,7 @@ public class ViceRectorsDAO extends AbstractMySqlDAO implements IViceRectorsDAO 
 
     @Override
     public void update(String setParameter, ViceRectors viceRectors, Long id) {
+        Connection connection = ConnectionPool.getInstance().retrieve();
         try {
 
             switch (setParameter) {
@@ -171,6 +175,7 @@ public class ViceRectorsDAO extends AbstractMySqlDAO implements IViceRectorsDAO 
 
     @Override
     public List<ViceRectors> getAllViceRectors() {
+        Connection connection = ConnectionPool.getInstance().retrieve();
         List<ViceRectors> viceRectorsList = new ArrayList<>();
         Statement statement=null;
         ResultSet resultSet=null;

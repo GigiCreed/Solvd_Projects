@@ -14,9 +14,10 @@ import java.util.List;
 public class UniversitiesDAO extends AbstractMySqlDAO implements IUniversitiesDAO {
     private static final Logger LOGGER = LogManager.getLogger(UniversitiesDAO.class);
 
-    private final Connection connection = ConnectionPool.getInstance().retrieve();
+
     @Override
     public void create(Universities universities) {
+        Connection connection = ConnectionPool.getInstance().retrieve();
         PreparedStatement preparedStatement = null;
         try {
 
@@ -46,6 +47,7 @@ public class UniversitiesDAO extends AbstractMySqlDAO implements IUniversitiesDA
 
     @Override
     public Universities getBy(Universities universities, Long id) {
+        Connection connection = ConnectionPool.getInstance().retrieve();
         PreparedStatement preparedStatement=null;
         ResultSet resultSet=null;
       try {
@@ -79,6 +81,7 @@ public class UniversitiesDAO extends AbstractMySqlDAO implements IUniversitiesDA
 
     @Override
     public void remove(Long id) {
+        Connection connection = ConnectionPool.getInstance().retrieve();
         PreparedStatement preparedStatement = null;
        try {
            preparedStatement = connection.prepareStatement("Delete From universities where id = ?");
@@ -101,6 +104,7 @@ public class UniversitiesDAO extends AbstractMySqlDAO implements IUniversitiesDA
 
     @Override
     public void update(String setParameter, Universities universities, Long id) {
+        Connection connection = ConnectionPool.getInstance().retrieve();
         try {
             switch (setParameter) {
                 case "name" -> {
@@ -169,6 +173,7 @@ public class UniversitiesDAO extends AbstractMySqlDAO implements IUniversitiesDA
 
     @Override
     public List<Universities> getAllUniversities() {
+        Connection connection = ConnectionPool.getInstance().retrieve();
        List<Universities> universitiesList = new ArrayList<>();
         Statement statement=null;
         ResultSet resultSet=null;
