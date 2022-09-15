@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<students xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="students.xsd">
+    <student id="1">
+        <name>Gigi</name>
+        <surname>Mamaladze</surname>
+        <birthDate>2002-11-28</birthDate>
+        <phone_number>599041208</phone_number>
+        <course>3</course>
+        <email>gigimamaladze@gmail.com</email>
+    </student>
+    <student id="2">
+        <name>Nika</name>
+        <surname>Fartenadze</surname>
+        <birthDate>2002-09-09</birthDate>
+        <phone_number>599123456</phone_number>
+        <course>3</course>
+        <email>giorgi@gmail.com</email>
+    </student>
+    <student id="3">
+        <name>Giorgi</name>
+        <surname>Kurshubadze</surname>
+        <birthDate>2002-09-09</birthDate>
+        <phone_number>599123456</phone_number>
+        <course>3</course>
+        <email>giorgi@gmail.com</email>
+    </student>
+    <student id="4">
+        <name>Irakli</name>
+        <surname>Qebuladze</surname>
+        <birthDate>2002-09-11</birthDate>
+        <phone_number>599123456</phone_number>
+        <course>2</course>
+        <email>irakli@gmail.com</email>
+    </student>
+</students>
