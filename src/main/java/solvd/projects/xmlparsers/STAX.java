@@ -21,9 +21,9 @@ public class STAX {
           while (xmlStreamReader.hasNext()){
               xmlStreamReader.next();
               if (xmlStreamReader.isStartElement()){
-                  LOGGER.info(xmlStreamReader.getLocalName());
+                  LOGGER.info("Start Element: "+xmlStreamReader.getLocalName());
               }else if (xmlStreamReader.isEndElement()){
-                  LOGGER.info("/" + xmlStreamReader.getLocalName());
+                  LOGGER.info("End Element: " + xmlStreamReader.getLocalName());
               } else if (xmlStreamReader.hasText() && xmlStreamReader.getText().trim().length()>0) {
                 LOGGER.info(xmlStreamReader.getText());
               }

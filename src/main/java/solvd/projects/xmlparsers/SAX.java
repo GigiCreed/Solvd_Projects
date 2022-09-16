@@ -10,14 +10,12 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 
 public class SAX {
     private final static Logger LOGGER = LogManager.getLogger(SAX.class);
     public static void main(String[] args) {
         DefaultHandler defaultHandler = new DefaultHandler(){
-//            final boolean student =false;
              boolean name =false;
              boolean surname =false;
              boolean birthDate= false;
@@ -28,7 +26,7 @@ public class SAX {
 
             @Override
             public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
-                LOGGER.info(qName);
+                LOGGER.info("Start Element: "+qName);
                 if (qName.equals("name")) name =true;
                 if (qName.equals("surname")) surname=true;
                 if (qName.equals("birthDate")) birthDate =true;
@@ -39,7 +37,7 @@ public class SAX {
 
             @Override
             public void endElement(String uri, String localName, String qName) throws SAXException {
-                LOGGER.info("/"+ qName);
+                LOGGER.info("End Element: "+ qName);
             }
 
             @Override
