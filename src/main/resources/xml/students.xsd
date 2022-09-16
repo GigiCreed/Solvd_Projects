@@ -9,14 +9,22 @@
                             <xs:element name="name" type="xs:string" />
                             <xs:element name="surname" type="xs:string" />
                             <xs:element name="birthDate" type="xs:date" />
-                            <xs:element name="phone_number" type="xs:int"/>
-                            <xs:element name="course" type="xs:unsignedByte"/>
+                            <xs:element name="phone_number" type="xs:unsignedInt"/>
+                            <xs:element name="course" type="DefinedCourse"/>
                             <xs:element name="email" type="xs:string"/>
                         </xs:sequence>
-                        <xs:attribute name="id" type="xs:long" use="required" />
+                        <xs:attribute name="id" type="xs:unsignedLong" use="required" />
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+
+
+    <xs:simpleType name="DefinedCourse">
+        <xs:restriction base="xs:unsignedByte">
+            <xs:minInclusive value="1"/> <xs:maxInclusive value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+
 </xs:schema>
