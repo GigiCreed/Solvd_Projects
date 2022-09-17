@@ -1,4 +1,4 @@
-package solvd.projects.xmlparsers;
+package solvd.projects.xml;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -68,7 +68,7 @@ public class SAX {
         SAXParserFactory saxParser = SAXParserFactory.newInstance();
         try {
             SAXParser parser = saxParser.newSAXParser();
-            parser.parse(new File("src\\main\\resources\\xml\\students.xml"),defaultHandler);
+            parser.parse(new File("src\\main\\resources\\xmlfiles\\students.xml"),defaultHandler);
 
 
         } catch (ParserConfigurationException | SAXException | IOException ex) {

@@ -1,4 +1,4 @@
-package solvd.projects.xmlparsers;
+package solvd.projects.xml;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -19,7 +19,7 @@ public class DOM {
     public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException {
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
-        Document document = documentBuilder.parse(new File("src\\main\\resources\\xml\\students.xml"));
+        Document document = documentBuilder.parse(new File("src\\main\\resources\\xmlfiles\\students.xml"));
 
         Element element = document.getDocumentElement();
         LOGGER.info(element);

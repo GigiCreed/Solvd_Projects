@@ -1,15 +1,13 @@
-package solvd.projects.xmlparsers;
+package solvd.projects.xml;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.xml.stream.XMLInputFactory;
-import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.net.Socket;
 
 
 public class STAX {
@@ -17,7 +15,7 @@ public class STAX {
     public static void main(String[] args){
 
         try {
-          XMLStreamReader xmlStreamReader = XMLInputFactory.newInstance().createXMLStreamReader(new FileInputStream("src\\main\\resources\\xml\\students.xml"));
+          XMLStreamReader xmlStreamReader = XMLInputFactory.newInstance().createXMLStreamReader(new FileInputStream("src\\main\\resources\\xmlfiles\\students.xml"));
           while (xmlStreamReader.hasNext()){
               xmlStreamReader.next();
               if (xmlStreamReader.isStartElement()){

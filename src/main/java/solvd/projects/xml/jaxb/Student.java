@@ -1,4 +1,4 @@
-package solvd.projects.jaxb;
+package solvd.projects.xml.jaxb;
 
 
 import javax.xml.bind.annotation.*;
