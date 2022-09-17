@@ -13,7 +13,7 @@
                             <xs:element name="course" type="DefinedCourse"/>
                             <xs:element name="email" type="xs:string"/>
                         </xs:sequence>
-                        <xs:attribute name="id" type="xs:unsignedLong" use="required" />
+                        <xs:attribute name="id" type="xs:unsignedInt" use="required" />
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>
