@@ -16,27 +16,29 @@ import java.util.Date;
 
 public class JaxbWriter {
     private final static Logger LOGGER = LogManager.getLogger(JaxbWriter.class);
-    public static void main(String[] args) throws JAXBException, IOException {
+    public static void main(String[] args) {
+        try {
+             JAXBContext context = JAXBContext.newInstance(Students.class);
 
+             Marshaller m = context.createMarshaller();
+             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
-            JAXBContext context = JAXBContext.newInstance(Students.class);
+             Students students = new Students() {
+                 {
 
-            Marshaller m =context.createMarshaller();
-            m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+                     Student student = new Student(5L, "Tinatin", "rodinadze", new Date(10140768000000L), 55, (short) 3, "tinati@gmail.com");
+                     this.addStudent(student);
 
-            Students students = new Students(){
-                {
+                     Student student2 = new Student(6L, "Gigi", "Mamaladze", new Date(10140768000000L), 55, (short) 3, "Gigi@gmail.com");
+                     this.addStudent(student2);
 
-                    Student student = new Student(5L,"Tinatin","rodinadze",new Date(10140768000000L),55, (short) 3,"tinati@gmail.com");
-                    this.addStudent(student);
-
-                    Student student2 = new Student(6L,"Gigi","Mamaladze",new Date(10140768000000L),55, (short) 3,"Gigi@gmail.com");
-                    this.addStudent(student2);
-
-                }
-            };
-            m.marshal(students,new File("src\\main\\resources\\xmlfiles\\studentsJaxb.xml"));
-            LOGGER.info("Object is written on Xml");
+                 }
+             };
+             m.marshal(students, new File("src\\main\\resources\\xmlfiles\\studentsJaxb.xml"));
+             LOGGER.info("Object is written on Xml");
+         }catch (JAXBException e){
+             LOGGER.error(e);
+         }
 
     }
 }
