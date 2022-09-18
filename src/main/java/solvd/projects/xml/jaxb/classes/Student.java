@@ -1,11 +1,10 @@
-package solvd.projects.xml.jaxb;
+package solvd.projects.xml.jaxb.classes;
 
 
 import javax.xml.bind.annotation.*;
 import java.util.Date;
 
 @XmlRootElement
-@XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "student",propOrder = {
         "name",
         "surname",
@@ -14,6 +13,7 @@ import java.util.Date;
         "course",
         "email"
 })
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Student {
     @XmlAttribute(required = true)
     private long id;
@@ -28,20 +28,25 @@ public class Student {
     private Date birthDate;
 
     @XmlElement(required = true)
+    private int phone_number;
+
+    @XmlElement(required = true)
     private short course;
 
     @XmlElement(required = true)
     private String email;
 
+
     public Student(){
 
     }
 
-    public Student(long id, String name, String surname, Date birthDate, short course, String email) {
+    public Student(long id, String name, String surname, Date birthDate, int phone_number, short course, String email) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.birthDate = birthDate;
+        this.phone_number = phone_number;
         this.course = course;
         this.email = email;
     }
@@ -78,6 +83,14 @@ public class Student {
         this.birthDate = birthDate;
     }
 
+    public int getPhone_number() {
+        return phone_number;
+    }
+
+    public void setPhone_number(int phone_number) {
+        this.phone_number = phone_number;
+    }
+
     public short getCourse() {
         return course;
     }
@@ -101,6 +114,7 @@ public class Student {
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", birthDate=" + birthDate +
+                ", phone_number=" + phone_number +
                 ", course=" + course +
                 ", email='" + email + '\'' +
                 '}';
