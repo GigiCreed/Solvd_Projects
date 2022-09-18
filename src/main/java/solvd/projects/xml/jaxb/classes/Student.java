@@ -109,14 +109,14 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", birthDate=" + birthDate +
-                ", phone_number=" + phone_number +
-                ", course=" + course +
-                ", email='" + email + '\'' +
-                '}';
+        return "Student{" +"\n" +
+                "id=" + id + "\n" +
+                "name='" + name + "\n" +
+                "surname='" + surname + "\n" +
+                "birthDate=" + birthDate + "\n" +
+                "phone_number=" + phone_number + "\n" +
+                "course=" + course + "\n" +
+                "email='" + email + "\n" +
+                '}'+"\n" ;
     }
 }

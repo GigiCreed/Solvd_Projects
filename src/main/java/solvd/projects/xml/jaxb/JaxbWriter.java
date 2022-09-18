@@ -30,7 +30,7 @@ public class JaxbWriter {
                     Student student = new Student(5L,"Tinatin","rodinadze",new Date(10140768000000L),55, (short) 3,"tinati@gmail.com");
                     this.addStudent(student);
 
-                    Student student2 = new Student(6L,"Nika","Mamaladze",new Date(10140768000000L),55, (short) 3,"Gigi@gmail.com");
+                    Student student2 = new Student(6L,"Gigi","Mamaladze",new Date(10140768000000L),55, (short) 3,"Gigi@gmail.com");
                     this.addStudent(student2);
 
                 }
