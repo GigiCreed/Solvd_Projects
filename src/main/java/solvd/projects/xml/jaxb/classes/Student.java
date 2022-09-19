@@ -5,35 +5,28 @@ import javax.xml.bind.annotation.*;
 import java.util.Date;
 
 @XmlRootElement
-@XmlType(name = "student",propOrder = {
-        "name",
-        "surname",
-        "birthDate",
-        "phone_number",
-        "course",
-        "email"
-})
+@XmlType(name = "student")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Student {
-    @XmlAttribute(required = true)
+    @XmlAttribute(name = "Id",required = true)
     private long id;
 
-    @XmlElement(required = true)
+    @XmlElement(name = "Name",required = true)
     private String name;
 
-    @XmlElement(required = true)
+    @XmlElement(name = "Surname",required = true)
     private String surname;
 
-    @XmlElement(required = true)
+    @XmlElement(name = "Birth_date",required = true)
     private Date birthDate;
 
-    @XmlElement(required = true)
-    private int phone_number;
+    @XmlElement(name = "Phone_number", required = true)
+    private int phoneNumber;
 
-    @XmlElement(required = true)
+    @XmlElement(name = "Course", required = true)
     private short course;
 
-    @XmlElement(required = true)
+    @XmlElement(name = "Email",required = true)
     private String email;
 
 
@@ -41,12 +34,12 @@ public class Student {
 
     }
 
-    public Student(long id, String name, String surname, Date birthDate, int phone_number, short course, String email) {
+    public Student(long id, String name, String surname, Date birthDate, int phoneNumber, short course, String email) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.birthDate = birthDate;
-        this.phone_number = phone_number;
+        this.phoneNumber = phoneNumber;
         this.course = course;
         this.email = email;
     }
@@ -83,12 +76,12 @@ public class Student {
         this.birthDate = birthDate;
     }
 
-    public int getPhone_number() {
-        return phone_number;
+    public int getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhone_number(int phone_number) {
-        this.phone_number = phone_number;
+    public void setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public short getCourse() {
@@ -114,7 +107,7 @@ public class Student {
                 "name='" + name + "\n" +
                 "surname='" + surname + "\n" +
                 "birthDate=" + birthDate + "\n" +
-                "phone_number=" + phone_number + "\n" +
+                "phone_number=" + phoneNumber + "\n" +
                 "course=" + course + "\n" +
                 "email='" + email + "\n" +
                 '}'+"\n" ;

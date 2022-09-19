@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <students>
-    <student id="5">
-        <name>Tinatin</name>
-        <surname>rodinadze</surname>
-        <birthDate>2291-05-08T04:00:00+04:00</birthDate>
-        <phone_number>55</phone_number>
-        <course>3</course>
-        <email>tinati@gmail.com</email>
+    <student Id="5">
+        <Name>Tinatin</Name>
+        <Surname>rodinadze</Surname>
+        <Birth_date>2291-05-08T04:00:00+04:00</Birth_date>
+        <Phone_number>55</Phone_number>
+        <Course>3</Course>
+        <Email>tinati@gmail.com</Email>
     </student>
-    <student id="6">
-        <name>Gigi</name>
-        <surname>Mamaladze</surname>
-        <birthDate>2291-05-08T04:00:00+04:00</birthDate>
-        <phone_number>55</phone_number>
-        <course>3</course>
-        <email>Gigi@gmail.com</email>
+    <student Id="6">
+        <Name>Gigi</Name>
+        <Surname>Mamaladze</Surname>
+        <Birth_date>2291-05-08T04:00:00+04:00</Birth_date>
+        <Phone_number>55</Phone_number>
+        <Course>3</Course>
+        <Email>Gigi@gmail.com</Email>
     </student>
 </students>
