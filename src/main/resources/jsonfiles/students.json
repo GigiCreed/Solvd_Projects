@@ -1,0 +1,25 @@
+[
+  {
+    "name": "Gigi",
+    "second_name": "mamaladze",
+    "birth_date": "28/11/2002",
+    "phone_number": 599041208,
+    "course": 3
+  },
+
+  {
+    "name": "Tinatin",
+    "second_name": "Rodinadze",
+    "birth_date": "09/10/2002",
+    "phone_number": 599041208,
+    "course": 3
+  },
+  {
+    "name": "Irakli",
+    "second_name": "qebuladze",
+    "birth_date": "23/11/2002",
+    "phone_number": 599041208,
+    "course": 2
+  }
+
+]

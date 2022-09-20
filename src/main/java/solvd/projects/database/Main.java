@@ -305,7 +305,7 @@ public class Main {
 //        typeSpecialtiesDAO.create(typeSpecialties);
 
                                            //Updating
-//         TypeSpecialties typeSpecialties = new TypeSpecialties("Main",2L, 24L);
+//         TypeSpecialties typeSpecialties = new TypeSpecialties("Reader",2L, 24L);
 //         typeSpecialtiesDAO.update("all",typeSpecialties,2L);
 
                                          //remove
