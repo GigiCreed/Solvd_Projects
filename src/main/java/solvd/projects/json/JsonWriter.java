@@ -18,8 +18,7 @@ public class JsonWriter {
 
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            JavaType javaType = objectMapper.getTypeFactory().constructCollectionType(List.class, Students.class);
-            objectMapper.writeValue(new File("src/main/resources/jsonfiles/studentsWriter.json"),getStudents());
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File("src/main/resources/jsonfiles/studentsWriter.json"),getStudents());
             LOGGER.info("File is Created");
         }catch (IOException ex){
             LOGGER.error(ex);
@@ -29,7 +28,7 @@ public class JsonWriter {
         return List.of(
         new Students("gigi", "mamaladze", new Date(10140768000000L), 555, 4),
         new Students("Nika", "mamaladze", new Date(10140768000000L), 555, 4),
-        new Students("Irakli", "mamaladze", new Date(10140768000000L), 555, 4)
+        new Students("Levani", "mamaladze", new Date(10140768000000L), 555, 4)
       );
     }
 
