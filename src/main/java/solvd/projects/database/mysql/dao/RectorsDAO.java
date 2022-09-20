@@ -23,7 +23,7 @@ public class RectorsDAO extends AbstractMySqlDAO implements IRectorsDAO {
            preparedStatement.setString(1,rectors.getName());
            preparedStatement.setString(2,rectors.getSurname());
            preparedStatement.setDate(3,rectors.getAge());
-           preparedStatement.setInt(4,rectors.getPhone_number());
+           preparedStatement.setInt(4,rectors.getPhoneNumber());
            preparedStatement.setString(5,rectors.getAddress());
            preparedStatement.setString(6, rectors.getEmail());
            preparedStatement.executeUpdate();
@@ -56,7 +56,7 @@ public class RectorsDAO extends AbstractMySqlDAO implements IRectorsDAO {
               rectors.setName(resultSet.getString("name"));
               rectors.setSurname(resultSet.getString("surname"));
               rectors.setAge(resultSet.getDate("age"));
-              rectors.setPhone_number(resultSet.getInt("phone_number"));
+              rectors.setPhoneNumber(resultSet.getInt("phone_number"));
               rectors.setAddress(resultSet.getString("address"));
               rectors.setEmail(resultSet.getString("email"));
           }
@@ -128,7 +128,7 @@ public class RectorsDAO extends AbstractMySqlDAO implements IRectorsDAO {
               }
               case "phone_number" -> {
                   PreparedStatement preparedStatementPhoneNumber = connection.prepareStatement("update rectors set phone_number = ? where id = ?");
-                  preparedStatementPhoneNumber.setInt(1, rectors.getPhone_number());
+                  preparedStatementPhoneNumber.setInt(1, rectors.getPhoneNumber());
                   preparedStatementPhoneNumber.setLong(2, id);
                   preparedStatementPhoneNumber.executeUpdate();
                   preparedStatementPhoneNumber.close();
@@ -152,7 +152,7 @@ public class RectorsDAO extends AbstractMySqlDAO implements IRectorsDAO {
                   preparedStatementAll.setString(1, rectors.getName());
                   preparedStatementAll.setString(2, rectors.getSurname());
                   preparedStatementAll.setDate(3, rectors.getAge());
-                  preparedStatementAll.setInt(4, rectors.getPhone_number());
+                  preparedStatementAll.setInt(4, rectors.getPhoneNumber());
                   preparedStatementAll.setString(5, rectors.getAddress());
                   preparedStatementAll.setString(6, rectors.getEmail());
                   preparedStatementAll.setLong(7, id);
@@ -187,7 +187,7 @@ public class RectorsDAO extends AbstractMySqlDAO implements IRectorsDAO {
                rectors.setName(resultSet.getString("name"));
                rectors.setSurname(resultSet.getString("surname"));
                rectors.setAge(resultSet.getDate("age"));
-               rectors.setPhone_number(resultSet.getInt("phone_number"));
+               rectors.setPhoneNumber(resultSet.getInt("phone_number"));
                rectors.setAddress(resultSet.getString("address"));
                rectors.setEmail(resultSet.getString("email"));
 

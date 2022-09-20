@@ -24,7 +24,7 @@ public class StudentsDAO extends AbstractMySqlDAO implements IStudentsDAO {
             preparedStatement.setString(1,students.getName());
             preparedStatement.setString(2,students.getSurname());
             preparedStatement.setDate(3, students.getAge());
-            preparedStatement.setInt(4,students.getPhone_number());
+            preparedStatement.setInt(4,students.getPhoneNumber());
             preparedStatement.setInt(5,students.getCourse());
             preparedStatement.setString(6,students.getEmail());
             preparedStatement.setLong(7,students.getUniversitiesId());
@@ -61,7 +61,7 @@ public class StudentsDAO extends AbstractMySqlDAO implements IStudentsDAO {
                 students.setName(resultSet.getString("name"));
                 students.setSurname(resultSet.getString("surname"));
                 students.setAge(resultSet.getDate("age"));
-                students.setPhone_number(resultSet.getInt("phone_number"));
+                students.setPhoneNumber(resultSet.getInt("phone_number"));
                 students.setCourse(resultSet.getInt("course"));
                 students.setEmail(resultSet.getString("email"));
                 students.setUniversitiesId(resultSet.getLong("Universities_id"));
@@ -138,7 +138,7 @@ public class StudentsDAO extends AbstractMySqlDAO implements IStudentsDAO {
                 }
                 case "phone_number" -> {
                     PreparedStatement preparedStatementPhoneNumber = connection.prepareStatement("Update students SET phone_number = ? WHERE id = ?");
-                    preparedStatementPhoneNumber.setInt(1, object.getPhone_number());
+                    preparedStatementPhoneNumber.setInt(1, object.getPhoneNumber());
                     preparedStatementPhoneNumber.setLong(2, id);
                     preparedStatementPhoneNumber.executeUpdate();
                     preparedStatementPhoneNumber.close();
@@ -176,7 +176,7 @@ public class StudentsDAO extends AbstractMySqlDAO implements IStudentsDAO {
                     preparedStatementAll.setString(1, object.getName());
                     preparedStatementAll.setString(2, object.getSurname());
                     preparedStatementAll.setDate(3, object.getAge());
-                    preparedStatementAll.setInt(4, object.getPhone_number());
+                    preparedStatementAll.setInt(4, object.getPhoneNumber());
                     preparedStatementAll.setInt(5, object.getCourse());
                     preparedStatementAll.setString(6, object.getEmail());
                     preparedStatementAll.setLong(7, object.getUniversitiesId());
@@ -211,7 +211,7 @@ public class StudentsDAO extends AbstractMySqlDAO implements IStudentsDAO {
                 s.setName(resultSet.getString("name"));
                 s.setSurname(resultSet.getString("surname"));
                 s.setAge(resultSet.getDate("age"));
-                s.setPhone_number(resultSet.getInt("phone_number"));
+                s.setPhoneNumber(resultSet.getInt("phone_number"));
                 s.setCourse(resultSet.getInt("course"));
                 s.setEmail(resultSet.getString("email"));
                 s.setUniversitiesId(resultSet.getLong("Universities_id"));

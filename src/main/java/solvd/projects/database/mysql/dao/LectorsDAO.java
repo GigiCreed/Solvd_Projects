@@ -25,7 +25,7 @@ public class LectorsDAO extends AbstractMySqlDAO implements ILectorsDAO {
             preparedStatement.setString(1,lectors.getName());
             preparedStatement.setString(2,lectors.getSurname());
             preparedStatement.setDate(3,lectors.getAge());
-            preparedStatement.setInt(4,lectors.getPhone_number());
+            preparedStatement.setInt(4,lectors.getPhoneNumber());
             preparedStatement.setString(5,lectors.getAddress());
             preparedStatement.setString(6, lectors.getEmail());
             preparedStatement.setLong(7,lectors.getUniversitiesId());
@@ -60,7 +60,7 @@ public class LectorsDAO extends AbstractMySqlDAO implements ILectorsDAO {
                 lectors.setName(resultSet.getString("name"));
                 lectors.setSurname(resultSet.getString("surname"));
                 lectors.setAge(resultSet.getDate("age"));
-                lectors.setPhone_number(resultSet.getInt("phone_number"));
+                lectors.setPhoneNumber(resultSet.getInt("phone_number"));
                 lectors.setAddress(resultSet.getString("address"));
                 lectors.setEmail(resultSet.getString("email"));
                 lectors.setUniversitiesId(resultSet.getLong("Universities_id"));
@@ -135,7 +135,7 @@ public class LectorsDAO extends AbstractMySqlDAO implements ILectorsDAO {
                 }
                 case "phone_number" -> {
                     PreparedStatement preparedStatementPhoneNumber = connection.prepareStatement("update lectors set phone_number = ? where id = ?");
-                    preparedStatementPhoneNumber.setInt(1, lectors.getPhone_number());
+                    preparedStatementPhoneNumber.setInt(1, lectors.getPhoneNumber());
                     preparedStatementPhoneNumber.setLong(2, id);
                     preparedStatementPhoneNumber.executeUpdate();
                     preparedStatementPhoneNumber.close();
@@ -166,7 +166,7 @@ public class LectorsDAO extends AbstractMySqlDAO implements ILectorsDAO {
                     preparedStatementAll.setString(1, lectors.getName());
                     preparedStatementAll.setString(2, lectors.getSurname());
                     preparedStatementAll.setDate(3, lectors.getAge());
-                    preparedStatementAll.setInt(4, lectors.getPhone_number());
+                    preparedStatementAll.setInt(4, lectors.getPhoneNumber());
                     preparedStatementAll.setString(5, lectors.getAddress());
                     preparedStatementAll.setString(6, lectors.getEmail());
                     preparedStatementAll.setLong(7, lectors.getUniversitiesId());
@@ -201,7 +201,7 @@ public class LectorsDAO extends AbstractMySqlDAO implements ILectorsDAO {
                 lectors.setName(resultSet.getString("name"));
                 lectors.setSurname(resultSet.getString("surname"));
                 lectors.setAge(resultSet.getDate("age"));
-                lectors.setPhone_number(resultSet.getInt("phone_number"));
+                lectors.setPhoneNumber(resultSet.getInt("phone_number"));
                 lectors.setAddress(resultSet.getString("address"));
                 lectors.setEmail(resultSet.getString("email"));
                 lectors.setUniversitiesId(resultSet.getLong("Universities_id"));

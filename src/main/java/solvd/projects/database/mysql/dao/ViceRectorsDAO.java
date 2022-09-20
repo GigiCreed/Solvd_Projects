@@ -25,7 +25,7 @@ public class ViceRectorsDAO extends AbstractMySqlDAO implements IViceRectorsDAO 
            preparedStatement.setString(1,viceRectors.getName());
            preparedStatement.setString(2,viceRectors.getSurname());
            preparedStatement.setDate(3,viceRectors.getAge());
-           preparedStatement.setInt(4,viceRectors.getPhone_number());
+           preparedStatement.setInt(4,viceRectors.getPhoneNumber());
            preparedStatement.setString(5,viceRectors.getAddress());
            preparedStatement.setString(6, viceRectors.getEmail());
            preparedStatement.executeUpdate();
@@ -58,7 +58,7 @@ public class ViceRectorsDAO extends AbstractMySqlDAO implements IViceRectorsDAO 
                 viceRectors.setName(resultSet.getString("name"));
                 viceRectors.setSurname(resultSet.getString("surname"));
                 viceRectors.setAge(resultSet.getDate("age"));
-                viceRectors.setPhone_number(resultSet.getInt("phone_number"));
+                viceRectors.setPhoneNumber(resultSet.getInt("phone_number"));
                 viceRectors.setAddress(resultSet.getString("address"));
                 viceRectors.setEmail(resultSet.getString("email"));
             }
@@ -131,7 +131,7 @@ public class ViceRectorsDAO extends AbstractMySqlDAO implements IViceRectorsDAO 
                 }
                 case "phone_number" -> {
                     PreparedStatement preparedStatementPhoneNumber = connection.prepareStatement("update vice_rectors set phone_number = ? where id = ?");
-                    preparedStatementPhoneNumber.setInt(1, viceRectors.getPhone_number());
+                    preparedStatementPhoneNumber.setInt(1, viceRectors.getPhoneNumber());
                     preparedStatementPhoneNumber.setLong(2, id);
                     preparedStatementPhoneNumber.executeUpdate();
                     preparedStatementPhoneNumber.close();
@@ -155,7 +155,7 @@ public class ViceRectorsDAO extends AbstractMySqlDAO implements IViceRectorsDAO 
                     preparedStatementAll.setString(1, viceRectors.getName());
                     preparedStatementAll.setString(2, viceRectors.getSurname());
                     preparedStatementAll.setDate(3, viceRectors.getAge());
-                    preparedStatementAll.setInt(4, viceRectors.getPhone_number());
+                    preparedStatementAll.setInt(4, viceRectors.getPhoneNumber());
                     preparedStatementAll.setString(5, viceRectors.getAddress());
                     preparedStatementAll.setString(6, viceRectors.getEmail());
                     preparedStatementAll.setLong(7, id);
@@ -190,7 +190,7 @@ public class ViceRectorsDAO extends AbstractMySqlDAO implements IViceRectorsDAO 
                 viceRectors.setName(resultSet.getString("name"));
                 viceRectors.setSurname(resultSet.getString("surname"));
                 viceRectors.setAge(resultSet.getDate("age"));
-                viceRectors.setPhone_number(resultSet.getInt("phone_number"));
+                viceRectors.setPhoneNumber(resultSet.getInt("phone_number"));
                 viceRectors.setAddress(resultSet.getString("address"));
                 viceRectors.setEmail(resultSet.getString("email"));
 

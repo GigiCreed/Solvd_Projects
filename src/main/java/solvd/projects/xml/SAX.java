@@ -19,7 +19,7 @@ public class SAX {
              boolean name =false;
              boolean surname =false;
              boolean birthDate= false;
-             boolean phone_number =false;
+             boolean phoneNumber =false;
              boolean course = false;
              boolean email = false;
 
@@ -30,7 +30,7 @@ public class SAX {
                 if (qName.equals("name")) name =true;
                 if (qName.equals("surname")) surname=true;
                 if (qName.equals("birthDate")) birthDate =true;
-                if (qName.equals("phone_number"))phone_number=true;
+                if (qName.equals("phone_number")) phoneNumber =true;
                 if (qName.equals("course")) course=true;
                 if (qName.equals("email")) email = true;
             }
@@ -54,9 +54,9 @@ public class SAX {
                     LOGGER.info("Birth Date: "+new String(ch,start,length));
                     birthDate=false;
                 }
-                if (phone_number){
+                if (phoneNumber){
                     LOGGER.info("phone_number: "+new String(ch,start,length));
-                    phone_number=false;
+                    phoneNumber =false;
                 }   if (email){
                     LOGGER.info("Email: "+new String(ch,start,length));
                     email=false;

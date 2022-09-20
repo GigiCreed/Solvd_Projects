@@ -7,7 +7,7 @@ public class Lectors {
     private String name;
     private String surname;
     private Date age;
-    private int phone_number;
+    private int phoneNumber;
     private String address;
     private String email;
     private Long universitiesId;
@@ -16,11 +16,11 @@ public class Lectors {
 
     }
 
-    public Lectors(String name, String surname, Date age, int phone_number, String address, String email, Long universitiesId) {
+    public Lectors(String name, String surname, Date age, int phoneNumber, String address, String email, Long universitiesId) {
         this.name = name;
         this.surname = surname;
         this.age = age;
-        this.phone_number = phone_number;
+        this.phoneNumber = phoneNumber;
         this.address = address;
         this.email = email;
         this.universitiesId = universitiesId;
@@ -58,12 +58,12 @@ public class Lectors {
         this.age = age;
     }
 
-    public int getPhone_number() {
-        return phone_number;
+    public int getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhone_number(int phone_number) {
-        this.phone_number = phone_number;
+    public void setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getAddress() {
@@ -97,7 +97,7 @@ public class Lectors {
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", age=" + age +
-                ", phone_number=" + phone_number +
+                ", phone_number=" + phoneNumber +
                 ", address='" + address + '\'' +
                 ", email='" + email + '\'' +
                 ", universitiesId=" + universitiesId +
