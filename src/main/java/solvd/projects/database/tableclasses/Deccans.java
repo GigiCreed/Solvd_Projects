@@ -11,13 +11,13 @@ public class Deccans {
     private int phone_number;
     private String email;
     private Long universitiesId;
-    private Long facultiesId;
+
 
     public Deccans(){
 
     }
 
-    public Deccans(String name, String surname, Date age, String address, int phone_number, String email, Long universitiesId, Long facultiesId) {
+    public Deccans(String name, String surname, Date age, String address, int phone_number, String email, Long universitiesId) {
         this.name = name;
         this.surname = surname;
         this.age = age;
@@ -25,7 +25,6 @@ public class Deccans {
         this.phone_number = phone_number;
         this.email = email;
         this.universitiesId = universitiesId;
-        this.facultiesId = facultiesId;
     }
 
     public Long getId() {
@@ -92,14 +91,6 @@ public class Deccans {
         this.universitiesId = universitiesId;
     }
 
-    public Long getFacultiesId() {
-        return facultiesId;
-    }
-
-    public void setFacultiesId(Long facultiesId) {
-        this.facultiesId = facultiesId;
-    }
-
     @Override
     public String toString() {
         return "Deccans{" +
@@ -111,7 +102,6 @@ public class Deccans {
                 ", phone_number=" + phone_number +
                 ", email='" + email + '\'' +
                 ", universitiesId=" + universitiesId +
-                ", facultiesId=" + facultiesId +
                 '}';
     }
 }

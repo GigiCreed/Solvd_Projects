@@ -1,15 +1,15 @@
-Use University;
 --                                                      INSERT
 
--- I am using tables : faculties, vice_rectors, rectors, university and students.
+-- I am using tables : deccans, faculties, vice_rectors, rectors, university and students.
 
--- insert into rectors(name,surname,age,phone_number,address,email) values ("Gigi","Mamaladze",'2002/08/19',599111111,"batumi","gigimama@gmai.com");
--- insert into vice_rectors(name,surname,age,phone_number,addres,email) values ("nika","fartenadze",'2002/02/19',59904444,"batumi","nikafart@gmail.com");
--- insert into universities(name,address,site_addres,email,Reqtors_id,Vice_Rectors_ID)values("Bsu","Batumi","bsu.portal","Bsu@gmail.com",1,1);
--- insert into faculties(name,Universities_id) values("Computer science",1);
---    insert into faculties(name,Universities_id) values("Business",1);
---    insert into faculties(name,Universities_id) values("Economic",1);
---    insert into faculties(name,Universities_id) values("tourism",1);
+-- insert into universities(name,address,site_addres,email)values("Bsu","Batumi","bsu.portal","Bsu@gmail.com");
+-- insert into rectors(name,surname,age,phone_number,address,email,Universities_id) values ("Gigi","Mamaladze",'2002/08/19',599111111,"batumi","gigimama@gmai.com",1);
+-- insert into vice_rectors(name,surname,age,phone_number,addres,email,Universities_id) values ("nika","fartenadze",'2002/02/19',59904444,"batumi","nikafart@gmail.com",1);
+-- insert into deccans(name,surname,age,addres,phone_number,email,Universities_id) values ("Elene","rodinadze",'2002/02/19',"sdsd",555,"@tinatin.com",1);
+-- insert into faculties(name,Universities_id,Deccans_id) values("Computer science",1,1);
+-- insert into faculties(name,Universities_id,Deccans_id) values("Business",1,2);
+-- insert into faculties(name,Universities_id,Deccans_id) values("Economic",1,3);
+-- insert into faculties(name,Universities_id,Deccans_id) values("tourism",1,4);
 -- insert into students(name,surname,age,phone_number,course,email,Universities_id,Faculties_id)values("rezo","xuchua",'2002/02/19',44323231,3,"rezos@gmail.com",1,1);
 -- insert into students(name,surname,age,phone_number,course,email,Universities_id,Faculties_id)values("sandro","pachkoicha",'2002/02/19',5555555,3,"sandro@gmail.com",1,1);
 -- insert into students(name,surname,age,phone_number,course,email,Universities_id,Faculties_id)values("kosta","pitona",'2002/05/19',3432131,3,"kost@gmail.com",1,1);
@@ -56,6 +56,7 @@ Use University;
 
 -- in first command i will delete rectors that i created suddenly;
 
+-- DELETE FROM deccans WHERE id =4;
 -- DELETE FROM rectors WHERE id>1;
 -- DELETE FROM students WHERE name like "madara";
 -- DELETE FROM students where course = 5;

@@ -21,13 +21,11 @@ public class UniversitiesDAO extends AbstractMySqlDAO implements IUniversitiesDA
         PreparedStatement preparedStatement = null;
         try {
 
-            preparedStatement =connection.prepareStatement("insert into universities (name,address,site_address,email,Rectors_id,Vice_rectors_id) Values (?,?,?,?,?,?)");
+            preparedStatement =connection.prepareStatement("insert into universities (name,address,site_address,email) Values (?,?,?,?)");
             preparedStatement.setString(1,universities.getName());
             preparedStatement.setString(2,universities.getAddress());
             preparedStatement.setString(3,universities.getSiteAddress());
             preparedStatement.setString(4,universities.getEmail());
-            preparedStatement.setLong(5,universities.getRectorsId());
-            preparedStatement.setLong(6,universities.getViceRectorsId());
             preparedStatement.executeUpdate();
 
 
@@ -60,8 +58,7 @@ public class UniversitiesDAO extends AbstractMySqlDAO implements IUniversitiesDA
               universities.setAddress(resultSet.getString("address"));
               universities.setSiteAddress(resultSet.getString("site_address"));
               universities.setEmail(resultSet.getString("email"));
-              universities.setRectorsId(resultSet.getLong("Rectors_id"));
-              universities.setViceRectorsId(resultSet.getLong("Vice_rectors_id"));
+
           }
 
       }catch (SQLException e){
@@ -135,29 +132,13 @@ public class UniversitiesDAO extends AbstractMySqlDAO implements IUniversitiesDA
                     preparedStatementEmail.executeUpdate();
                     preparedStatementEmail.close();
                 }
-                case "Rectors_id" -> {
-                    PreparedStatement preparedStatementRectorsId = connection.prepareStatement("Update universities Set Rectors_id = ? Where id = ?");
-                    preparedStatementRectorsId.setLong(1, universities.getRectorsId());
-                    preparedStatementRectorsId.setLong(2, id);
-                    preparedStatementRectorsId.executeUpdate();
-                    preparedStatementRectorsId.close();
-                }
-                case "Vice_rectors_id" -> {
-                    PreparedStatement preparedStatementViceRectorsId = connection.prepareStatement("Update universities Set Vice_rectors_id = ? Where id = ?");
-                    preparedStatementViceRectorsId.setLong(1, universities.getViceRectorsId());
-                    preparedStatementViceRectorsId.setLong(2, id);
-                    preparedStatementViceRectorsId.executeUpdate();
-                    preparedStatementViceRectorsId.close();
-                }
                 case "all" -> {
-                    PreparedStatement preparedStatementAll = connection.prepareStatement("Update universities Set name = ?, address = ?, site_address = ?, email = ?, Rectors_id = ?, Vice_rectors_id = ? Where id = ?");
+                    PreparedStatement preparedStatementAll = connection.prepareStatement("Update universities Set name = ?, address = ?, site_address = ?, email = ? Where id = ?");
                     preparedStatementAll.setString(1, universities.getName());
                     preparedStatementAll.setString(2, universities.getAddress());
                     preparedStatementAll.setString(3, universities.getSiteAddress());
                     preparedStatementAll.setString(4, universities.getEmail());
-                    preparedStatementAll.setLong(5, universities.getRectorsId());
-                    preparedStatementAll.setLong(6, universities.getViceRectorsId());
-                    preparedStatementAll.setLong(7, id);
+                    preparedStatementAll.setLong(5, id);
                     preparedStatementAll.executeUpdate();
                     preparedStatementAll.close();
                 }
@@ -188,8 +169,6 @@ public class UniversitiesDAO extends AbstractMySqlDAO implements IUniversitiesDA
              universities.setAddress(resultSet.getString("address"));
              universities.setSiteAddress(resultSet.getString("site_address"));
              universities.setEmail(resultSet.getString("email"));
-             universities.setRectorsId(resultSet.getLong("Rectors_id"));
-             universities.setViceRectorsId(resultSet.getLong("Vice_rectors_id"));
 
              universitiesList.add(universities);
          }

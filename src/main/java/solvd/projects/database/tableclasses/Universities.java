@@ -7,20 +7,17 @@ public class Universities {
     private String address;
     private String siteAddress;
     private String email;
-    private Long rectorsId;
-    private Long viceRectorsId;
+
 
     public Universities(){
 
     }
 
-    public Universities(String name, String address, String siteAddress, String email, Long rectorsId, Long viceRectorsId) {
+    public Universities(String name, String address, String siteAddress, String email) {
         this.name = name;
         this.address = address;
         this.siteAddress = siteAddress;
         this.email = email;
-        this.rectorsId = rectorsId;
-        this.viceRectorsId = viceRectorsId;
     }
 
     public Long getId() {
@@ -63,22 +60,6 @@ public class Universities {
         this.email = email;
     }
 
-    public Long getRectorsId() {
-        return rectorsId;
-    }
-
-    public void setRectorsId(Long rectorsId) {
-        this.rectorsId = rectorsId;
-    }
-
-    public Long getViceRectorsId() {
-        return viceRectorsId;
-    }
-
-    public void setViceRectorsId(Long viceRectorsId) {
-        this.viceRectorsId = viceRectorsId;
-    }
-
     @Override
     public String toString() {
         return "Universities{" +
@@ -87,8 +68,6 @@ public class Universities {
                 ", address='" + address + '\'' +
                 ", siteAddress='" + siteAddress + '\'' +
                 ", email='" + email + '\'' +
-                ", rectorsId=" + rectorsId +
-                ", viceRectorsId=" + viceRectorsId +
                 '}';
     }
 }

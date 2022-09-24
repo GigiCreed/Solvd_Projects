@@ -11,18 +11,22 @@ public class ViceRectors {
     private String address;
     private String email;
 
+    private Long universitiesId;
+
     public ViceRectors(){
 
     }
 
-    public ViceRectors(String name, String surname, Date age, int phoneNumber, String address, String email) {
+    public ViceRectors(String name, String surname, Date age, int phoneNumber, String address, String email, Long universitiesId) {
         this.name = name;
         this.surname = surname;
         this.age = age;
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.email = email;
+        this.universitiesId = universitiesId;
     }
+
 
     public Long getId() {
         return id;
@@ -80,16 +84,25 @@ public class ViceRectors {
         this.email = email;
     }
 
+    public Long getUniversitiesId() {
+        return universitiesId;
+    }
+
+    public void setUniversitiesId(Long universitiesId) {
+        this.universitiesId = universitiesId;
+    }
+
     @Override
     public String toString() {
-        return "Rectors{" +
+        return "ViceRectors{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", age=" + age +
-                ", phone_number=" + phoneNumber +
+                ", phoneNumber=" + phoneNumber +
                 ", address='" + address + '\'' +
                 ", email='" + email + '\'' +
+                ", universitiesId=" + universitiesId +
                 '}';
     }
 }

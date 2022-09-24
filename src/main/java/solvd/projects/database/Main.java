@@ -54,7 +54,7 @@ public class Main {
 
                                     //Insert
 
-//        Rectors rectors = new Rectors("irakli","rodinadze", new Date(1028833200000L),5555,"tamarMefisdasaxleba","tina@gmail.com");
+//        Rectors rectors = new Rectors("irakli","rodinadze", new Date(1028833200000L),5555,"tamarMefisdasaxleba","tina@gmail.com",3L);
 //        rectorsDAO.create(rectors);
 
                                   //Delete
@@ -63,8 +63,8 @@ public class Main {
 
                                 //update
 
-//        Rectors rectors = new Rectors("Tiniko","Rodinadze",new Date(1028833200000L),599281101,"Tamar Mefis dasaxelba", "Tiniko@gmail.com");
-//        rectorsDAO.update("all",rectors,8L);
+//        Rectors rectors = new Rectors("Tiniko","Rodinadze",new Date(1028833200000L),599281101,"Tamar Mefis dasaxelba", "Tiniko@gmail.com",3L);
+//        rectorsDAO.update("all",rectors,3L);
 
 
 
@@ -75,17 +75,17 @@ public class Main {
 
                                                 //insert
 
-//        ViceRectors viceRectors = new ViceRectors("Lela","turnamindze",new Date(232323321456L),55123,"batumi","lela@gmail.com");
+//        ViceRectors viceRectors = new ViceRectors("Lela","turnamindze",new Date(232323321456L),55123,"batumi","lela@gmail.com",1L);
 //        viceRectorsDAO.create(viceRectors);
 
 
                                               //Update
-//        ViceRectors viceRectors = new ViceRectors("Nino","iremadze",new Date(232323321456L),11111,"batumius","nino@gmail.com");
+//        ViceRectors viceRectors = new ViceRectors("Nino","iremadze",new Date(232323321456L),11111,"batumius","nino@gmail.com",1L);
 //        viceRectorsDAO.update("all",viceRectors,2L);
 
 
                                              //Delete
-//        viceRectorsDAO.remove(2L);
+//        viceRectorsDAO.remove(3L);
 
                                             //SelectById
 //        ViceRectors viceRectors = new ViceRectors();
@@ -103,16 +103,16 @@ public class Main {
 //        UniversitiesDAO universitiesDAO = new UniversitiesDAO();
 
                                             //Insert
-//        Universities universities =new Universities("Tsu","tbilisi","tsu.com","tsu@gmail.com",8L,3L);
+//        Universities universities =new Universities("Tsu","tbilisi","tsu.com","tsu@gmail.com");
 //        universitiesDAO.create(universities);
 
                                            //Update
 
-//          Universities universities = new Universities("BTU","tbilisi","BTU.com","BTU@gmail.com",8L,3L);
+//          Universities universities = new Universities("BTU","tbilisi","BTU.com","BTU@gmail.com");
 //          universitiesDAO.update("all",universities,2L);
 
                                           //Remove
-//            universitiesDAO.remove(6L);
+//            universitiesDAO.remove(2L);
 
                                           //SelectBy
 //        Universities universities = new Universities();
@@ -161,15 +161,15 @@ public class Main {
 //   DeccansDAO deccansDAO = new DeccansDAO();
 
                                        //Insert
-//        Deccans deccans = new Deccans("lasha","turmanidze",new Date(232323321456L),"batumi",444444,"giorgi@gmail.com",1L,4L);
+//        Deccans deccans = new Deccans("lasha","turmanidze",new Date(232323321456L),"batumi",444444,"giorgi@gmail.com",1L);
 //        deccansDAO.create(deccans);
 
 
                                      //Remove
-//        deccansDAO.remove(3L);
+//        deccansDAO.remove(5L);
 
                                     //Update
-//        Deccans deccans = new Deccans("Luka","Qatamadze",new Date(232323321456L),"batumi",7777777,"Luka@gmail.com",1L,4L);
+//        Deccans deccans = new Deccans("Luka","Qatamadze",new Date(232323321456L),"batumi",7777777,"Luka@gmail.com",1L);
 //        deccansDAO.update("all",deccans,6L);
 
                                     //SelectById
@@ -189,11 +189,11 @@ public class Main {
 //         FacultiesDAO facultiesDAO = new FacultiesDAO();
 
                                        //inserting
-//        Faculties faculties = new Faculties("Medicine",1L);
+//        Faculties faculties = new Faculties("Medicine",1L,1L);
 //        facultiesDAO.create(faculties);
 
                                       //Updating
-//         Faculties faculties = new Faculties("Sport",1L);
+//         Faculties faculties = new Faculties("Sport",1L,2L);
 //         facultiesDAO.update("name",faculties,5L);
 
 

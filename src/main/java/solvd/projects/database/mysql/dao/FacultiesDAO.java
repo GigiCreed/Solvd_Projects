@@ -19,9 +19,10 @@ public class FacultiesDAO extends AbstractMySqlDAO implements IFacultiesDAO {
         Connection connection = ConnectionPool.getInstance().retrieve();
         PreparedStatement preparedStatement =null;
         try {
-            preparedStatement = connection.prepareStatement("insert into faculties (name,Universities_id) Values (?,?)");
+            preparedStatement = connection.prepareStatement("insert into faculties (name,Universities_id,Deccans_id) Values (?,?,?)");
             preparedStatement.setString(1,faculties.getName());
             preparedStatement.setLong(2,faculties.getUniversitiesId());
+            preparedStatement.setLong(3,faculties.getDeccansId());
             preparedStatement.executeUpdate();
 
 
@@ -51,6 +52,7 @@ public class FacultiesDAO extends AbstractMySqlDAO implements IFacultiesDAO {
                 faculties.setId(resultSet.getLong("id"));
                 faculties.setName(resultSet.getString("name"));
                 faculties.setUniversitiesId(resultSet.getLong("Universities_id"));
+                faculties.setDeccansId(resultSet.getLong("Deccans_id"));
             }
 
 
@@ -113,11 +115,19 @@ public class FacultiesDAO extends AbstractMySqlDAO implements IFacultiesDAO {
                     preparedStatementUniversitiesId.executeUpdate();
                     preparedStatementUniversitiesId.close();
                 }
+                case "Deccans_id" ->{
+                    PreparedStatement preparedStatementDeccansId = connection.prepareStatement("Update faculties Set Deccans_id = ? where id = ?");
+                    preparedStatementDeccansId.setLong(1, faculties.getDeccansId());
+                    preparedStatementDeccansId.setLong(2, id);
+                    preparedStatementDeccansId.executeUpdate();
+                    preparedStatementDeccansId.close();
+                }
                 case "all" -> {
-                    PreparedStatement preparedStatementAll = connection.prepareStatement("Update faculties Set name = ?, Universities_id = ? where id = ?");
+                    PreparedStatement preparedStatementAll = connection.prepareStatement("Update faculties Set name = ?, Universities_id = ? Deccans_id = ? where id = ?");
                     preparedStatementAll.setString(1, faculties.getName());
                     preparedStatementAll.setLong(2, faculties.getUniversitiesId());
-                    preparedStatementAll.setLong(3, id);
+                    preparedStatementAll.setLong(3,faculties.getDeccansId());
+                    preparedStatementAll.setLong(4, id);
                     preparedStatementAll.executeUpdate();
                     preparedStatementAll.close();
                 }
@@ -144,6 +154,7 @@ public class FacultiesDAO extends AbstractMySqlDAO implements IFacultiesDAO {
                faculties.setId(resultSet.getLong("id"));
                faculties.setName(resultSet.getString("name"));
                faculties.setUniversitiesId(resultSet.getLong("Universities_id"));
+               faculties.setDeccansId(resultSet.getLong("Deccans_id"));
 
                facultiesList.add(faculties);
            }

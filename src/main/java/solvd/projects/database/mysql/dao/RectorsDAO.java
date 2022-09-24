@@ -19,13 +19,14 @@ public class RectorsDAO extends AbstractMySqlDAO implements IRectorsDAO {
         Connection connection = ConnectionPool.getInstance().retrieve();
         PreparedStatement preparedStatement = null;
        try {
-           preparedStatement =connection.prepareStatement("insert into rectors (name,surname,age,phone_number,address,email)  values ( ?,?,?,?,?,?)");
+           preparedStatement =connection.prepareStatement("insert into rectors (name,surname,age,phone_number,address,email,Universities_id)  values ( ?,?,?,?,?,?,?)");
            preparedStatement.setString(1,rectors.getName());
            preparedStatement.setString(2,rectors.getSurname());
            preparedStatement.setDate(3,rectors.getAge());
            preparedStatement.setInt(4,rectors.getPhoneNumber());
            preparedStatement.setString(5,rectors.getAddress());
            preparedStatement.setString(6, rectors.getEmail());
+           preparedStatement.setLong(7,rectors.getUniversitiesId());
            preparedStatement.executeUpdate();
 
        }catch (SQLException e){
@@ -59,6 +60,7 @@ public class RectorsDAO extends AbstractMySqlDAO implements IRectorsDAO {
               rectors.setPhoneNumber(resultSet.getInt("phone_number"));
               rectors.setAddress(resultSet.getString("address"));
               rectors.setEmail(resultSet.getString("email"));
+              rectors.setUniversitiesId(resultSet.getLong("Universities_id"));
           }
 
 
@@ -147,15 +149,23 @@ public class RectorsDAO extends AbstractMySqlDAO implements IRectorsDAO {
                   preparedStatementEmail.executeUpdate();
                   preparedStatementEmail.close();
               }
+              case "Universities_id" -> {
+                  PreparedStatement preparedStatementUniversitiesId = connection.prepareStatement("update rectors set Universities_id = ? where id = ?");
+                  preparedStatementUniversitiesId.setLong(1, rectors.getUniversitiesId());
+                  preparedStatementUniversitiesId.setLong(2, id);
+                  preparedStatementUniversitiesId.executeUpdate();
+                  preparedStatementUniversitiesId.close();
+              }
               case "all" -> {
-                  PreparedStatement preparedStatementAll = connection.prepareStatement("update rectors set name = ? , surname = ?, age = ?, phone_number= ?, address = ?, email = ? where id = ?");
+                  PreparedStatement preparedStatementAll = connection.prepareStatement("update rectors set name = ? , surname = ?, age = ?, phone_number= ?, address = ?, email = ?, Universities_id = ? where id = ?");
                   preparedStatementAll.setString(1, rectors.getName());
                   preparedStatementAll.setString(2, rectors.getSurname());
                   preparedStatementAll.setDate(3, rectors.getAge());
                   preparedStatementAll.setInt(4, rectors.getPhoneNumber());
                   preparedStatementAll.setString(5, rectors.getAddress());
                   preparedStatementAll.setString(6, rectors.getEmail());
-                  preparedStatementAll.setLong(7, id);
+                  preparedStatementAll.setLong(7, rectors.getUniversitiesId());
+                  preparedStatementAll.setLong(8, id);
                   preparedStatementAll.executeUpdate();
                   preparedStatementAll.close();
               }
@@ -190,6 +200,7 @@ public class RectorsDAO extends AbstractMySqlDAO implements IRectorsDAO {
                rectors.setPhoneNumber(resultSet.getInt("phone_number"));
                rectors.setAddress(resultSet.getString("address"));
                rectors.setEmail(resultSet.getString("email"));
+               rectors.setUniversitiesId(resultSet.getLong("Universities_id"));
 
                rectorsList.add(rectors);
            }
