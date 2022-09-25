@@ -6,6 +6,7 @@
     <properties resource="database.properties"/>
     <typeAliases>
         <typeAlias type="solvd.projects.database.tableclasses.Students" alias="Students"/>
+        <typeAlias type="solvd.projects.database.tableclasses.Universities" alias="Universities"/>
     </typeAliases>
     <environments default="development">
         <environment id="development">
