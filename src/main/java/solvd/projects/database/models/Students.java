@@ -1,4 +1,4 @@
-package solvd.projects.database.tableclasses;
+package solvd.projects.database.models;
 
 import java.sql.Date;
 

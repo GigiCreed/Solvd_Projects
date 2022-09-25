@@ -5,9 +5,9 @@
 <configuration>
     <properties resource="database.properties"/>
     <typeAliases>
-        <typeAlias type="solvd.projects.database.tableclasses.Students" alias="Students"/>
-        <typeAlias type="solvd.projects.database.tableclasses.Universities" alias="Universities"/>
-        <typeAlias type="solvd.projects.database.tableclasses.Rectors" alias="Rectors"/>
+        <typeAlias type="solvd.projects.database.models.Students" alias="Students"/>
+        <typeAlias type="solvd.projects.database.models.Universities" alias="Universities"/>
+        <typeAlias type="solvd.projects.database.models.Rectors" alias="Rectors"/>
     </typeAliases>
     <environments default="development">
         <environment id="development">

@@ -1,6 +1,6 @@
 package solvd.projects.database.dbservices.mybatis.services.serviceInterfaces;
 
-import solvd.projects.database.tableclasses.Lectors;
+import solvd.projects.database.models.Lectors;
 
 import java.util.List;
 

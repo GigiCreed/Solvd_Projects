@@ -1,6 +1,6 @@
 package solvd.projects.database.dbservices.mybatis.services.serviceInterfaces;
 
-import solvd.projects.database.tableclasses.Deccans;
+import solvd.projects.database.models.Deccans;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package solvd.projects.database.dbservices.jdbc.dao.interfaces;
 
-import solvd.projects.database.tableclasses.Specialties;
+import solvd.projects.database.models.Specialties;
 
 import java.util.List;
 

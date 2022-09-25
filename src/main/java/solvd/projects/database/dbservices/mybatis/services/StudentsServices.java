@@ -5,7 +5,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import solvd.projects.database.dbservices.mybatis.mappers.IStudentsMapper;
 import solvd.projects.database.dbservices.mybatis.services.serviceInterfaces.IStudentServices;
-import solvd.projects.database.tableclasses.Students;
+import solvd.projects.database.models.Students;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package solvd.projects.database.dbservices.mybatis.mappers;
 
-import solvd.projects.database.tableclasses.Universities;
+import solvd.projects.database.models.Universities;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package solvd.projects.database.dbservices.mybatis.mappers;
 
-import solvd.projects.database.tableclasses.ViceRectors;
+import solvd.projects.database.models.ViceRectors;
 
 import java.util.List;
 

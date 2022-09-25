@@ -1,6 +1,6 @@
 package solvd.projects.database.dbservices.mybatis.services.serviceInterfaces;
 
-import solvd.projects.database.tableclasses.TypeSpecialties;
+import solvd.projects.database.models.TypeSpecialties;
 
 import java.util.List;
 

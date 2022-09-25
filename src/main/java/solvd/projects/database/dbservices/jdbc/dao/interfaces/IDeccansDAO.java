@@ -1,6 +1,6 @@
 package solvd.projects.database.dbservices.jdbc.dao.interfaces;
 
-import solvd.projects.database.tableclasses.Deccans;
+import solvd.projects.database.models.Deccans;
 
 import java.util.List;
 

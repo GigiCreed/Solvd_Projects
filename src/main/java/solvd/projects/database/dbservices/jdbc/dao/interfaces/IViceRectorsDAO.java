@@ -1,6 +1,6 @@
 package solvd.projects.database.dbservices.jdbc.dao.interfaces;
 
-import solvd.projects.database.tableclasses.ViceRectors;
+import solvd.projects.database.models.ViceRectors;
 
 import java.util.List;
 

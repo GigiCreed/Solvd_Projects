@@ -1,6 +1,6 @@
 package solvd.projects.database.dbservices.mybatis.mappers;
 
-import solvd.projects.database.tableclasses.Rectors;
+import solvd.projects.database.models.Rectors;
 
 import java.util.List;
 

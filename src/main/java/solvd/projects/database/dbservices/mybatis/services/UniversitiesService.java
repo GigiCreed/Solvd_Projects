@@ -7,7 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import solvd.projects.database.dbservices.mybatis.mappers.IUniversitiesMapper;
 import solvd.projects.database.dbservices.mybatis.services.serviceInterfaces.IUniversitiesServices;
-import solvd.projects.database.tableclasses.Universities;
+import solvd.projects.database.models.Universities;
 
 import java.util.List;
 

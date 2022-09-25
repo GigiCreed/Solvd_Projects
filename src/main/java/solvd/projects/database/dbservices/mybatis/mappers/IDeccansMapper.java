@@ -1,6 +1,6 @@
 package solvd.projects.database.dbservices.mybatis.mappers;
 
-import solvd.projects.database.tableclasses.Deccans;
+import solvd.projects.database.models.Deccans;
 
 import java.util.List;
 

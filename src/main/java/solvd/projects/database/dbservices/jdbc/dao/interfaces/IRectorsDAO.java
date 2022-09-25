@@ -1,6 +1,6 @@
 package solvd.projects.database.dbservices.jdbc.dao.interfaces;
 
-import solvd.projects.database.tableclasses.Rectors;
+import solvd.projects.database.models.Rectors;
 
 import java.util.List;
 

@@ -5,7 +5,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import solvd.projects.database.dbservices.mybatis.mappers.IRectorsMapper;
 import solvd.projects.database.dbservices.mybatis.services.serviceInterfaces.IRectorsServices;
-import solvd.projects.database.tableclasses.Rectors;
+import solvd.projects.database.models.Rectors;
 
 import java.util.List;
 

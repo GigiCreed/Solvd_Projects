@@ -1,8 +1,8 @@
-package solvd.projects.database.tableclasses;
+package solvd.projects.database.models;
 
 import java.sql.Date;
 
-public class Lectors {
+public class Rectors {
     private Long id;
     private String name;
     private String surname;
@@ -12,11 +12,9 @@ public class Lectors {
     private String email;
     private Long universitiesId;
 
-    public Lectors(){
+    public Rectors(){}
 
-    }
-
-    public Lectors(String name, String surname, Date age, int phoneNumber, String address, String email, Long universitiesId) {
+    public Rectors(String name, String surname, Date age, int phoneNumber, String address, String email, Long universitiesId) {
         this.name = name;
         this.surname = surname;
         this.age = age;
@@ -92,12 +90,12 @@ public class Lectors {
 
     @Override
     public String toString() {
-        return "Lectors{" +
+        return "Rectors{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", age=" + age +
-                ", phone_number=" + phoneNumber +
+                ", phoneNumber=" + phoneNumber +
                 ", address='" + address + '\'' +
                 ", email='" + email + '\'' +
                 ", universitiesId=" + universitiesId +

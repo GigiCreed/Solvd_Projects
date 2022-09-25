@@ -5,7 +5,7 @@ import org.apache.logging.log4j.Logger;
 import solvd.projects.database.dbservices.jdbc.dao.interfaces.IFacultiesDAO;
 import solvd.projects.database.dbservices.jdbc.AbstractMySqlDAO;
 import solvd.projects.database.dbservices.jdbc.connectionpool.ConnectionPool;
-import solvd.projects.database.tableclasses.Faculties;
+import solvd.projects.database.models.Faculties;
 
 import java.sql.*;
 import java.util.ArrayList;

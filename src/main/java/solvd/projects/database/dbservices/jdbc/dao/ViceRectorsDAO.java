@@ -5,7 +5,7 @@ import org.apache.logging.log4j.Logger;
 import solvd.projects.database.dbservices.jdbc.dao.interfaces.IViceRectorsDAO;
 import solvd.projects.database.dbservices.jdbc.AbstractMySqlDAO;
 import solvd.projects.database.dbservices.jdbc.connectionpool.ConnectionPool;
-import solvd.projects.database.tableclasses.ViceRectors;
+import solvd.projects.database.models.ViceRectors;
 
 import java.sql.*;
 import java.util.ArrayList;
