@@ -5,13 +5,15 @@ import org.apache.logging.log4j.Logger;
 import solvd.projects.database.service.mybatis.services.*;
 import solvd.projects.database.tableclasses.*;
 
+import java.sql.Date;
+
 
 public class MyBatisMain {
     private static final Logger LOGGER = LogManager.getLogger(MyBatisMain.class);
     public static void main(String[] args) {
 
 //        StudentsServices studentsServices = new StudentsServices();
-//        Students students = new Students("Gigi","mamaladze", new Date(100000002323L),555,555,"sdsd",1L,1L);
+//        Students students = new Students("LUka","mamaladze", new Date(100000002323L),555,555,"sdsd",1L,1L);
 //        studentsServices.insert(students);
 
 

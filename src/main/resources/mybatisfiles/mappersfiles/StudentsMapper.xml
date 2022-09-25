@@ -27,7 +27,7 @@
     <insert id="insert" parameterType="Students" useGeneratedKeys="true"
             keyProperty="id" >
         INSERT INTO students(name,surname,age,phone_number,course,email,Universities_id,Faculties_id)
-        VALUES (#{name},#(surname},#{age},#{phoneNumber},#{course},#{email},#{universitiesId},#{facultiesId})
+        VALUES (#{name},#{surname},#{age},#{phoneNumber},#{course},#{email},#{universitiesId},#{facultiesId})
     </insert>
 
     <update id="update" parameterType="Students">
