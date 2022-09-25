@@ -2,7 +2,7 @@ package solvd.projects.database;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import solvd.projects.database.service.mybatis.servicies.StudentsServices;
+import solvd.projects.database.service.mybatis.services.StudentsServices;
 import solvd.projects.database.tableclasses.Students;
 
 import java.sql.Date;

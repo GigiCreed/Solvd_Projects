@@ -1,10 +1,10 @@
-package solvd.projects.database.service.mybatis.servicies;
+package solvd.projects.database.service.mybatis.services;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import solvd.projects.database.service.mybatis.mappers.IStudentsMapper;
-import solvd.projects.database.service.mybatis.servicies.interfacies.IStudentServices;
+import solvd.projects.database.service.mybatis.services.interfacies.IStudentServices;
 import solvd.projects.database.tableclasses.Students;
 
 import java.util.List;

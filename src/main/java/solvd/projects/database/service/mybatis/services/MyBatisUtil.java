@@ -1,4 +1,4 @@
-package solvd.projects.database.service.mybatis.servicies;
+package solvd.projects.database.service.mybatis.services;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;

@@ -1,4 +1,4 @@
-package solvd.projects.database.service.mybatis.servicies.interfacies;
+package solvd.projects.database.service.mybatis.services.interfacies;
 
 import solvd.projects.database.tableclasses.Students;
 
