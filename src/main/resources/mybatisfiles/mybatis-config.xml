@@ -23,8 +23,8 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="mybatisfiles/mappersfiles/StudentsMapper.xml"/>
         <mapper resource="mybatisfiles/mappersfiles/UniversitiesMapper.xml"/>
+        <mapper resource="mybatisfiles/mappersfiles/StudentsMapper.xml"/>
         <mapper resource="mybatisfiles/mappersfiles/RectorsMapper.xml"/>
     </mappers>
 </configuration>
