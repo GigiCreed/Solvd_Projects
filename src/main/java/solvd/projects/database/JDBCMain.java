@@ -2,11 +2,9 @@ package solvd.projects.database;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import solvd.projects.database.service.jdbc.dao.*;
-import solvd.projects.database.tableclasses.*;
 
-public class Main {
-    private static final Logger LOGGER = LogManager.getLogger(Main.class);
+public class JDBCMain {
+    private static final Logger LOGGER = LogManager.getLogger(JDBCMain.class);
     public static void main(String[] args) {
 
 // --------------------------------------------Students----------------------------------------------------------------
