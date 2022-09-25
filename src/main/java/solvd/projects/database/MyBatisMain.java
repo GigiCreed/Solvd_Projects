@@ -12,14 +12,33 @@ public class MyBatisMain {
     private static final Logger LOGGER = LogManager.getLogger(MyBatisMain.class);
     public static void main(String[] args) {
 
+//------------------------------------------------Students--------------------------------------------------------------
+
 //        StudentsServices studentsServices = new StudentsServices();
+
+           //insert
 //        Students students = new Students("LUka","mamaladze", new Date(100000002323L),555,555,"sdsd",1L,1L);
 //        studentsServices.insert(students);
 
+           //getById
+//         Students students = studentsServices.getById(1L);
+//         LOGGER.info(students);
+
+          //SelectAll
+//        for (Students students:studentsServices.getAllStudents()) {
+//            LOGGER.info(students);
+//        }
+
+          //Update
+//        Students students = new Students("Dima","mamaladze", new Date(100000002323L),555,555,"sdsd",1L,1L);
+//        studentsServices.update(students,12L);
+
+          //Delete
+//          studentsServices.delete(8L);
 
 //-------------------------------------------------Universities---------------------------------------------------------
 
-        UniversitiesService universitiesService = new UniversitiesService();
+//        UniversitiesService universitiesService = new UniversitiesService();
 
         //selectAll
 //        for (Universities u:universitiesService.getAllUniversities()) {
@@ -41,5 +60,32 @@ public class MyBatisMain {
         //delete
 //        universitiesService.delete(4L);
 
+
+
+//------------------------------------------------Rectors---------------------------------------------------------------
+//        RectorsServices rectorsServices = new RectorsServices();
+
+        //SelectByid
+//        Rectors rectors = rectorsServices.getById(1L);
+//        LOGGER.info(rectors);
+
+        //SelectAll
+//        for (Rectors r:rectorsServices.getAllRectors()) {
+//            LOGGER.info(r);
+//        }
+
+        //Insert
+//        Rectors rectors = new Rectors("Mari","kvach",new Date(100000000785L),555,"batumi","sdsd",5L);
+//        rectorsServices.insert(rectors);
+
+        //Update
+//        Rectors rectors = new Rectors("Rita","kvach",new Date(100000000785L),555,"batumi","sdsd",5L);
+//        rectorsServices.update(rectors,5L);
+
+        //Delete
+//        rectorsServices.delete(5L);
+
+
+//------------------------------------------------ViceRectors-----------------------------------------------------------
     }
 }

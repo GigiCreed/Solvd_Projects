@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN'
+        'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
+
+<mapper namespace="solvd.projects.database.service.mybatis.mappers.IRectorsMapper">
+
+    <select id="getById" parameterType="Long" resultMap="RectorsResult">
+        SELECT * FROM rectors WHERE id =#{id}
+    </select>
+
+    <resultMap id="RectorsResult" type="Rectors">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="surname" column="surname"/>
+        <result property="age" column="age" />
+        <result property="phoneNumber" column="phone_number"/>
+        <result property="address" column="address"/>
+        <result property="email" column="email"/>
+        <result property="universitiesId" column="Universities_id"/>
+    </resultMap>
+
+    <select id="getAllRectors" resultMap="RectorsResult">
+        SELECT * FROM rectors
+    </select>
+
+    <insert id="insert" parameterType="Rectors" useGeneratedKeys="true"
+            keyProperty="id" >
+        INSERT INTO rectors(name,surname,age,phone_number,address,email,Universities_id)
+        VALUES (#{name},#{surname},#{age},#{phoneNumber},#{address},#{email},#{universitiesId})
+    </insert>
+
+    <update id="update" parameterType="Rectors">
+        UPDATE rectors
+        SET
+        name = #{name},
+        surname = #{surname},
+        age = #{age},
+        phone_number =#{phoneNumber},
+        address =#{address},
+        email =#{email},
+        Universities_id = #{universitiesId}
+        WHERE id =#{id}
+    </update>
+
+    <delete id="delete" parameterType="Long">
+        DELETE FROM rectors WHERE id= #{id}
+    </delete>
+
+</mapper>

@@ -43,6 +43,7 @@ public class StudentsServices implements IStudentServices {
             students.setId(id);
             IStudentsMapper iStudentsMapper= session.getMapper(IStudentsMapper.class);
             iStudentsMapper.update(students);
+            session.commit();
             LOGGER.info("update completed");
         }finally {
             session.rollback();
