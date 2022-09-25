@@ -6,7 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import solvd.projects.database.service.mybatis.mappers.IUniversitiesMapper;
-import solvd.projects.database.service.mybatis.services.interfacies.IUniversitiesServices;
+import solvd.projects.database.service.mybatis.services.serviceInterfaces.IUniversitiesServices;
 import solvd.projects.database.tableclasses.Universities;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package solvd.projects.database.service.mybatis.services.interfacies;
+package solvd.projects.database.service.mybatis.services.serviceInterfaces;
 
 import solvd.projects.database.tableclasses.TypeSpecialties;
 
