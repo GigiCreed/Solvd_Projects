@@ -1,8 +1,7 @@
-package solvd.projects.database.mysql.dao.interfaces;
+package solvd.projects.database.service.jdbc.dao.interfaces;
 
 import solvd.projects.database.tableclasses.Deccans;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public interface IDeccansDAO extends IBaseDAO<Deccans> {

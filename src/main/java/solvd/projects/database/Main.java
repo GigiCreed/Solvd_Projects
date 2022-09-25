@@ -2,10 +2,8 @@ package solvd.projects.database;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import solvd.projects.database.mysql.dao.*;
+import solvd.projects.database.service.jdbc.dao.*;
 import solvd.projects.database.tableclasses.*;
-
-import java.sql.Date;
 
 public class Main {
     private static final Logger LOGGER = LogManager.getLogger(Main.class);

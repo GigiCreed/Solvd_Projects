@@ -1,10 +1,10 @@
-package solvd.projects.database.mysql.dao;
+package solvd.projects.database.service.jdbc.dao;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import solvd.projects.database.mysql.dao.interfaces.IRectorsDAO;
-import solvd.projects.database.mysql.AbstractMySqlDAO;
-import solvd.projects.database.mysql.connectionpool.ConnectionPool;
+import solvd.projects.database.service.jdbc.dao.interfaces.IRectorsDAO;
+import solvd.projects.database.service.jdbc.AbstractMySqlDAO;
+import solvd.projects.database.service.jdbc.connectionpool.ConnectionPool;
 import solvd.projects.database.tableclasses.Rectors;
 
 import java.sql.*;

@@ -1,4 +1,4 @@
-package solvd.projects.database.mysql.connectionpool;
+package solvd.projects.database.service.jdbc.connectionpool;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

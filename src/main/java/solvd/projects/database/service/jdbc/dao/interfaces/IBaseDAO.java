@@ -1,6 +1,4 @@
-package solvd.projects.database.mysql.dao.interfaces;
-
-import java.sql.SQLException;
+package solvd.projects.database.service.jdbc.dao.interfaces;
 
 public interface IBaseDAO<T>{
     void create(T object) ;
