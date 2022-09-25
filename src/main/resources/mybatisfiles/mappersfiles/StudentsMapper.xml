@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN'
         'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
 
-<mapper namespace="solvd.projects.database.service.mybatis.mappers.IStudentsMapper">
+<mapper namespace="solvd.projects.database.dbservice.mybatis.mappers.IStudentsMapper">
 
     <select id="getById" parameterType="Long" resultMap="StudentsResult">
         SELECT * FROM students WHERE id =#{id}

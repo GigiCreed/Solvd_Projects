@@ -2,10 +2,6 @@ package solvd.projects.database;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import solvd.projects.database.service.mybatis.services.*;
-import solvd.projects.database.tableclasses.*;
-
-import java.sql.Date;
 
 
 public class MyBatisMain {
