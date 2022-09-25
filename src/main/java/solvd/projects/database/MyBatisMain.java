@@ -1,8 +1,9 @@
-package solvd.projects.mybatis;
+package solvd.projects.database;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import solvd.projects.database.service.mybatis.services.UniversitiesService;
+import solvd.projects.database.service.mybatis.services.*;
+import solvd.projects.database.tableclasses.*;
 
 
 public class MyBatisMain {
@@ -19,19 +20,21 @@ public class MyBatisMain {
         UniversitiesService universitiesService = new UniversitiesService();
 
         //selectAll
-        LOGGER.info(universitiesService.getAllUniversities());
+//        for (Universities u:universitiesService.getAllUniversities()) {
+//            LOGGER.info(u);
+//        }
 
         //insert
 //        Universities universities = new Universities("JDS","sds","sdsd","sdsd");
 //        universitiesService.insert(universities);
 
-        //getById
+//        getById
 //        Universities universities = universitiesService.getById(1L);
 //        LOGGER.info(universities);
 
         //Update
-//        Universities universities = new Universities("Bsu","Batumi","BsuPortal.com","Bsu@gmail.com");
-//        universitiesService.update(universities,1L);
+//        Universities universities = new Universities("TSU","Tbilisi","BsuPortal.com","Bsu@gmail.com");
+//        universitiesService.update(universities,3L);
 
         //delete
 //        universitiesService.delete(4L);
