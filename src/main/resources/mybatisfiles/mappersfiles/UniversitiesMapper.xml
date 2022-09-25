@@ -33,6 +33,7 @@
         address = #{address},
         site_address = #{siteAddress},
         email =#{email}
+        WHERE id =#{id}
     </update>
 
     <delete id="delete" parameterType="Long">
