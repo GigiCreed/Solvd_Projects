@@ -13,6 +13,7 @@
         <typeAlias type="solvd.projects.database.models.Lectors" alias="Lectors"/>
         <typeAlias type="solvd.projects.database.models.Faculties" alias="Faculties"/>
         <typeAlias type="solvd.projects.database.models.Specialties" alias="Specialties"/>
+        <typeAlias type="solvd.projects.database.models.Subjects" alias="Subjects"/>
     </typeAliases>
     <environments default="development">
         <environment id="development">
@@ -36,5 +37,6 @@
         <mapper resource="mybatisfiles/mappersfiles/LectorsMapper.xml"/>
         <mapper resource="mybatisfiles/mappersfiles/FacultiesMapper.xml"/>
         <mapper resource="mybatisfiles/mappersfiles/SpecialtiesMapper.xml"/>
+        <mapper resource="mybatisfiles/mappersfiles/SubjectsMapper.xml"/>
     </mappers>
 </configuration>

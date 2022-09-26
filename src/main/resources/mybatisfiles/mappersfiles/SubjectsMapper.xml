@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN'
+        'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
+
+<mapper namespace="solvd.projects.database.dbservices.mybatis.mappers.ISubjectsMapper">
+
+    <select id="getById" parameterType="Long" resultMap="SubjectsResult">
+        SELECT * FROM subjects WHERE id =#{id}
+    </select>
+
+    <resultMap id="SubjectsResult" type="Subjects">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="course" column="course"/>
+        <result property="specialtiesId" column="Specialties_id"/>
+    </resultMap>
+
+    <select id="getAllSubjects" resultMap="SubjectsResult">
+        SELECT * FROM subjects
+    </select>
+
+    <insert id="insert" parameterType="Subjects" useGeneratedKeys="true"
+            keyProperty="id" >
+        INSERT INTO subjects(name,course,Specialties_id)
+        VALUES (#{name},#{course},#{specialtiesId})
+    </insert>
+
+    <update id="update" parameterType="Subjects">
+        UPDATE subjects
+        SET
+        name = #{name},
+        course = #{course},
+        Specialties_id =#{specialtiesId}
+        WHERE id =#{id}
+    </update>
+
+    <delete id="delete" parameterType="Long">
+        DELETE FROM subjects WHERE id= #{id}
+    </delete>
+
+
+</mapper>

@@ -17,7 +17,7 @@ public class MyBatisMain {
 //        StudentsServices studentsServices = new StudentsServices();
 
            //insert
-//        Students students = new Students("LUka","mamaladze", new Date(100000002323L),555,555,"sdsd",1L,1L);
+//        Students students = new Students("Niako","mamaladze", new Date(100000002323L),555,555,"sdsd",1L,1L);
 //        studentsServices.insert(students);
 
            //getById
@@ -202,6 +202,30 @@ public class MyBatisMain {
         //remove
 //        specialtiesServices.delete(2L);
 
+//------------------------------------------------Subjects--------------------------------------------------------------
+//            SubjectsServices subjectsServices = new SubjectsServices();
+
+         //insert
+//        Subjects subjects = new Subjects("C#",3,1L);
+//        subjectsServices.insert(subjects);
+
+        //Update
+//        Subjects subjects = new Subjects("Java",3,1L);
+//        subjectsServices.update(subjects,2L);
+
+        //SelectById
+//        Subjects subjects = subjectsServices.getById(1L);
+//        LOGGER.info(subjects);
+
+        //SelectALL
+//        for (Subjects s: subjectsServices.getAllSubjects()) {
+//            LOGGER.info(s);
+//        }
+
+        //Delete
+//        subjectsServices.delete(2L);
+
+//---------------------------------------------TypeLectures-------------------------------------------------------------
 
     }
 }
