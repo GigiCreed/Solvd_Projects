@@ -25,7 +25,7 @@ public class DeccansDAO extends AbstractMySqlDAO implements IDeccansDAO {
             preparedStatement.setString(2,deccans.getSurname());
             preparedStatement.setDate(3,deccans.getAge());
             preparedStatement.setString(4,deccans.getAddress());
-            preparedStatement.setInt(5,deccans.getPhone_number());
+            preparedStatement.setInt(5,deccans.getPhoneNumber());
             preparedStatement.setString(6, deccans.getEmail());
             preparedStatement.setLong(7,deccans.getUniversitiesId());
             preparedStatement.executeUpdate();
@@ -59,7 +59,7 @@ public class DeccansDAO extends AbstractMySqlDAO implements IDeccansDAO {
                 deccans.setSurname(resultSet.getString("surname"));
                 deccans.setAge(resultSet.getDate("age"));
                 deccans.setAddress(resultSet.getString("address"));
-                deccans.setPhone_number(resultSet.getInt("phone_number"));
+                deccans.setPhoneNumber(resultSet.getInt("phone_number"));
                 deccans.setEmail(resultSet.getString("email"));
                 deccans.setUniversitiesId(resultSet.getLong("Universities_id"));
             }
@@ -131,7 +131,7 @@ public class DeccansDAO extends AbstractMySqlDAO implements IDeccansDAO {
                 }
                 case "phone_number" -> {
                     PreparedStatement preparedStatementPhoneNumber = connection.prepareStatement("update deccans set phone_number = ? where id = ?");
-                    preparedStatementPhoneNumber.setInt(1, deccans.getPhone_number());
+                    preparedStatementPhoneNumber.setInt(1, deccans.getPhoneNumber());
                     preparedStatementPhoneNumber.setLong(2, id);
                     preparedStatementPhoneNumber.executeUpdate();
                     preparedStatementPhoneNumber.close();
@@ -163,7 +163,7 @@ public class DeccansDAO extends AbstractMySqlDAO implements IDeccansDAO {
                     preparedStatementAll.setString(2, deccans.getSurname());
                     preparedStatementAll.setDate(3, deccans.getAge());
                     preparedStatementAll.setString(4, deccans.getAddress());
-                    preparedStatementAll.setInt(5, deccans.getPhone_number());
+                    preparedStatementAll.setInt(5, deccans.getPhoneNumber());
                     preparedStatementAll.setString(6, deccans.getEmail());
                     preparedStatementAll.setLong(7, deccans.getUniversitiesId());
                     preparedStatementAll.setLong(8, id);
@@ -198,7 +198,7 @@ public class DeccansDAO extends AbstractMySqlDAO implements IDeccansDAO {
                 deccans.setSurname(resultSet.getString("surname"));
                 deccans.setAge(resultSet.getDate("age"));
                 deccans.setAddress(resultSet.getString("address"));
-                deccans.setPhone_number(resultSet.getInt("phone_number"));
+                deccans.setPhoneNumber(resultSet.getInt("phone_number"));
                 deccans.setEmail(resultSet.getString("email"));
                 deccans.setUniversitiesId(resultSet.getLong("Universities_id"));
 

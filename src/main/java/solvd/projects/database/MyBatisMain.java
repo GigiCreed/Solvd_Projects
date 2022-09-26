@@ -111,6 +111,27 @@ public class MyBatisMain {
 
 
 //-------------------------------------------Deccans--------------------------------------------------------------------
+           DeccansServices deccansServices = new DeccansServices();
+
+          //selectAll
+//        for (Deccans d: deccansServices.getAllDeccans()) {
+//            LOGGER.info(d);
+//        }
+
+        //ById
+//        Deccans deccans = deccansServices.getById(1L);
+//        LOGGER.info(deccans);
+
+        //insert
+//         Deccans deccans = new Deccans("Tina","rodinadze",new Date(10000000000000L),"Sdsds",55,"Sdsdsd@gmail.com",1L);
+//         deccansServices.insert(deccans);
+
+        //Update
+//        Deccans deccans = new Deccans("Tiniko","rodinadze",new Date(10000000000000L),"Sdsds",55,"Sdsdsd@gmail.com",1L);
+//        deccansServices.update(deccans,6L);
+
+        //Delete
+//         deccansServices.delete(6L);
 
 
     }

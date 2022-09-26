@@ -8,7 +8,7 @@ public class Deccans {
     private String surname;
     private Date age;
     private String address;
-    private int phone_number;
+    private int phoneNumber;
     private String email;
     private Long universitiesId;
 
@@ -17,12 +17,12 @@ public class Deccans {
 
     }
 
-    public Deccans(String name, String surname, Date age, String address, int phone_number, String email, Long universitiesId) {
+    public Deccans(String name, String surname, Date age, String address, int phoneNumber, String email, Long universitiesId) {
         this.name = name;
         this.surname = surname;
         this.age = age;
         this.address = address;
-        this.phone_number = phone_number;
+        this.phoneNumber = phoneNumber;
         this.email = email;
         this.universitiesId = universitiesId;
     }
@@ -67,12 +67,12 @@ public class Deccans {
         this.address = address;
     }
 
-    public int getPhone_number() {
-        return phone_number;
+    public int getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhone_number(int phone_number) {
-        this.phone_number = phone_number;
+    public void setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getEmail() {
@@ -99,7 +99,7 @@ public class Deccans {
                 ", surname='" + surname + '\'' +
                 ", age=" + age +
                 ", address='" + address + '\'' +
-                ", phone_number=" + phone_number +
+                ", phone_number=" + phoneNumber +
                 ", email='" + email + '\'' +
                 ", universitiesId=" + universitiesId +
                 '}';
