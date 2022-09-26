@@ -8,6 +8,7 @@
         <typeAlias type="solvd.projects.database.models.Students" alias="Students"/>
         <typeAlias type="solvd.projects.database.models.Universities" alias="Universities"/>
         <typeAlias type="solvd.projects.database.models.Rectors" alias="Rectors"/>
+        <typeAlias type="solvd.projects.database.models.ViceRectors" alias="ViceRectors"/>
     </typeAliases>
     <environments default="development">
         <environment id="development">
@@ -26,5 +27,6 @@
         <mapper resource="mybatisfiles/mappersfiles/UniversitiesMapper.xml"/>
         <mapper resource="mybatisfiles/mappersfiles/StudentsMapper.xml"/>
         <mapper resource="mybatisfiles/mappersfiles/RectorsMapper.xml"/>
+        <mapper resource="mybatisfiles/mappersfiles/ViceRectorsMapper.xml"/>
     </mappers>
 </configuration>

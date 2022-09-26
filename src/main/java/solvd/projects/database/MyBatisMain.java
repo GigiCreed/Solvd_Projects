@@ -87,6 +87,30 @@ public class MyBatisMain {
 
 
 //------------------------------------------------ViceRectors-----------------------------------------------------------
+//         ViceRectorsServices viceRectorsServices = new ViceRectorsServices();
+
+         //Select All
+//        for (ViceRectors v : viceRectorsServices.getAllViceRectors()) {
+//            LOGGER.info(v);
+//        }
+
+        //insert
+//        ViceRectors viceRectors = new ViceRectors("dima","primudro",new Date(13221312313L),55,"sdsd","sdsd",5L);
+//        viceRectorsServices.insert(viceRectors);
+
+        //getById
+//        ViceRectors viceRectors =viceRectorsServices.getById(1L);
+//        LOGGER.info(viceRectors);
+
+        //update
+//        ViceRectors viceRectors = new ViceRectors("Dima","primudro",new Date(13221312313L),55,"sdsd","sdsd",5L);
+//        viceRectorsServices.update(viceRectors,5L);
+
+        //Delete
+//        viceRectorsServices.delete(4L);
+
+
+//-------------------------------------------Deccans--------------------------------------------------------------------
 
 
     }
