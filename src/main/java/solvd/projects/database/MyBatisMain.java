@@ -98,7 +98,7 @@ public class MyBatisMain {
 //        ViceRectors viceRectors = new ViceRectors("dima","primudro",new Date(13221312313L),55,"sdsd","sdsd",5L);
 //        viceRectorsServices.insert(viceRectors);
 
-        //getById
+        //SelectById
 //        ViceRectors viceRectors =viceRectorsServices.getById(1L);
 //        LOGGER.info(viceRectors);
 
@@ -118,7 +118,7 @@ public class MyBatisMain {
 //            LOGGER.info(d);
 //        }
 
-        //ById
+        //SelectById
 //        Deccans deccans = deccansServices.getById(1L);
 //        LOGGER.info(deccans);
 
@@ -136,7 +136,7 @@ public class MyBatisMain {
 
 //----------------------------------------------Lectors-------------------------------------------------------------------
 
-        LectorsServices lectorsServices = new LectorsServices();
+//        LectorsServices lectorsServices = new LectorsServices();
 
         //insert
 //        Lectors lectors3 = new Lectors("Nika","kvach",new Date(100000000785L),555,"batumi","sdsd",1L);
@@ -179,7 +179,29 @@ public class MyBatisMain {
 //        facultiesServices.delete(5L);
 
 
-//------------------------------------------Specialties------------------------------------------------------------------
+//------------------------------------------Specialties-----------------------------------------------------------------
+//        SpecialtiesServices specialtiesServices = new SpecialtiesServices();
+
+        //insert
+//        Specialties specialties = new Specialties("Business",2L);
+//        specialtiesServices.insert(specialties);
+
+        //update
+//        Specialties specialties = new Specialties("Economic",2L);
+//        specialtiesServices.update(specialties,2L);
+
+        //SelectByid
+//        Specialties specialties = specialtiesServices.getById(1L);
+//        LOGGER.info(specialties);
+
+        //SelectAll
+//        for (Specialties s : specialtiesServices.getAllSpecialties()) {
+//            LOGGER.info(s);
+//        }
+
+        //remove
+//        specialtiesServices.delete(2L);
+
 
     }
 }
