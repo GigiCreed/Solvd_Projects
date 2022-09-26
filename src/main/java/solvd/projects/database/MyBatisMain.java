@@ -160,7 +160,26 @@ public class MyBatisMain {
 
 
 //----------------------------------------------Faculties---------------------------------------------------------------
+//        FacultiesServices facultiesServices = new FacultiesServices();
 
+        //select All
+//        for (Faculties f:facultiesServices.getAllFaculties()) {
+//            LOGGER.info(f);
+//        }
+
+        //insert
+//        Faculties faculties = new Faculties("sdsd",1L,null);
+//        facultiesServices.insert(faculties);
+
+        //update
+//        Faculties faculties = new Faculties("I don't know What",1L,null);
+//        facultiesServices.update(faculties,5L);
+
+        //Delete
+//        facultiesServices.delete(5L);
+
+
+//------------------------------------------Specialties------------------------------------------------------------------
 
     }
 }

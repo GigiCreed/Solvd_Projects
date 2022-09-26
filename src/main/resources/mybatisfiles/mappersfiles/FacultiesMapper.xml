@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN'
+        'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
+
+<mapper namespace="solvd.projects.database.dbservices.mybatis.mappers.IFacultiesMapper">
+    <select id="getById" parameterType="Long" resultMap="FacultiesResult">
+        SELECT * FROM faculties WHERE id =#{id}
+    </select>
+
+    <resultMap id="FacultiesResult" type="Faculties">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="universitiesId" column="Universities_id"/>
+        <result property="deccansId" column="Deccans_id"/>
+    </resultMap>
+
+    <select id="getAllFaculties" resultMap="FacultiesResult">
+        SELECT * FROM faculties
+    </select>
+
+    <insert id="insert" parameterType="Faculties" useGeneratedKeys="true"
+            keyProperty="id" >
+        INSERT INTO faculties(name,Universities_id,Deccans_id)
+        VALUES (#{name},#{universitiesId},#{deccansId})
+    </insert>
+
+    <update id="update" parameterType="Faculties">
+        UPDATE faculties
+        SET
+        name = #{name},
+        Universities_id = #{universitiesId},
+        Deccans_id =#{deccansId}
+        WHERE id =#{id}
+    </update>
+
+    <delete id="delete" parameterType="Long">
+        DELETE FROM faculties WHERE id= #{id}
+    </delete>
+
+
+</mapper>
