@@ -111,7 +111,7 @@ public class MyBatisMain {
 
 
 //-------------------------------------------Deccans--------------------------------------------------------------------
-           DeccansServices deccansServices = new DeccansServices();
+//           DeccansServices deccansServices = new DeccansServices();
 
           //selectAll
 //        for (Deccans d: deccansServices.getAllDeccans()) {
@@ -132,6 +132,34 @@ public class MyBatisMain {
 
         //Delete
 //         deccansServices.delete(6L);
+
+
+//----------------------------------------------Lectors-------------------------------------------------------------------
+
+        LectorsServices lectorsServices = new LectorsServices();
+
+        //insert
+//        Lectors lectors3 = new Lectors("Nika","kvach",new Date(100000000785L),555,"batumi","sdsd",1L);
+//        lectorsServices.insert(lectors3);
+
+        //SelectAll
+//        for (Lectors l:lectorsServices.getAllLectors()) {
+//            LOGGER.info(l);
+//        }
+
+        //SelectById
+//        Lectors lectors =lectorsServices.getById(1L);
+//        LOGGER.info(lectors);
+
+        //Update
+//        Lectors lectors = new Lectors("Luka","kvach",new Date(100000000785L),555,"batumi","sdsd",1L);
+//        lectorsServices.update(lectors,1L);
+
+        //Delete
+//        lectorsServices.delete(3L);
+
+
+//----------------------------------------------Faculties---------------------------------------------------------------
 
 
     }
