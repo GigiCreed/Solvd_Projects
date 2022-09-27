@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN'
+        'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
+
+<mapper namespace="solvd.projects.database.dbservices.mybatis.mappers.ITypeLecturesMapper">
+
+    <select id="getById" parameterType="Long" resultMap="TypeLecturesResult">
+        SELECT * FROM type_lectures WHERE id =#{id}
+    </select>
+
+    <resultMap id="TypeLecturesResult" type="TypeLectures">
+        <id property="id" column="id"/>
+        <result property="type" column="type"/>
+        <result property="lectorsId" column="Lectors_id"/>
+        <result property="subjectsId" column="Subjects_id"/>
+    </resultMap>
+
+    <select id="getAllTypeLectures" resultMap="TypeLecturesResult">
+        SELECT * FROM type_lectures
+    </select>
+
+
+    <insert id="insert" parameterType="TypeLectures" useGeneratedKeys="true"
+            keyProperty="id" >
+        INSERT INTO type_lectures(type,Lectors_id,Subjects_id)
+        VALUES (#{type},#{lectorsId},#{subjectsId})
+    </insert>
+
+    <update id="update" parameterType="TypeLectures">
+        UPDATE type_lectures
+        SET
+        type = #{type},
+        Lectors_id = #{lectorsId},
+        Subjects_id =#{subjectsId}
+        WHERE id =#{id}
+    </update>
+
+    <delete id="delete" parameterType="Long">
+        DELETE FROM type_lectures WHERE id= #{id}
+    </delete>
+
+</mapper>
