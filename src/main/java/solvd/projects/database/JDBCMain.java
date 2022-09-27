@@ -323,31 +323,5 @@ public class JDBCMain {
 
 //----------------------------------------------FINISH------------------------------------------------------------------
 
-        TypeLecturesServices typeLecturesServices = new TypeLecturesServices();
-
-
-        //insert
-//        TypeLectures typeLectures = new TypeLectures("teoritical",1L,1L);
-//        typeLecturesServices.insert(typeLectures);
-
-
-        //Update
-//        TypeLectures typeLectures = new TypeLectures("Practical",1L,1L);
-//        typeLecturesServices.update(typeLectures,1L);
-
-        //GetByid
-//        TypeLectures typeLectures = typeLecturesServices.getById(1L);
-//        LOGGER.info(typeLectures);
-
-        //SelectAll
-//        for (TypeLectures t: typeLecturesServices.getAllTypeLectures()) {
-//            LOGGER.info(t);
-//        }
-
-        //delete
-//        typeLecturesServices.delete(1L);
-
-
-//----------------------------------------------Finish-----------------------------------------------------------------
     }
 }
