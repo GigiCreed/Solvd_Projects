@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN'
         'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
 
-<mapper namespace="solvd.projects.database.dbservices.mybatis.mappers.ITypeLecturesMapper">
+<mapper namespace="solvd.projects.database.dao.interfaces.ITypeLecturesDAO">
 
     <select id="getById" parameterType="Long" resultMap="TypeLecturesResult">
         SELECT * FROM type_lectures WHERE id =#{id}

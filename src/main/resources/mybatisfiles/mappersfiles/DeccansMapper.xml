@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN'
         'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
 
-<mapper namespace="solvd.projects.database.dbservices.mybatis.mappers.IDeccansMapper">
+<mapper namespace="solvd.projects.database.dao.interfaces.IDeccansDAO">
 
     <select id="getById" parameterType="Long" resultMap="DeccansResult">
         SELECT * FROM deccans WHERE id =#{id}

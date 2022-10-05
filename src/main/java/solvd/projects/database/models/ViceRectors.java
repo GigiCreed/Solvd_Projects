@@ -17,6 +17,17 @@ public class ViceRectors {
 
     }
 
+    public ViceRectors(Long id, String name, String surname, Date age, int phoneNumber, String address, String email, Long universitiesId) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.email = email;
+        this.universitiesId = universitiesId;
+    }
+
     public ViceRectors(String name, String surname, Date age, int phoneNumber, String address, String email, Long universitiesId) {
         this.name = name;
         this.surname = surname;

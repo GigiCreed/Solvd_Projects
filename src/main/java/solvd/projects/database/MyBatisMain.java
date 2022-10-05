@@ -2,10 +2,8 @@ package solvd.projects.database;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import solvd.projects.database.dbservices.mybatis.services.*;
+import solvd.projects.database.dao.mybatis.*;
 import solvd.projects.database.models.*;
-
-import java.sql.Date;
 
 
 public class MyBatisMain {
@@ -14,18 +12,18 @@ public class MyBatisMain {
 
 //------------------------------------------------Students--------------------------------------------------------------
 
-//        StudentsServices studentsServices = new StudentsServices();
+//        StudentsDAO studentsDAO = new StudentsDAO();
 
            //insert
 //        Students students = new Students("Niako","mamaladze", new Date(100000002323L),555,555,"sdsd",1L,1L);
-//        studentsServices.insert(students);
+//        studentsDAO.insert(students);
 
            //getById
-//         Students students = studentsServices.getById(1L);
+//         Students students = studentsDAO.getById(1L);
 //         LOGGER.info(students);
 
           //SelectAll
-//        for (Students students:studentsServices.getAllStudents()) {
+//        for (Students students:studentsDAO.getAllStudents()) {
 //            LOGGER.info(students);
 //        }
 
@@ -38,7 +36,7 @@ public class MyBatisMain {
 
 //-------------------------------------------------Universities---------------------------------------------------------
 
-//        UniversitiesService universitiesService = new UniversitiesService();
+//        UniversitiesDAO universitiesService = new UniversitiesDAO();
 
         //selectAll
 //        for (Universities u:universitiesService.getAllUniversities()) {
@@ -63,7 +61,7 @@ public class MyBatisMain {
 
 
 //------------------------------------------------Rectors---------------------------------------------------------------
-//        RectorsServices rectorsServices = new RectorsServices();
+//        RectorsDAO rectorsServices = new RectorsDAO();
 
         //SelectByid
 //        Rectors rectors = rectorsServices.getById(1L);
@@ -87,7 +85,7 @@ public class MyBatisMain {
 
 
 //------------------------------------------------ViceRectors-----------------------------------------------------------
-//         ViceRectorsServices viceRectorsServices = new ViceRectorsServices();
+//         ViceRectorsDAO viceRectorsServices = new ViceRectorsDAO();
 
          //Select All
 //        for (ViceRectors v : viceRectorsServices.getAllViceRectors()) {
@@ -111,7 +109,7 @@ public class MyBatisMain {
 
 
 //-------------------------------------------Deccans--------------------------------------------------------------------
-//           DeccansServices deccansServices = new DeccansServices();
+//           DeccansDAO deccansServices = new DeccansDAO();
 
           //selectAll
 //        for (Deccans d: deccansServices.getAllDeccans()) {
@@ -136,7 +134,7 @@ public class MyBatisMain {
 
 //----------------------------------------------Lectors-------------------------------------------------------------------
 
-//        LectorsServices lectorsServices = new LectorsServices();
+//        LectorsDAO lectorsServices = new LectorsDAO();
 
         //insert
 //        Lectors lectors3 = new Lectors("Nika","kvach",new Date(100000000785L),555,"batumi","sdsd",1L);
@@ -160,7 +158,7 @@ public class MyBatisMain {
 
 
 //----------------------------------------------Faculties---------------------------------------------------------------
-//        FacultiesServices facultiesServices = new FacultiesServices();
+//        FacultiesDAO facultiesServices = new FacultiesDAO();
 
         //select All
 //        for (Faculties f:facultiesServices.getAllFaculties()) {
@@ -180,7 +178,7 @@ public class MyBatisMain {
 
 
 //------------------------------------------Specialties-----------------------------------------------------------------
-//        SpecialtiesServices specialtiesServices = new SpecialtiesServices();
+//        SpecialtiesDAO specialtiesServices = new SpecialtiesDAO();
 
         //insert
 //        Specialties specialties = new Specialties("Business",2L);
@@ -203,7 +201,7 @@ public class MyBatisMain {
 //        specialtiesServices.delete(2L);
 
 //------------------------------------------------Subjects--------------------------------------------------------------
-//            SubjectsServices subjectsServices = new SubjectsServices();
+//            SubjectsDAO subjectsServices = new SubjectsDAO();
 
          //insert
 //        Subjects subjects = new Subjects("C#",3,1L);
@@ -227,7 +225,7 @@ public class MyBatisMain {
 
 //---------------------------------------------TypeLectures-------------------------------------------------------------
 
-//        TypeLecturesServices typeLecturesServices = new TypeLecturesServices();
+//        TypeLecturesDAO typeLecturesServices = new TypeLecturesDAO();
 
 
         //insert

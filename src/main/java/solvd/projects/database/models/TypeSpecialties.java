@@ -10,6 +10,13 @@ public class TypeSpecialties {
 
     }
 
+    public TypeSpecialties(Long id, String type, Long specialtiesId, Long studentsId) {
+        this.id = id;
+        Type = type;
+        this.specialtiesId = specialtiesId;
+        this.studentsId = studentsId;
+    }
+
     public TypeSpecialties(String type, Long specialtiesId, Long studentsId) {
         Type = type;
         this.specialtiesId = specialtiesId;

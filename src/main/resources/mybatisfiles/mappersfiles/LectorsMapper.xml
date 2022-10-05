@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN'
         'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
 
-<mapper namespace="solvd.projects.database.dbservices.mybatis.mappers.ILectorsMapper">
+<mapper namespace="solvd.projects.database.dao.interfaces.ILectorsDAO">
 
     <select id="getById" parameterType="Long" resultMap="LectorsResult">
         SELECT * FROM lectors WHERE id =#{id}

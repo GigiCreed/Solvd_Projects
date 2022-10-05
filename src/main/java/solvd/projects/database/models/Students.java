@@ -18,6 +18,17 @@ public class Students {
     }
 
 
+    public Students(Long id, String name, String surname, Date age, int phoneNumber, int course, String email, Long universitiesId, Long facultiesId) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+        this.phoneNumber = phoneNumber;
+        this.course = course;
+        this.email = email;
+        this.universitiesId = universitiesId;
+        this.facultiesId = facultiesId;
+    }
 
     public Students(String name, String surname, Date age, int phoneNumber, int course, String email, Long universitiesId, Long facultiesId) {
         this.name = name;

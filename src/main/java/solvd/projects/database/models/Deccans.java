@@ -17,6 +17,17 @@ public class Deccans {
 
     }
 
+    public Deccans(Long id, String name, String surname, Date age, String address, int phoneNumber, String email, Long universitiesId) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.universitiesId = universitiesId;
+    }
+
     public Deccans(String name, String surname, Date age, String address, int phoneNumber, String email, Long universitiesId) {
         this.name = name;
         this.surname = surname;

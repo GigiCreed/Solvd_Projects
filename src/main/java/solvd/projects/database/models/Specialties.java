@@ -10,6 +10,12 @@ public class Specialties {
 
     }
 
+    public Specialties(Long id, String name, Long facultiesId) {
+        this.id = id;
+        this.name = name;
+        this.facultiesId = facultiesId;
+    }
+
     public Specialties(String name, Long facultiesId) {
         this.name = name;
         this.facultiesId = facultiesId;

@@ -11,6 +11,13 @@ public class Faculties {
 
     }
 
+    public Faculties(Long id, String name, Long universitiesId, Long deccansId) {
+        this.id = id;
+        this.name = name;
+        this.universitiesId = universitiesId;
+        this.deccansId = deccansId;
+    }
+
     public Faculties(String name, Long universitiesId, Long deccansId) {
         this.name = name;
         this.universitiesId = universitiesId;

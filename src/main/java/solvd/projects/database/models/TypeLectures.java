@@ -11,6 +11,13 @@ public class TypeLectures {
 
     }
 
+    public TypeLectures(Long id, String type, Long lectorsId, Long subjectsId) {
+        this.id = id;
+        this.type = type;
+        this.lectorsId = lectorsId;
+        this.subjectsId = subjectsId;
+    }
+
     public TypeLectures(String type, Long lectorsId, Long subjectsId) {
         this.type = type;
         this.lectorsId = lectorsId;

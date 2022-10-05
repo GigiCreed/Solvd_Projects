@@ -2,8 +2,10 @@ package solvd.projects.database;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import solvd.projects.database.dbservices.mybatis.services.TypeLecturesServices;
-import solvd.projects.database.models.TypeLectures;
+import solvd.projects.database.dao.jdbc.*;
+import solvd.projects.database.models.*;
+
+import java.sql.Date;
 
 public class JDBCMain {
     private static final Logger LOGGER = LogManager.getLogger(JDBCMain.class);
@@ -14,18 +16,19 @@ public class JDBCMain {
 //        StudentsDAO studentsDAO = new StudentsDAO();
 //
 //                                     SelectById
-//     Students students = new Students();
-//     studentsDAO.getBy(students,23L);
+//     Students students = studentsDAO.getById(1L);
 //     LOGGER.info(students);
+
 //
 //                                        INSERT
 //      Students students1 = new Students("Nika","iremadze",new Date(1014076800000L),55555,3,"sds",1L,2L);
-//      studentsDAO.create(students1);
+//      studentsDAO.insert(students1);
 //                                        REMOVE
-//     studentsDAO.remove(27L);
+//     studentsDAO.delete(27L);
 //                                        Update
-//     Students forUpdate = new Students("Gigi","Gigi",new Date(10140768000000L),14141414,7,"ffffff",1L,2L);
-//     studentsDAO.update("all",forUpdate,24L);
+//     Students forUpdate = new Students(1L,"Rezo","Xuchua",new Date(10140768000000L),14141414,7,"ffffff",1L,2L);
+//     studentsDAO.update(forUpdate);
+
 //                                       SelectAll
 //        for (Students o: studentsDAO.getAllStudents()) {
 //            LOGGER.info(o);
@@ -46,23 +49,23 @@ public class JDBCMain {
 
                                       //SelectById
 
-//         Rectors rectors = new Rectors();
-//         rectorsDAO.getBy(rectors,1L);
+//         Rectors rectors = rectorsDAO.getById(1L);
 //         LOGGER.info(rectors);
+
 
                                     //Insert
 
 //        Rectors rectors = new Rectors("irakli","rodinadze", new Date(1028833200000L),5555,"tamarMefisdasaxleba","tina@gmail.com",3L);
-//        rectorsDAO.create(rectors);
+//        rectorsDAO.insert(rectors);
 
                                   //Delete
 
-//           rectorsDAO.remove(9L);
+//           rectorsDAO.delete(9L);
 
                                 //update
 
-//        Rectors rectors = new Rectors("Tiniko","Rodinadze",new Date(1028833200000L),599281101,"Tamar Mefis dasaxelba", "Tiniko@gmail.com",3L);
-//        rectorsDAO.update("all",rectors,3L);
+//        Rectors rectors = new Rectors(3L,"Tinatin","Rodinadze",new Date(1028833200000L),599281101,"Tamar Mefis dasaxelba", "Tiniko@gmail.com",3L);
+//        rectorsDAO.update(rectors);
 
 
 
@@ -73,21 +76,20 @@ public class JDBCMain {
 
                                                 //insert
 
-//        ViceRectors viceRectors = new ViceRectors("Lela","turnamindze",new Date(232323321456L),55123,"batumi","lela@gmail.com",1L);
-//        viceRectorsDAO.create(viceRectors);
+//        ViceRectors viceRectors = new ViceRectors("Lela","turnamindze",new Date(232323321456L),55123,"batumi","lela@gmail.com",3L);
+//        viceRectorsDAO.insert(viceRectors);
 
 
                                               //Update
-//        ViceRectors viceRectors = new ViceRectors("Nino","iremadze",new Date(232323321456L),11111,"batumius","nino@gmail.com",1L);
-//        viceRectorsDAO.update("all",viceRectors,2L);
+//        ViceRectors viceRectors = new ViceRectors(6L,"Nino","iremadze",new Date(232323321456L),11111,"batumius","nino@gmail.com",3L);
+//        viceRectorsDAO.update(viceRectors);
 
 
                                              //Delete
-//        viceRectorsDAO.remove(3L);
+//        viceRectorsDAO.delete(6L);
 
                                             //SelectById
-//        ViceRectors viceRectors = new ViceRectors();
-//        viceRectorsDAO.getBy(viceRectors,1L);
+//        ViceRectors viceRectors =viceRectorsDAO.getById(1L);
 //        LOGGER.info(viceRectors);
 
                                            //SelectALL
@@ -102,19 +104,18 @@ public class JDBCMain {
 
                                             //Insert
 //        Universities universities =new Universities("Tsu","tbilisi","tsu.com","tsu@gmail.com");
-//        universitiesDAO.create(universities);
+//        universitiesDAO.insert(universities);
 
                                            //Update
 
-//          Universities universities = new Universities("BTU","tbilisi","BTU.com","BTU@gmail.com");
-//          universitiesDAO.update("all",universities,2L);
+//          Universities universities = new Universities(5L,"BTU","tbilisi","BTU.com","BTU@gmail.com");
+//          universitiesDAO.update(universities);
 
                                           //Remove
-//            universitiesDAO.remove(2L);
+//            universitiesDAO.delete(2L);
 
                                           //SelectBy
-//        Universities universities = new Universities();
-//        universitiesDAO.getBy(universities,1L);
+//        Universities universities =universitiesDAO.getById(1L);
 //        LOGGER.info(universities);
 
 
@@ -133,19 +134,18 @@ public class JDBCMain {
 //                                            //Insert
 //
 //        Lectors lectors = new Lectors("Cicino","Ketilidapatiosani",new Date(232323321456L),00001,"Batumi","cicino@gmail.com",1L);
-//        lectorsDAO.create(lectors);
+//        lectorsDAO.insert(lectors);
 
                                            //Update
 
-//          Lectors lectors = new Lectors("Cicino","sarajishvili",new Date(232323321456L),00001,"Batumi","cicino@gmail.com",1L);
-//          lectorsDAO.update("surname",lectors,3L);
+//          Lectors lectors = new Lectors(1L,"Cicino","sarajishvili",new Date(232323321456L),00001,"Batumi","cicino@gmail.com",1L);
+//          lectorsDAO.update(lectors);
 
                                          //Delete
-//            lectorsDAO.remove(3L);
+//            lectorsDAO.delete(3L);
 
                                          //SelectById
-//        Lectors lectors = new Lectors();
-//        lectorsDAO.getBy(lectors,1L);
+//        Lectors lectors = lectorsDAO.getById(1L);
 //        LOGGER.info(lectors);
 
                                       //SelectALL
@@ -160,20 +160,19 @@ public class JDBCMain {
 
                                        //Insert
 //        Deccans deccans = new Deccans("lasha","turmanidze",new Date(232323321456L),"batumi",444444,"giorgi@gmail.com",1L);
-//        deccansDAO.create(deccans);
+//        deccansDAO.insert(deccans);
 
 
                                      //Remove
-//        deccansDAO.remove(5L);
+//        deccansDAO.delete(5L);
 
                                     //Update
-//        Deccans deccans = new Deccans("Luka","Qatamadze",new Date(232323321456L),"batumi",7777777,"Luka@gmail.com",1L);
-//        deccansDAO.update("all",deccans,6L);
+//        Deccans deccans = new Deccans(2L,"Gigi","Mamaladze",new Date(232323321456L),"batumi",7777777,"Luka@gmail.com",1L);
+//        deccansDAO.update(deccans);
 
                                     //SelectById
 
-//        Deccans deccans = new Deccans();
-//        deccansDAO.getBy(deccans,6L);
+//        Deccans deccans = deccansDAO.getById(1L);
 //        LOGGER.info(deccans);
 
                                  //SelectAll
@@ -188,20 +187,20 @@ public class JDBCMain {
 
                                        //inserting
 //        Faculties faculties = new Faculties("Medicine",1L,1L);
-//        facultiesDAO.create(faculties);
+//        facultiesDAO.insert(faculties);
 
                                       //Updating
-//         Faculties faculties = new Faculties("Sport",1L,2L);
-//         facultiesDAO.update("name",faculties,5L);
+//         Faculties faculties = new Faculties(2L,"Sport",1L,2L);
+//         facultiesDAO.update(faculties);
 
 
                                    //remove
-//        facultiesDAO.remove(5L);
+//        facultiesDAO.delete(5L);
 
                                   //SelectById
-//        Faculties faculties = new Faculties();
-//        facultiesDAO.getBy(faculties,4L);
+//        Faculties faculties = facultiesDAO.getById(1L);
 //        LOGGER.info(faculties);
+
 
                                 //SelectAll
 //        for (Faculties f: facultiesDAO.getAllFaculties()) {
@@ -215,18 +214,17 @@ public class JDBCMain {
 
                                                 //insert
 //        Specialties specialties = new Specialties("Coach",1L);
-//        specialtiesDAO.create(specialties);
+//        specialtiesDAO.insert(specialties);
 
                                               //Update
-//        Specialties specialties = new Specialties("Business",2L);
-//        specialtiesDAO.update("all",specialties,2L);
+//        Specialties specialties = new Specialties(1L,"Computer Science",1L);
+//        specialtiesDAO.update(specialties);
 
                                               //remove
-//        specialtiesDAO.remove(3L);
+//        specialtiesDAO.delete(3L);
 
                                              //SelectById
-//        Specialties specialties = new Specialties();
-//        specialtiesDAO.getBy(specialties,1L);
+//        Specialties specialties = specialtiesDAO.getById(1L);
 //        LOGGER.info(specialties);
 
                                             //SelectAll
@@ -243,20 +241,20 @@ public class JDBCMain {
                                               //inserting
 
 //        Subjects subjects = new Subjects("Programing Language JavaScript",4,1L);
-//        subjectsDAO.create(subjects);
+//        subjectsDAO.insert(subjects);
 
                                              //Upadate
-//          Subjects subjects = new Subjects("Programing Language C++",1,1L);
-//          subjectsDAO.update("course",subjects,2L);
+//          Subjects subjects = new Subjects(1L,"Programing Language C++",1,1L);
+//          subjectsDAO.update(subjects);
 
 
                                            //Remove
-//        subjectsDAO.remove(3L);
+//        subjectsDAO.delete(3L);
 
                                            //SelectById
-//        Subjects subjects = new Subjects();
-//        subjectsDAO.getBy(subjects,1L);
+//        Subjects subjects = subjectsDAO.getById(1L);
 //        LOGGER.info(subjects);
+
 
                                           //SelectAll
 //        for (Subjects s: subjectsDAO.getAllSubjects()) {
@@ -272,18 +270,17 @@ public class JDBCMain {
                                                 //inserting
 
 //        TypeLectures typeLectures = new TypeLectures("theoretical",4L,4L);
-//        typeLecturesDAO.create(typeLectures);
+//        typeLecturesDAO.insert(typeLectures);
 
                                                //Updating
-//         TypeLectures typeLectures = new TypeLectures("Practical",4L,4L);
-//         typeLecturesDAO.update("type",typeLectures,6L);
+//         TypeLectures typeLectures = new TypeLectures(1L,"Practical",4L,4L);
+//         typeLecturesDAO.update(typeLectures);
 
                                               //remove
-//           typeLecturesDAO.remove(6L);
+//           typeLecturesDAO.delete(6L);
 
                                               //SelectById
-//          TypeLectures typeLectures =new TypeLectures();
-//          typeLecturesDAO.getBy(typeLectures,1L);
+//          TypeLectures typeLectures =typeLecturesDAO.getById(1L);
 //          LOGGER.info(typeLectures);
 
                                             //SelectAll
@@ -300,19 +297,18 @@ public class JDBCMain {
 
                                              //inserting
 //        TypeSpecialties typeSpecialties = new TypeSpecialties("Minor",2L,24L);
-//        typeSpecialtiesDAO.create(typeSpecialties);
+//        typeSpecialtiesDAO.insert(typeSpecialties);
 
                                            //Updating
 //         TypeSpecialties typeSpecialties = new TypeSpecialties("Reader",2L, 24L);
-//         typeSpecialtiesDAO.update("all",typeSpecialties,2L);
+//         typeSpecialtiesDAO.update(typeSpecialties);
 
                                          //remove
-//        typeSpecialtiesDAO.remove(3L);
+//        typeSpecialtiesDAO.delete(3L);
 
                                          //selectById
 
-//         TypeSpecialties typeSpecialties = new TypeSpecialties();
-//         typeSpecialtiesDAO.getBy(typeSpecialties,1L);
+//         TypeSpecialties typeSpecialties = typeSpecialtiesDAO.getById(1L);
 //         LOGGER.info(typeSpecialties);
 
                                        //SelectAll

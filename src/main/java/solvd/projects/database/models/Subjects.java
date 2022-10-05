@@ -10,6 +10,13 @@ public class Subjects {
 
     }
 
+    public Subjects(Long id, String name, int course, Long specialtiesId) {
+        this.id = id;
+        this.name = name;
+        this.course = course;
+        this.specialtiesId = specialtiesId;
+    }
+
     public Subjects(String name, int course, Long specialtiesId) {
         this.name = name;
         this.course = course;

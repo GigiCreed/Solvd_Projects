@@ -13,6 +13,14 @@ public class Universities {
 
     }
 
+    public Universities(Long id, String name, String address, String siteAddress, String email) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.siteAddress = siteAddress;
+        this.email = email;
+    }
+
     public Universities(String name, String address, String siteAddress, String email) {
         this.name = name;
         this.address = address;
